@@ -17,6 +17,15 @@ public interface Constants {
                 public static final String STUDENT_CODE = "MaSV";
         }
 
+        interface Course {
+                // query string select all
+                public static final String SELECT_ALL = "select * from khoahoc";
+                // column name
+                public static final String COURSE_CODE = "maKhoaHoc";
+                public static final String COURSE_NAME = "tenKhoaHoc";
+
+        }
+
         // constant for HeDT
         //
 

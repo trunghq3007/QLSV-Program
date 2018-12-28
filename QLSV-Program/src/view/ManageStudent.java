@@ -3,10 +3,10 @@
  */
 package view;
 
-import java.sql.Connection;
+import java.util.List;
 
-import utils.Constants;
-import utils.Dbconnection;
+import bll.CourseBLL;
+import entity.Course;
 
 /**
  * Create by: HQTrung - CMC
@@ -28,9 +28,14 @@ public class ManageStudent {
          * @param args
          */
         public static void main(String[] args) {
-                System.out.println(Constants.Student.STUDENT_CODE);
-                Connection connection = Dbconnection.connect();
-                System.out.println(connection);
+             
+                CourseBLL courseBLL = new CourseBLL();
+                System.out.println(" List Course");
+                List<Course> courses =  courseBLL.getAll();
+                for (Course course : courses) {
+                       System.out.println(course); 
+                }
+                
         }
 
 }
