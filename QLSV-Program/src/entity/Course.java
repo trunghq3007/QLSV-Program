@@ -9,12 +9,12 @@ package entity;
 import utils.Constants;
 
 /**
- * Class: Khóa học
+ * Class: Course
  */
 public class Course {
 	// Attribute
-	private String courseId; // Mã khóa học
-	private String courseName; // Tên khóa học
+	private String courseId; // Course Code
+	private String courseName; // Course name
 
 	// Getter and setter
 	public String getCourseId() {

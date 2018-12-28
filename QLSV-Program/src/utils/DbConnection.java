@@ -11,12 +11,12 @@ import java.sql.Statement;
  * @author a
  * Description: Get SQL connection 
  */
-public class Dbconnection {
+public class DbConnection {
 	// MySQL
 	// driver
 	public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	// URl
-	public static final String DB_URL = "jdbc:mysql://192.168.10.51:3306/qlsv";
+	public static final String DB_URL = "jdbc:mysql://192.168.10.51:3306/qlsv?characterEncoding=utf8";
 	// User
 	public static final String USER = "remote";
 	// Password
@@ -62,15 +62,15 @@ public class Dbconnection {
 
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet result = stmt.executeQuery("select * from Diem");
-//	            while(result.next()){
-//	                System.out.println(result.getString(1));
-//	            }
+			ResultSet result = stmt.executeQuery("select * from SinhVien");
+	            while(result.next()){
+	                System.out.println(result.getString(2));
+	            }
 
-			ResultSetMetaData metaData = result.getMetaData();
-			for (int i = 0; i < metaData.getColumnCount(); i++) {
-				System.out.println(metaData.getColumnName(i + 1));
-			}
+//			ResultSetMetaData metaData = result.getMetaData();
+//			for (int i = 0; i < metaData.getColumnCount(); i++) {
+//				System.out.println(metaData.getColumnName(i + 1));
+//			}
 
 			stmt.close();
 		} catch (SQLException e) {
@@ -79,5 +79,4 @@ public class Dbconnection {
 
 		releaseConnection(conn);
 	}
-
 }

@@ -9,14 +9,14 @@ package entity;
 import utils.Constants;
 
 /**
- * Class: Khoa
+ * Class: Faculty
  */
 public class Faculty {
 	// Attribute
-	private String facultyId; // Mã khoa
-	private String name; // Tên khoa
-	private String address; // Địa chỉ
-	private String phoneNumber; // Số điện thoại
+	private String facultyId; // faculty code
+	private String name; // faculty name
+	private String address; // faculty address
+	private String phoneNumber; // phoneNumber of faculty
 
 	// Getter and setter
 	public String getFacultyId() {

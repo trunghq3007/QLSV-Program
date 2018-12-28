@@ -9,12 +9,12 @@ package entity;
 import utils.Constants;
 
 /**
- * Class: Hệ đào tạo
+ * Class: Training type
  */
 public class TrainingType {
 	// Attribute
-	private String trainingTypeId; // Mã hệ đào tạo
-	private String trainingTypeName; // Tên hệ đào tạo
+	private String trainingTypeId; // training type code
+	private String trainingTypeName; // training type name
 
 	// Getter and setter
 	public String getTrainingTypeId() {

@@ -13,16 +13,16 @@ import java.text.SimpleDateFormat;
 import utils.Constants;
 
 /**
- * Class: Sinh viên
+ * Class: Student
  */
 public class Student {
 	// Attribute
-	private String studentId; // Mã sinh viên
-	private String studentName; // Tên sinh viên
-	private boolean gender; // Giới tính
-	private Date dateOfBirth; // Ngày sinh
-	private String homeTown; // Quê quán
-	private String classId; // Mã lơp
+	private String studentId; // student code
+	private String studentName; // name of student
+	private boolean gender; // gender
+	private Date dateOfBirth; // Date of birth
+	private String hometown; // Hometown
+	private String classId; // Class code
 
 	// Getter and Setter
 	public String getStudentId() {
@@ -57,12 +57,12 @@ public class Student {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getHomeTown() {
-		return homeTown;
+	public String getHometown() {
+		return hometown;
 	}
 
-	public void setHomeTown(String homeTown) {
-		this.homeTown = homeTown;
+	public void setHometown(String hometown) {
+		this.hometown = hometown;
 	}
 
 	public String getClassId() {
@@ -79,16 +79,16 @@ public class Student {
 	 * @param name
 	 * @param gender
 	 * @param dateOfBirth
-	 * @param homeTown
+	 * @param hometown
 	 * @param classId
 	 */
-	public Student(String studentId, String name, boolean gender, Date dateOfBirth, String homeTown, String classId) {
+	public Student(String studentId, String name, boolean gender, Date dateOfBirth, String hometown, String classId) {
 		super();
 		this.studentId = studentId;
 		this.studentName = name;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
-		this.homeTown = homeTown;
+		this.hometown = hometown;
 		this.classId = classId;
 	}
 
@@ -97,15 +97,12 @@ public class Student {
 	}
 
 	// toString
-	/*
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		String genderStr = gender ? Constants.Common.MALE : Constants.Common.FEMALE;
 		return String.format(Constants.ToStringFormatter.STUDENT, studentId, studentName, genderStr,
-				formatter.format(dateOfBirth), homeTown, classId);
+				formatter.format(dateOfBirth), hometown, classId);
 	}
 
 }

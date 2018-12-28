@@ -13,9 +13,9 @@ import utils.Constants;
  */
 public class Subject {
 	// Attribute
-	private String subjectId; // Mã môn học
-	private String subjectName; // Tên môn học
-	private int numberOfCredit; // Số tín chỉ
+	private String subjectId; // subject code
+	private String subjectName; // subject name
+	private int numberOfCredit; // number of credit
 
 	// Getter and setter
 
