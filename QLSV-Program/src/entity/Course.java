@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * 
  */
@@ -60,5 +61,10 @@ package entity;
 
 public class Course {
 >>>>>>> branch 'tthyen' of https://github.com/trunghq3007/QLSV-Program.git
+=======
+package entity;
+
+public class Course {
+>>>>>>> refs/remotes/origin/tthyen
 
 }
