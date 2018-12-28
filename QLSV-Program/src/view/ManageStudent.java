@@ -1,31 +1,17 @@
-/**
- * 
+/*
+ *  Project name: StudentManagement
+ *  Created by: Sanero
+ *  Created Date: 12/27/2018
+ *  Created Time: 4:40 PM
  */
 package view;
 
 import utils.Constants;
 
-/**
- * Create by: HQTrung - CMC
- * Create date: Dec 28, 2018
- * Modifier: HQTrung
- * Modified date: Dec 28, 2018
- * Description: ....
- * Version 1.0
- */
 public class ManageStudent {
 
-        /**
-         * Create by: HQTrung - CMC
-         * Create date: Dec 28, 2018
-         * Modifier: HQTrung
-         * Modified date: Dec 28, 2018
-         * Description: program manage student
-         * Version 1.0
-         * @param args
-         */
-        public static void main(String[] args) {
-                System.out.println(Constants.Student.STUDENT_CODE);
-        }
+	public static void main(String[] args) {
+		System.out.println(Constants.Student.STUDENT_ID);
+	}
 
 }

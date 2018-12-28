@@ -1,8 +1,9 @@
 eclipse.preferences.version=1
-encoding//QLSV-Program/src/dal/Class.java=UTF-8
-encoding//QLSV-Program/src/dal/Course.java=UTF-8
-encoding//QLSV-Program/src/dal/Faculty.java=UTF-8
-encoding//QLSV-Program/src/dal/Score.java=UTF-8
-encoding//QLSV-Program/src/dal/Student.java=UTF-8
-encoding//QLSV-Program/src/dal/Subject.java=UTF-8
-encoding//QLSV-Program/src/dal/TranningType.java=UTF-8
+encoding//QLSV-Program/src/entity/Class.java=UTF-8
+encoding//QLSV-Program/src/entity/Course.java=UTF-8
+encoding//QLSV-Program/src/entity/Faculty.java=UTF-8
+encoding//QLSV-Program/src/entity/Score.java=UTF-8
+encoding//QLSV-Program/src/entity/Student.java=UTF-8
+encoding//QLSV-Program/src/entity/Subject.java=UTF-8
+encoding//QLSV-Program/src/entity/TrainingType.java=UTF-8
+encoding//QLSV-Program/src/utils/Constants.java=UTF-8

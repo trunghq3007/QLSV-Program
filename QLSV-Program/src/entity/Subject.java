@@ -4,7 +4,9 @@
  *  Created Date: 12/27/2018
  *  Created Time: 4:41 PM
  */
-package dal;
+package entity;
+
+import utils.Constants;
 
 /**
  * Lớp môn học
@@ -12,7 +14,7 @@ package dal;
 public class Subject {
 	// Attribute
 	private String subjectId; // Mã môn học
-	private String name; // Tên môn học
+	private String subjectName; // Tên môn học
 	private int numberOfCredit; // Số tín chỉ
 
 	// Getter and setter
@@ -25,12 +27,12 @@ public class Subject {
 		this.subjectId = subjectId;
 	}
 
-	public String getName() {
-		return name;
+	public String getSubjectName() {
+		return subjectName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSubjectName(String name) {
+		this.subjectName = name;
 	}
 
 	public int getNumberOfCredit() {
@@ -50,7 +52,7 @@ public class Subject {
 	public Subject(String subjectId, String name, int numberOfCredit) {
 		super();
 		this.subjectId = subjectId;
-		this.name = name;
+		this.subjectName = name;
 		this.numberOfCredit = numberOfCredit;
 	}
 
@@ -61,6 +63,6 @@ public class Subject {
 	// toString
 	@Override
 	public String toString() {
-		return String.format("%5s %20s %d", subjectId, name, numberOfCredit);
+		return String.format(Constants.ToStringFormatter.SUBJECT, subjectId, subjectName, numberOfCredit);
 	}
 }
