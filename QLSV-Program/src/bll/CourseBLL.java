@@ -3,70 +3,85 @@
  */
 package bll;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
-import entity.Course;
-import utils.DBconnection;
+/**
+ * Create by: HQTrung - CMC
+ * Create date: Dec 28, 2018
+ * Modifier: HQTrung
+ * Modified date: Dec 28, 2018
+ * Description: ....
+ * Version 1.0
+ */
+public interface BaseBLL<T> {
+        /**
+         * Create by: HQTrung - CMC
+         * Create date: Dec 28, 2018
+         * Modifier: HQTrung
+         * Modified date: Dec 28, 2018
+         * Description: .list all object T
+         * Version 1.0
+         * @return
+         */
+        List<T> getAll();
 
-public class CourseBLL implements BaseDAL<Course>{
+        /**
+         * Create by: HQTrung - CMC
+         * Create date: Dec 28, 2018
+         * Modifier: HQTrung
+         * Modified date: Dec 28, 2018
+         * Description: ....
+         * Version 1.0
+         * @return
+         */
+        T getByCode(String code);
 
- 
-    @Override
-    public List<Course> getAll() {
-        Connection connect =DBconnection.getConnection();
-        ArrayList<Course> courses =new ArrayList<Course>();
-        //khaibao//khoitao
-        try {
-            //statement creation
-            Statement statement = connect.createStatement();
-            //for retrieve data
-            ResultSet resultSet = statement.executeQuery(arg0);
-            while(resultSet.next()) {
-                Con
-            }
-        }
-        
-        
-        return courses;
-    }
+        /**
+         * Create by: HQTrung - CMC
+         * Create date: Dec 28, 2018
+         * Modifier: HQTrung
+         * Modified date: Dec 28, 2018
+         * Description: ....
+         * Version 1.0
+         * @param object
+         * @return
+         */
+        int insert(T object);
 
+        /**
+         * Create by: HQTrung - CMC
+         * Create date: Dec 28, 2018
+         * Modifier: HQTrung
+         * Modified date: Dec 28, 2018
+         * Description: ....
+         * Version 1.0
+         * @param object
+         * @return
+         */
+        int update(T object);
 
-    @Override
-    public Course getByCode(String code) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+        /**
+         * Create by: HQTrung - CMC
+         * Create date: Dec 28, 2018
+         * Modifier: HQTrung
+         * Modified date: Dec 28, 2018
+         * Description: ....
+         * Version 1.0
+         * @param object
+         * @return
+         */
+        int delete(String code);
 
+        /**
+         * Create by: HQTrung - CMC
+         * Create date: Dec 28, 2018
+         * Modifier: HQTrung
+         * Modified date: Dec 28, 2018
+         * Description: ....
+         * Version 1.0
+         * @param sequenceFilter
+         * @return
+         */
+        List<T> fillter(String sequenceFilter);
 
-    @Override
-    public int insert(Course object) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-   
-    @Override
-    public int update(Course object) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-  
-    @Override
-    public int delete(String code) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-   
-    @Override
-    public List<Course> fillter(String sequenceFillter) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-        
 }
