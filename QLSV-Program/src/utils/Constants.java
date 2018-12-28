@@ -12,8 +12,12 @@ package utils;
  * Version 1.0
  */
 public interface Constants {
+        // constant for Student
         interface Student {
                 public static final String STUDENT_CODE = "MaSV";
         }
+
+        // constant for HeDT
+        //
 
 }
