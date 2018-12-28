@@ -14,9 +14,9 @@ import java.sql.SQLException;
 public class DBconnection {
     public static Connection getConnection() {
         Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/qlsv?autoReconnect=true&useSSL=false";
+        String url = "jdbc:mysql://192.168.10.51:3306/qlsv?autoReconnect=true&useSSL=false";
         String user = "root";
-        String password = "ngominhanh";
+        String password = "root";
 
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
