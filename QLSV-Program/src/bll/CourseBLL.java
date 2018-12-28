@@ -19,8 +19,7 @@ public class CourseBLL implements BaseBLL<Course> {
 
     @Override
     public Course getByCode(String code) {
-	// TODO Auto-generated method stub
-	return null;
+	return courseDAL.getByCode(code);
     }
 
     @Override

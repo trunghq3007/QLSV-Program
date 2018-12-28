@@ -6,7 +6,6 @@ package view;
 import java.util.List;
 
 import bll.CourseBLL;
-import bll.StudentController;
 import entity.Course;
 
 /**
@@ -45,9 +44,11 @@ public class ManageStudent {
 	    System.out.println(course);
 	}
 	courseBLL.getAll();
-	}
+	
     
     
-    
+	System.out.println("List of course: ");
+	//Course courses1 = courseBLL.getByCode("K1");
+	courseBLL.getByCode("K1");
     }
-
+}

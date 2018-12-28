@@ -39,7 +39,7 @@ public class StudentDAL implements BaseDAL<Student> {
 
     @Override
     public Student getByCode(String code) {
-	Connection connect = (Connection) Dbconnection.connect();
+	
 
 	return null;
     }

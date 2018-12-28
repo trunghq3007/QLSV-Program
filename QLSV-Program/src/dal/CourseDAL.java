@@ -64,9 +64,25 @@ public class CourseDAL implements BaseDAL<Course> {
     }
 
     @Override
-    public int insert(Course t) {
-	// TODO Auto-generated method stub
-	return 0;
+    public int insert(Course course) {
+	PreparedStatement statement = null;
+	int result = 0;
+	try {
+	    Connection connect = (Connection) Dbconnection.connect();
+            String query = "insert into KhoaHoc (MaKhoaHoc, TenKhoaHoc) values(?,?)";
+            statement = connect.prepareStatement(query);
+            statement.setString(1, course.getCourseCode());
+            statement.setString(2, course.getCourseName());
+            statement.executeUpdate();
+            result = statement.executeUpdate();
+            statement.close();
+            connect.close();
+            
+	}
+	catch(Exception ex) {
+	    ex.printStackTrace();
+	}
+	return result;
     }
 
     @Override
