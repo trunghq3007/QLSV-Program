@@ -1,66 +1,83 @@
-/**
- * 
- */
 package utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
- * Create by: HQTrung - CMC
- * Create date: Dec 28, 2018
- * Modifier: HQTrung
- * Modified date: Dec 28, 2018
- * Description: handle connect to DBMS
- * Version 1.0
+ * @author a
+ * Description: Get SQL connection 
  */
 public class Dbconnection {
-        /*
-         * // driver static final String DRIVER =
-         * "com.microsoft.sqlserver.jdbc.SQLServerDriver"; // url static final String
-         * URL =
-         * "jdbc:sqlserver://localhost:1433;instance=SQLEXPRESS;databaseName=QLSV;integratedSecurity=true;";
-         * // userName static final String USER_NAME = ""; // passWord static final
-         * String PASSWORD = "";
-         */
+	// MySQL
+	// driver
+	public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+	// URl
+	public static final String DB_URL = "jdbc:mysql://192.168.10.51:3306/qlsv";
+	// User
+	public static final String USER = "remote";
+	// Password
+	public static final String PASS = "123456";
 
-        // MySQL
-        // driver
-        static final String DRIVER = "com.mysql.jdbc.Driver";
-        // url
-        static final String URL = "jdbc:mysql://localhost:3306/qlsv";
-        // userName
-        static final String USER_NAME = "root";
-        // passWord
-        static final String PASSWORD = "123654";
+	/**
+	 * Get mysql connection
+	 *
+	 * @return mySQL Connection
+	 */
+	public static Connection getConnection() {
+		Connection conn = null;
+		try {
+			// Register JDBC driver
+			Class.forName(JDBC_DRIVER);
+			// Get Connection
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		return conn;
+	}
 
-        /**
-         * Create by: HQTrung - CMC
-         * Create date: Nov 23, 2018
-         * Modifier: HQTrung
-         * Modified date: Nov 23, 2018
-         * Description: ....
-         * Version 1.0
-         * @return
-         * @throws ClassNotFoundException
-         * @throws SQLException
-         */
-        public static Connection connect() {
-                // load driver
-                try {
-                        Class.forName(DRIVER);
-                } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                }
-                // get connection instance
-                Connection connection = null;
-                try {
-                        connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-                } catch (SQLException e) {
-                        e.printStackTrace();
-                }
-                return connection;
-        }
+	/**
+	 * Release sql connection
+	 *
+	 * @param conn SQL Connection
+	 */
+	public static void releaseConnection(Connection conn) {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public static void main(String[] args) {
+		if (getConnection() != null)
+			System.out.println("Success");
+		Connection conn = getConnection();
+
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet result = stmt.executeQuery("select * from Diem");
+//	            while(result.next()){
+//	                System.out.println(result.getString(1));
+//	            }
+
+			ResultSetMetaData metaData = result.getMetaData();
+			for (int i = 0; i < metaData.getColumnCount(); i++) {
+				System.out.println(metaData.getColumnName(i + 1));
+			}
+
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+		releaseConnection(conn);
+	}
 
 }

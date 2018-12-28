@@ -3,10 +3,7 @@
  */
 package view;
 
-import java.sql.Connection;
-
 import utils.Constants;
-import utils.Dbconnection;
 
 /**
  * Create by: HQTrung - CMC
@@ -29,8 +26,6 @@ public class ManageStudent {
          */
         public static void main(String[] args) {
                 System.out.println(Constants.Student.STUDENT_CODE);
-                Connection connection = Dbconnection.connect();
-                System.out.println(connection);
         }
 
 }
