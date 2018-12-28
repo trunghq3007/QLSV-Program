@@ -54,7 +54,7 @@ public interface BaseDAL<T> {
      * @param object
      * @return
      */
-    int delete(T object);
+    int delete(String object);
     
     List<T>filter(String sequencefilter);
     

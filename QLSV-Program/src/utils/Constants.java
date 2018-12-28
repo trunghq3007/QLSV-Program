@@ -17,7 +17,13 @@ public interface Constants {
                 public static final String STUDENT_CODE = "MaSV";
         }
 
-        // constant for HeDT
+        interface Batch{
+            //query string select all
+            public static final String SELECT_ALL = "select * from khoahoc";
+            //coulmn name
+            public static final String BATCH_CODE = "makhoahoc";
+            public static final String BATCH_NAME = "tenkhoahoc";
+        }
         //
 
 }
