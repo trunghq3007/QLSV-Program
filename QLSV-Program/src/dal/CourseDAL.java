@@ -15,9 +15,9 @@ import utils.Constants;
 import utils.DbConnection;
 
 /**
- * Create by: HQTrung - CMC
+ * Create by: minhanh - CMC
  * Create date: Dec 28, 2018
- * Modifier: HQTrung
+ * Modifier: minhanh
  * Modified date: Dec 28, 2018
  * Description: 
  * Version 1.0

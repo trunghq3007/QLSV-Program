@@ -8,9 +8,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Create by: HQTrung - CMC
+ * Create by: minhanh - CMC
  * Create date: Dec 28, 2018
- * Modifier: HQTrung
+ * Modifier: minhanh
  * Modified date: Dec 28, 2018
  * Description: handle connect to DBMS
  * Version 1.0
@@ -36,9 +36,9 @@ public class DbConnection {
         static final String PASSWORD = "123456";
 
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Nov 23, 2018
-         * Modifier: HQTrung
+         * Modifier: minhanh
          * Modified date: Nov 23, 2018
          * Description: ....
          * Version 1.0

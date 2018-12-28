@@ -3,85 +3,74 @@
  */
 package bll;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
+import dal.CourseDAL;
+import entity.Course;
+import utils.Constants;
+import utils.DbConnection;
+
 /**
- * Create by: HQTrung - CMC
+ * Create by: minhanh - CMC
  * Create date: Dec 28, 2018
- * Modifier: HQTrung
+ * Modifier: minhanh
  * Modified date: Dec 28, 2018
- * Description: ....
+ * Description: 
  * Version 1.0
  */
-public interface BaseBLL<T> {
-        /**
-         * Create by: HQTrung - CMC
-         * Create date: Dec 28, 2018
-         * Modifier: HQTrung
-         * Modified date: Dec 28, 2018
-         * Description: .list all object T
-         * Version 1.0
-         * @return
-         */
-        List<T> getAll();
+public class CourseBLL implements BaseBLL<Course> {
+        // courseDAL
+        CourseDAL courseDAL;
 
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Dec 28, 2018
-         * Modifier: HQTrung
+         * Modifier: minhanh
          * Modified date: Dec 28, 2018
          * Description: ....
          * Version 1.0
-         * @return
+         * @param courseDAL
          */
-        T getByCode(String code);
+        public CourseBLL() {
+                courseDAL = new CourseDAL();
+        }
 
-        /**
-         * Create by: HQTrung - CMC
-         * Create date: Dec 28, 2018
-         * Modifier: HQTrung
-         * Modified date: Dec 28, 2018
-         * Description: ....
-         * Version 1.0
-         * @param object
-         * @return
-         */
-        int insert(T object);
+        @Override
+        public List<Course> getAll() {
+               // System.out.println("List of Course");
+                //System.out.println(courseDAL.getAll());
+                return courseDAL.getAll();
 
-        /**
-         * Create by: HQTrung - CMC
-         * Create date: Dec 28, 2018
-         * Modifier: HQTrung
-         * Modified date: Dec 28, 2018
-         * Description: ....
-         * Version 1.0
-         * @param object
-         * @return
-         */
-        int update(T object);
+        }
 
-        /**
-         * Create by: HQTrung - CMC
-         * Create date: Dec 28, 2018
-         * Modifier: HQTrung
-         * Modified date: Dec 28, 2018
-         * Description: ....
-         * Version 1.0
-         * @param object
-         * @return
-         */
-        int delete(String code);
+        @Override
+        public Course getByCode(String code) {
+                return null;
+        }
 
-        /**
-         * Create by: HQTrung - CMC
-         * Create date: Dec 28, 2018
-         * Modifier: HQTrung
-         * Modified date: Dec 28, 2018
-         * Description: ....
-         * Version 1.0
-         * @param sequenceFilter
-         * @return
-         */
-        List<T> fillter(String sequenceFilter);
+        @Override
+        public int insert(Course object) {
+                return 0;
+        }
+
+        @Override
+        public int update(Course object) {
+                return 0;
+        }
+
+        @Override
+        public int delete(String code) {
+                return 0;
+        }
+
+        @Override
+        public List<Course> fillter(String sequenceFilter) {
+                return null;
+        }
 
 }

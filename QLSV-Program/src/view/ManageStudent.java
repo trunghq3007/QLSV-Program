@@ -5,13 +5,13 @@ package view;
 
 import java.util.List;
 
-
+import bll.CourseBLL;
 import entity.Course;
 
 /**
- * Create by: HQTrung - CMC
+ * Create by: minhanh - CMC
  * Create date: Dec 28, 2018
- * Modifier: HQTrung
+ * Modifier: minhanh
  * Modified date: Dec 28, 2018
  * Description: ....
  * Version 1.0
@@ -19,9 +19,9 @@ import entity.Course;
 public class ManageStudent {
 
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Dec 28, 2018
-         * Modifier: HQTrung
+         * Modifier: minhanh
          * Modified date: Dec 28, 2018
          * Description: program manage student
          * Version 1.0

@@ -6,18 +6,18 @@ package bll;
 import java.util.List;
 
 /**
- * Create by: HQTrung - CMC
+ * Create by: minhanh - CMC
  * Create date: Dec 28, 2018
- * Modifier: HQTrung
+ * Modifier: minhanh
  * Modified date: Dec 28, 2018
  * Description: ....
  * Version 1.0
  */
 public interface BaseBLL<T> {
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Dec 28, 2018
-         * Modifier: HQTrung
+         * Modifier: minhanh
          * Modified date: Dec 28, 2018
          * Description: .list all object T
          * Version 1.0
@@ -26,7 +26,7 @@ public interface BaseBLL<T> {
         List<T> getAll();
 
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Dec 28, 2018
          * Modifier: HQTrung
          * Modified date: Dec 28, 2018
@@ -37,9 +37,9 @@ public interface BaseBLL<T> {
         T getByCode(String code);
 
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Dec 28, 2018
-         * Modifier: HQTrung
+         * Modifier: minhanh
          * Modified date: Dec 28, 2018
          * Description: ....
          * Version 1.0
@@ -49,9 +49,9 @@ public interface BaseBLL<T> {
         int insert(T object);
 
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Dec 28, 2018
-         * Modifier: HQTrung
+         * Modifier: minhanh
          * Modified date: Dec 28, 2018
          * Description: ....
          * Version 1.0
@@ -61,9 +61,9 @@ public interface BaseBLL<T> {
         int update(T object);
 
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Dec 28, 2018
-         * Modifier: HQTrung
+         * Modifier: minhanh
          * Modified date: Dec 28, 2018
          * Description: ....
          * Version 1.0
@@ -73,9 +73,9 @@ public interface BaseBLL<T> {
         int delete(String code);
 
         /**
-         * Create by: HQTrung - CMC
+         * Create by: minhanh - CMC
          * Create date: Dec 28, 2018
-         * Modifier: HQTrung
+         * Modifier: minhanh
          * Modified date: Dec 28, 2018
          * Description: ....
          * Version 1.0
