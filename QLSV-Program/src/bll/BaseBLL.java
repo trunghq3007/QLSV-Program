@@ -15,6 +15,16 @@ import java.util.List;
  */
 public interface BaseBLL<T> {
         /**
+         * Create by: Yen Trinh - CMC
+         * Create date: Dec 28, 2018
+         * Modifier: User
+         * Modified date: Dec 28, 2018
+         * Description: At all object T
+         * Version 1.0
+         * @return
+         */
+        List<T>Add();
+        /**
          * Create by: HQTrung - CMC
          * Create date: Dec 28, 2018
          * Modifier: HQTrung

@@ -24,8 +24,12 @@ public interface Constants {
                 // column name
                 public static final String COURSE_CODE = "maKhoaHoc";
                 public static final String COURSE_NAME = "tenKhoaHoc";
+                
+                public static final String ADD_ALL = "insert into khoahoc values (?, ?)";
+                
 
         }
+        
 }
 
         // constant for HeDT

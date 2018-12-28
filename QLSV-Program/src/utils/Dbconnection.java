@@ -3,9 +3,13 @@
  */
 package utils;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Create by: HQTrung - CMC
@@ -72,5 +76,56 @@ public class Dbconnection {
                 }
             }
         }
+        public static void closeResultSet(ResultSet resultSet) {
+            if (resultSet != null) {
+              try {
+                resultSet.close();
+              } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            }
+
+          }
+
+          /**close statement.
+           *
+           */
+          public static void closeStatement(Statement statement) {
+            if (statement != null) {
+              try {
+                statement.close();
+              } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+              }
+            }
+
+          }
+          public static void closeCallable(CallableStatement callable) {
+              if (callable != null) {
+                try {
+                  callable.close();
+                } catch (SQLException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
+              }
+            }
+
+            /** close prepared statement.
+             * 
+             */
+            public static void closePrepared(PreparedStatement prepared) {
+              // TODO Auto-generated method stub
+              if (prepared != null) {
+                try {
+                  prepared.close();
+                } catch (SQLException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+                }
+              }
+            }
 
 }

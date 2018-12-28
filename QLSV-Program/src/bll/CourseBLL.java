@@ -3,16 +3,12 @@
  */
 package bll;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import dal.CourseDal;
 import entity.Course;
-import utils.Constants;
+
 
 
 /**
@@ -40,6 +36,7 @@ public class CourseBLL implements BaseBLL<Course> {
                 courseDAL = new CourseDal();
         }
 
+        @SuppressWarnings("unchecked")
         @Override
         public List<Course> getAll() {
                // System.out.println("List of Course");
@@ -71,6 +68,12 @@ public class CourseBLL implements BaseBLL<Course> {
         @Override
         public List<Course> fillter(String sequenceFilter) {
                 return null;
+        }
+
+        @Override
+        public List<Course> Add() {
+            // TODO Auto-generated method stub
+            return null;
         }
 
 }

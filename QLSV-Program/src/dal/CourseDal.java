@@ -1,16 +1,17 @@
 package dal;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
 
 import entity.Course;
 import utils.Constants;
 import utils.Dbconnection;
 
+@SuppressWarnings("rawtypes")
 public class CourseDal implements BaseDAL {
 
     List<String> list = new ArrayList<>();
@@ -43,9 +44,23 @@ public class CourseDal implements BaseDAL {
     }
 
     @Override
-    public int insert(Object object) {
-        // TODO Auto-generated method stub
-        return 0;
+    public int insert(Course course) {
+        Connection connection = Dbconnection.connect();
+        CallableStatement callable = null;
+        int x = 0;
+        try {
+            callable = connection.prepareCall(Constants.Course.ADD_ALL);
+            callable.setString(1, course.getCourseCode());
+            callable.setString(2, course.getCourseName());
+            callable.executeUpdate(); 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Dbconnection.closeCallable(callable);
+            Dbconnection.closeConnection(connection);
+        }
+
+        return x;
     }
 
     @Override
@@ -60,12 +75,16 @@ public class CourseDal implements BaseDAL {
         return 0;
     }
 
-    
-
     @Override
     public List fillter(String sequenceFilter) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public int insert(Object object) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
 }
