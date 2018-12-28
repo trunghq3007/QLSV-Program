@@ -83,7 +83,6 @@ public class Student {
 	 * @param classId
 	 */
 	public Student(String studentId, String name, boolean gender, Date dateOfBirth, String hometown, String classId) {
-		super();
 		this.studentId = studentId;
 		this.studentName = name;
 		this.gender = gender;

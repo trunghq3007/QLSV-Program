@@ -3,7 +3,6 @@ package utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -67,16 +66,10 @@ public class DbConnection {
 	                System.out.println(result.getString(2));
 	            }
 
-//			ResultSetMetaData metaData = result.getMetaData();
-//			for (int i = 0; i < metaData.getColumnCount(); i++) {
-//				System.out.println(metaData.getColumnName(i + 1));
-//			}
-
 			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-
 		releaseConnection(conn);
 	}
 }

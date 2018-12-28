@@ -9,6 +9,7 @@
 package dal;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,13 +31,16 @@ public class StudentDAL implements BaseDAL<Student> {
 		Connection conn = DbConnection.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet result = stmt.executeQuery(Constants.Student.SELECT_ALL);
-		Student student = new Student();
+
 		while (result.next()) {
+			Student student = new Student();
 			student.setStudentId(result.getString(Constants.Student.STUDENT_ID));
 			student.setClassId(result.getString(Constants.Student.CLASS_ID));
 			student.setDateOfBirth(result.getDate(Constants.Student.STUDENT_DATEOFBIRTH));
 			student.setGender(result.getBoolean(Constants.Student.STUDENT_GENDER));
 			student.setHometown(result.getString(Constants.Student.STUDENT_HOMETOWN));
+			student.setStudentName(result.getString(Constants.Student.STUDENT_NAME));
+			students.add(student);
 		}
 
 		result.close();
@@ -47,27 +51,72 @@ public class StudentDAL implements BaseDAL<Student> {
 
 	@Override
 	public Student getByCode(String code) throws SQLException {
-		return null;
+		Student student = new Student();
+		Connection conn = DbConnection.getConnection();
+		PreparedStatement statement = conn.prepareStatement(Constants.Student.SELECT_ONE);
+		statement.setString(1, code);
+		ResultSet result = statement.executeQuery();
+		while (result.next()) {
+			student.setStudentId(result.getString(Constants.Student.STUDENT_ID));
+			student.setClassId(result.getString(Constants.Student.CLASS_ID));
+			student.setDateOfBirth(result.getDate(Constants.Student.STUDENT_DATEOFBIRTH));
+			student.setGender(result.getBoolean(Constants.Student.STUDENT_GENDER));
+			student.setHometown(result.getString(Constants.Student.STUDENT_HOMETOWN));
+		}
+
+		result.close();
+		statement.close();
+		DbConnection.releaseConnection(conn);
+		return student;
 	}
 
 	@Override
 	public int insert(Student object) throws SQLException {
-		return 0;
+		Connection conn = DbConnection.getConnection();
+		PreparedStatement statement = conn.prepareStatement(Constants.Student.INSERT);
+		statement.setString(1, object.getStudentId());
+		statement.setString(2, object.getStudentName());
+		statement.setBoolean(3, object.isGender());
+		statement.setDate(4, object.getDateOfBirth());
+		statement.setString(5, object.getHometown());
+		statement.setString(6, object.getClassId());
+
+		int result = statement.executeUpdate();
+		statement.close();
+		DbConnection.releaseConnection(conn);
+		return result;
 	}
 
 	@Override
 	public int update(Student object) throws SQLException {
-		return 0;
+		Connection conn = DbConnection.getConnection();
+		PreparedStatement statement = conn.prepareStatement(Constants.Student.UPDATE);
+		statement.setString(6, object.getStudentId());
+		statement.setString(1, object.getStudentName());
+		statement.setBoolean(2, object.isGender());
+		statement.setDate(3, object.getDateOfBirth());
+		statement.setString(4, object.getHometown());
+		statement.setString(5, object.getClassId());
+
+		int result = statement.executeUpdate();
+		statement.close();
+		DbConnection.releaseConnection(conn);
+		return result;
 	}
 
 	@Override
 	public int delete(String code) throws SQLException {
-		return 0;
+		Connection conn = DbConnection.getConnection();
+		PreparedStatement statement = conn.prepareStatement(Constants.Student.DELETE);
+		statement.setString(1, code);
+		int result = statement.executeUpdate();
+		statement.close();
+		DbConnection.releaseConnection(conn);
+		return result;
 	}
 
 	@Override
 	public List<Student> fillter(String sequenceFilter) throws SQLException {
 		return null;
 	}
-
 }

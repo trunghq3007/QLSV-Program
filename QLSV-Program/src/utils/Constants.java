@@ -27,6 +27,12 @@ public interface Constants {
 	// constant for Student entity
 	interface Student {
 		public static final String SELECT_ALL = "Select * from sinhvien";
+		public static final String SELECT_ONE = "Select * from sinhvien where MaSV = ?";
+		public static final String INSERT = "insert into sinhvien(MaSV, TenSV, GioiTinh, NgaySinh, QueQuan, MaLop) values(?,?,?,?,?,?)";
+		public static final String UPDATE = "update sinhvien set TenSV = ?, GioiTinh = ?, NgaySinh = ?, "
+				+ "QueQuan=?, MaLop = ? where MaSV = ?";
+		public static final String DELETE = "delete from sinhvien where MaSV = ?";
+		public static final String FILTER = "select * from sinh vien where MaSV";
 		// Column name
 		public static final String STUDENT_ID = "MaSV";
 		public static final String STUDENT_NAME = "TenSV";
@@ -84,7 +90,7 @@ public interface Constants {
 
 	// Constant for Format of toString method
 	interface ToStringFormatter {
-		public static final String STUDENT = "%5s %20s %3s %10s %30s %5s";
+		public static final String STUDENT = "%5s %30s %6s %20s %30s %10s";
 		public static final String SUBJECT = "%5s %20s %d";
 		public static final String CLASS = "%5s %20s %5s %5s %5s";
 		public static final String COURSE = "%5s %s";

@@ -6,12 +6,29 @@
  */
 package view;
 
+import bll.StudentBLL;
+import entity.Student;
 import utils.Constants;
 
 public class ManageStudent {
 
+//	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
-		System.out.println(Constants.Student.STUDENT_ID);
+		StudentBLL studentBLL = new StudentBLL();
+		System.out.println(String.format(Constants.ToStringFormatter.STUDENT, "ID", "Name", "Gender", "DateofBirth",
+				"HomeTown", "ClassID"));
+		for (Student st : studentBLL.getAll()) {
+			System.out.println(st);
+		}
+		
+
+//		if (studentBLL.insert(new Student("123", "ABC", true, new java.sql.Date(1997, 2, 12), "HN", "MT2")) > 0) {
+//			System.out.println("insert success");
+//		}
+//
+//		if (studentBLL.update(new Student("123", "ABC", true, new java.sql.Date(1997, 2, 12), "HN", "MT2")) > 0) {
+//			System.out.println("update success");
+//		}
 	}
 
 }
