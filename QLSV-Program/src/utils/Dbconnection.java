@@ -29,11 +29,11 @@ public class Dbconnection {
         // driver
         static final String DRIVER = "com.mysql.jdbc.Driver";
         // url
-        static final String URL = "jdbc:mysql://localhost:3306/qlsv";
+        static final String URL = "jdbc:mysql://192.168.10.51/qlsv";
         // userName
-        static final String USER_NAME = "root";
+        static final String USER_NAME = "remote";
         // passWord
-        static final String PASSWORD = "123654";
+        static final String PASSWORD = "123456";
 
         /**
          * Create by: HQTrung - CMC
@@ -61,6 +61,16 @@ public class Dbconnection {
                         e.printStackTrace();
                 }
                 return connection;
+        }
+        public static void closeConnection(Connection connection) {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
         }
 
 }
