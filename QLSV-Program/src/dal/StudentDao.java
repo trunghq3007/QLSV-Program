@@ -13,7 +13,7 @@ import utils.Dbconnection;
 
 public class StudentDao {
 
-    public List<Student> getEmployee(){
+    public List<Student> getStudent(){
         Connection connection = Dbconnection.connect();
         List<Student> students = new ArrayList<Student>();
         Student student = null;
