@@ -55,6 +55,7 @@ public interface Constants {
 	public static final String COURSE_CODE = "MaKhoaHoc";
 	public static final String COURSE_NAME = "TenKhoaHoc";
 	public static final String SELECT_ALL ="select * from khoahoc";
+	public static final String GET_COURSE_BY_CODE = "select * from khoahoc where MaKhoaHoc = ?";
     }
     
     interface Subject {

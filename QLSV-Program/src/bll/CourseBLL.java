@@ -11,10 +11,9 @@ public class CourseBLL implements BaseBLL<Course> {
     public CourseBLL() {
 	courseDAL = new CourseDAL();
     }
-    
     @Override
     public List<Course> getAll() {
-	
+	System.out.println("List of course: ");
 	return courseDAL.getAll();
     }
 
