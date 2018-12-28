@@ -7,7 +7,7 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
-import entity.Batch;
+import entity.Course;
 import utils.Constants;
 import utils.Dbconnection;
 
@@ -20,10 +20,10 @@ public class CourseDal implements BaseDAL {
 
         java.sql.Connection connect = Dbconnection.connect();
 
-        List<Batch> batch = new ArrayList<>();
+        List<Course> course = new ArrayList<>();
         try {
             java.sql.Statement statement = connect.createStatement();
-            ResultSet resultSet = statement.executeQuery(Constants.Batch.SELECT_ALL);
+            ResultSet resultSet = statement.executeQuery(Constants.Course.SELECT_ALL);
 
             while (resultSet.next()) {
 
@@ -32,7 +32,7 @@ public class CourseDal implements BaseDAL {
             e.printStackTrace();
         }
 
-        return batch;
+        return course;
 
     }
 
@@ -60,8 +60,10 @@ public class CourseDal implements BaseDAL {
         return 0;
     }
 
+    
+
     @Override
-    public List filter(String sequencefilter) {
+    public List fillter(String sequenceFilter) {
         // TODO Auto-generated method stub
         return null;
     }

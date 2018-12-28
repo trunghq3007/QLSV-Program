@@ -10,10 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import dal.CourseDAL;
+import dal.CourseDal;
 import entity.Course;
 import utils.Constants;
-import utils.DbConnection;
+
 
 /**
  * Create by: HQTrung - CMC
@@ -25,7 +25,7 @@ import utils.DbConnection;
  */
 public class CourseBLL implements BaseBLL<Course> {
         // courseDAL
-        CourseDAL courseDAL;
+        CourseDal courseDAL;
 
         /**
          * Create by: HQTrung - CMC
@@ -37,7 +37,7 @@ public class CourseBLL implements BaseBLL<Course> {
          * @param courseDAL
          */
         public CourseBLL() {
-                courseDAL = new CourseDAL();
+                courseDAL = new CourseDal();
         }
 
         @Override
