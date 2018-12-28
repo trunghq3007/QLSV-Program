@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * Description: handle connect to DBMS
  * Version 1.0
  */
-public class DbConnection {
+public class Dbconnection {
         /*
          * // driver static final String DRIVER =
          * "com.microsoft.sqlserver.jdbc.SQLServerDriver"; // url static final String
@@ -29,7 +29,7 @@ public class DbConnection {
         // driver
         static final String DRIVER = "com.mysql.jdbc.Driver";
         // url
-        static final String URL = "jdbc:mysql://192.168.10.51:3306/qlsv";
+        static final String URL = "jdbc:mysql://192.168.10.51/qlsv";
         // userName
         static final String USER_NAME = "remote";
         // passWord
@@ -61,6 +61,16 @@ public class DbConnection {
                         e.printStackTrace();
                 }
                 return connection;
+        }
+        public static void closeConnection(Connection connection) {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
         }
 
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * 
  */
@@ -54,5 +55,10 @@ public class Course {
         public void setCourseName(String courseName) {
                 this.courseName = courseName;
         }
+=======
+package entity;
+
+public class Course {
+>>>>>>> branch 'tthyen' of https://github.com/trunghq3007/QLSV-Program.git
 
 }
