@@ -56,6 +56,8 @@ public interface Constants {
 	public static final String COURSE_NAME = "TenKhoaHoc";
 	public static final String SELECT_ALL ="select * from khoahoc";
 	public static final String GET_COURSE_BY_CODE = "select * from khoahoc where MaKhoaHoc = ?";
+	public static final String GET_COURSE_BY_FILTER = 
+		"select * from khoahoc where MaKhoaHoc LIKE %?% OR TenKhoaHoc Like %?%";
     }
     
     interface Subject {

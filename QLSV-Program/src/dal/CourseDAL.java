@@ -110,8 +110,25 @@ public class CourseDAL implements BaseDAL<Course> {
 
     @Override
     public List<Course> filter(String sequenceFilter) {
-	// TODO Auto-generated method stub
-	return null;
+	Connection connect = (Connection) Dbconnection.connect();
+	List<Course> courses = new ArrayList<Course>();
+	try {
+	    // Statement creation
+	    Statement statement = (Statement) connect.createStatement();
+	    // ResultSet creation
+	    ResultSet resultSet = statement.executeQuery(utils.Constants.Course.GET_COURSE_BY_FILTER);
+	    while (resultSet.next()) {
+		Course course = new Course();
+		course.setCourseCode(resultSet.getString(utils.Constants.Course.COURSE_CODE));
+		course.setCourseName(resultSet.getString(utils.Constants.Course.COURSE_NAME));
+		courses.add(course);
+	    }
+	    statement.close();
+            connect.close();
+	} catch (SQLException ex) {
+	    ex.printStackTrace();
+	}
+	return courses; 
     }
 
 }
