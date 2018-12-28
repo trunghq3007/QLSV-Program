@@ -1,5 +1,6 @@
 package entity;
 
+
 public class Student {
     private String studentCode;
     private String studentName;
@@ -7,6 +8,10 @@ public class Student {
     private String dateOfBirth;
     private String homeTown;
     private String classCode;
+    
+    public Student() {
+	
+    }
     
     public Student(String studentCode, String studentName, boolean studentSex, String dateOfBirth, String homeTown,
 	    String classCode) {
@@ -57,4 +62,5 @@ public class Student {
         this.classCode = classCode;
     }
    
+  
 }
