@@ -6,6 +6,7 @@ public class Mark {
     private int semester;
     private int mark1;
     private int mark2;
+    public Student student;
 
     public String getStudentId() {
         return StudentId;

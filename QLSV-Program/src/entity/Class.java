@@ -6,6 +6,7 @@ public class Class {
     private String FacultyId;
     private String TypeOfTrainingId;
     private String BatchId;
+    public Faculty faculty;
 
     public String getClassId() {
         return ClassId;
