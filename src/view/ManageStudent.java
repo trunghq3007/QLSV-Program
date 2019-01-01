@@ -23,6 +23,7 @@ import entity.Student;
 import entity.Subject;
 import entity.TypeOfTrainning;
 import utils.Constants;
+import utils.Validation;
 
 /**
  * Create by: HQTrung - CMC
@@ -33,7 +34,10 @@ import utils.Constants;
  * Version 1.0
  */
 public class ManageStudent {
+	
 		static Scanner sc = new Scanner(System.in);
+		Validation val = new Validation();
+		
 		CourseBLL courseBLL = new CourseBLL();
 		StudentBLL studentBLL = new StudentBLL();
 		SubjectBLL subjectBLL = new SubjectBLL();
@@ -135,7 +139,17 @@ public class ManageStudent {
         		System.out.print("Student Name: "); String studentName = sc.nextLine();
         		System.out.print("Gender: "); byte gender = sc.nextByte();
         		sc.nextLine();
-        		System.out.print("Day Of Birth: "); String dayofbirth = sc.nextLine();
+        		System.out.print("Day Of Birth: "); 
+        		String dayofbirth = "";
+        		do {
+        			try {
+        				dayofbirth = sc.nextLine();
+        			}catch (Exception e) {
+						System.out.println("invalidate birthday");
+						sc.nextLine();
+					}
+        		}while(val.validateBirthDay(dayofbirth));
+        		
         		System.out.print("Hometown: "); String hometown = sc.nextLine();
         		System.out.print("Class Code: "); String classcode = sc.nextLine();
         		
