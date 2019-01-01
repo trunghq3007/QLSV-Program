@@ -112,7 +112,7 @@ public class CourseDAL implements BaseDAL<Course> {
 		int result = 0;
 		try {
 			Connection connect = (Connection) Dbconnection.connect();
-			String query = utils.Constants.Course.COURSE_CODE;
+			String query = utils.Constants.Course.DELETE_COURSE;
 			statement = connect.prepareStatement(query);
 			statement.setString(1, code);
 			result = statement.executeUpdate();
