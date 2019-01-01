@@ -8,75 +8,68 @@ package entity;
  *
  */
 public class Student {
-    private String MaSV ;
-    private String TenSV;
-    private Boolean GioiTinh;
-    private String NgaySinh;
-    private String QueQuan;
-    /**
-     * Create by: User - CMC
-     * Create date: Dec 28, 2018
-     * Modifier: User
-     * Modified date: Dec 28, 2018
-     * Description: ....
-     * Version 1.0
-     */
-    public Student() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    /**
-     * Create by: User - CMC
-     * Create date: Dec 28, 2018
-     * Modifier: User
-     * Modified date: Dec 28, 2018
-     * Description: ....
-     * Version 1.0
-     * @param maSV
-     * @param tenSV
-     * @param gioiTinh
-     * @param ngaySinh
-     * @param queQuan
-     */
-    public Student(String maSV, String tenSV, Boolean gioiTinh, String ngaySinh, String queQuan) {
-        super();
-        MaSV = maSV;
-        TenSV = tenSV;
-        GioiTinh = gioiTinh;
-        NgaySinh = ngaySinh;
-        QueQuan = queQuan;
-    }
-    public String getMaSV() {
-        return MaSV;
-    }
-    public void setMaSV(String maSV) {
-        MaSV = maSV;
-    }
-    public String getTenSV() {
-        return TenSV;
-    }
-    public void setTenSV(String tenSV) {
-        TenSV = tenSV;
-    }
-    public Boolean getGioiTinh() {
-        return GioiTinh;
-    }
-    public void setGioiTinh(Boolean gioiTinh) {
-        GioiTinh = gioiTinh;
-    }
-    public String getNgaySinh() {
-        return NgaySinh;
-    }
-    public void setNgaySinh(String ngaySinh) {
-        NgaySinh = ngaySinh;
-    }
-    public String getQueQuan() {
-        return QueQuan;
-    }
-    public void setQueQuan(String queQuan) {
-        QueQuan = queQuan;
-    }
-   
-
+    private String studentCode ;
+    private String studentName;
+    private Boolean sex;
+    private String birthDay;
+    private String country;
+    private String classCode;
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Student(String studentCode, String studentName, Boolean sex, String birthDay, String country,
+			String classCode) {
+		super();
+		this.studentCode = studentCode;
+		this.studentName = studentName;
+		this.sex = sex;
+		this.birthDay = birthDay;
+		this.country = country;
+		this.classCode = classCode;
+	}
+	@Override
+	public String toString() {
+		return "Student [studentCode=" + studentCode + ", studentName=" + studentName + ", sex=" + sex + ", birthDay="
+				+ birthDay + ", country=" + country + ", classCode=" + classCode + "]";
+	}
+	public String getStudentCode() {
+		return studentCode;
+	}
+	public void setStudentCode(String studentCode) {
+		this.studentCode = studentCode;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public Boolean getSex() {
+		return sex;
+	}
+	public void setSex(Boolean sex) {
+		this.sex = sex;
+	}
+	public String getBirthDay() {
+		return birthDay;
+	}
+	public void setBirthDay(String birthDay) {
+		this.birthDay = birthDay;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getClassCode() {
+		return classCode;
+	}
+	public void setClassCode(String classCode) {
+		this.classCode = classCode;
+	}
+    
+  
    
 }
