@@ -10,12 +10,15 @@ package utils;
 public interface Constants {
     // constant for Student
     interface Students {
+    public static final String STUDENT = "SinhVien";
 	public static final String STUDENT_CODE = "MaSV";
 	public static final String STUDENT_NAME = "TenSV";
 	public static final String STUDENT_SEX = "GioiTinh";
 	public static final String STUDENT_DOB = "NgaySinh";
 	public static final String STUDENT_HOMETOWN = "QueQuan";
 	public static final String STUDENT_CLASSCODE = "MaLop";
+	public static final String SELECT_ALL ="SELECT * FROM " + STUDENT;
+	public static final String GET_STUDENT_BY_CODE = "SELECT * FROM " + STUDENT + " WHERE " + STUDENT_CODE + " = ?";
     }
 
     // constant for HeDT
@@ -52,12 +55,14 @@ public interface Constants {
     
     // constant for Course
     interface Course {
+    public static final String COURSE = "KhoaHoc";
 	public static final String COURSE_CODE = "MaKhoaHoc";
 	public static final String COURSE_NAME = "TenKhoaHoc";
-	public static final String SELECT_ALL ="select * from khoahoc";
-	public static final String GET_COURSE_BY_CODE = "select * from khoahoc where MaKhoaHoc = ?";
-	public static final String GET_COURSE_BY_FILTER = 
-		"select * from khoahoc where MaKhoaHoc LIKE %?% OR TenKhoaHoc Like %?%";
+	public static final String SELECT_ALL ="SELECT * FROM " + COURSE;
+	public static final String GET_COURSE_BY_CODE = "SELECT * FROM " + COURSE + " WHERE " + COURSE_CODE + " = ?";
+	public static final String GET_COURSE_BY_FILTER = "SELECT * FROM " + COURSE + " WHERE "  + COURSE_CODE +" LIKE %?% OR " +  COURSE_NAME+" LIKE %?%";
+	public static final String INSERT_COURSE = "INSERT INTO KhoaHoc (MaKhoaHoc, TenKhoaHoc) values(?,?)";
+	public static final String UPDATE_COURSE = "UPDATE KhoaHoc SET " + COURSE_NAME + " = ? WHERE " + COURSE_CODE + " = ?";
     }
     
     interface Subject {
