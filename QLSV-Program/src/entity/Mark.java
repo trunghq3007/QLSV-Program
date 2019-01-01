@@ -8,83 +8,73 @@ package entity;
  *
  */
 public class Mark {
-        // mã sinh viên
-        private char studentCode;
-        // mã môn học
-        private char subjectCode;
-        // học kì
-        private int semester;
-        // điểm lần 1
-        private int firstMark;
-        // điểm lần 2
-        private int secondMark;
-        public Student sinhVien;
+	// mã sinh viên
+	private char studentID;
+	// mã môn học
+	private char subjectID;
+	// học kì
+	private int semester;
+	// điểm lần 1
+	private int firstMark;
+	// điểm lần 2
+	private int secondMark;
 
-        /**
-         * 
-         */
-        public Mark() {
-        }
+	public Mark() {
+	}
 
-        /**
-         * @param maSV
-         * @param maMH
-         * @param hocKi
-         * @param diemLan1
-         * @param diemLan2
-         */
-        public Mark(char maSV, char maMH, int hocKi, int diemLan1, int diemLan2) {
-                this.studentCode = maSV;
-                this.subjectCode = maMH;
-                this.semester = hocKi;
-                this.firstMark = diemLan1;
-                this.secondMark = diemLan2;
-        }
+	/**
+	 * @param studentID
+	 * @param subjectID
+	 * @param semester
+	 * @param firstMark
+	 * @param secondMark
+	 */
+	public Mark(char studentID, char subjectID, int semester, int firstMark, int secondMark) {
+		this.studentID = studentID;
+		this.subjectID = subjectID;
+		this.semester = semester;
+		this.firstMark = firstMark;
+		this.secondMark = secondMark;
+	}
 
-        @Override
-        public String toString() {
-                return "Diem [maSV=" + studentCode + ", maMH=" + subjectCode + ", hocKi=" + semester + ", diemLan1=" + firstMark
-                                + ", diemLan2=" + secondMark + "]";
-        }
+	public char getStudentID() {
+		return studentID;
+	}
 
-        public char getMaSV() {
-                return studentCode;
-        }
+	public void setStudentID(char studentID) {
+		this.studentID = studentID;
+	}
 
-        public void setMaSV(char maSV) {
-                this.studentCode = maSV;
-        }
+	public char getSubjectID() {
+		return subjectID;
+	}
 
-        public char getMaMH() {
-                return subjectCode;
-        }
+	public void setSubjectID(char subjectID) {
+		this.subjectID = subjectID;
+	}
 
-        public void setMaMH(char maMH) {
-                this.subjectCode = maMH;
-        }
+	public int getSemester() {
+		return semester;
+	}
 
-        public int getHocKi() {
-                return semester;
-        }
+	public void setSemester(int semester) {
+		this.semester = semester;
+	}
 
-        public void setHocKi(int hocKi) {
-                this.semester = hocKi;
-        }
+	public int getFirstMark() {
+		return firstMark;
+	}
 
-        public int getDiemLan1() {
-                return firstMark;
-        }
+	public void setFirstMark(int firstMark) {
+		this.firstMark = firstMark;
+	}
 
-        public void setDiemLan1(int diemLan1) {
-                this.firstMark = diemLan1;
-        }
+	public int getSecondMark() {
+		return secondMark;
+	}
 
-        public int getDiemLan2() {
-                return secondMark;
-        }
-
-        public void setDiemLan2(int diemLan2) {
-                this.secondMark = diemLan2;
-        }
+	public void setSecondMark(int secondMark) {
+		this.secondMark = secondMark;
+	}
 
 }
