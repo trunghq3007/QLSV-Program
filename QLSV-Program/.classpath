@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/admin/Downloads/Microsoft.SkypeApp_kzf8qxf38zg5c!App/All/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="C:/HaQuangTrungData/DATA/CMC/GLOBAL/RUN-LOP-GDP05/BTJB/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="src/libs/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

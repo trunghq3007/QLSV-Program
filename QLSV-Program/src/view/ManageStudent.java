@@ -5,6 +5,8 @@ package view;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import bll.CourseBLL;
 import entity.Course;
 
@@ -17,6 +19,8 @@ import entity.Course;
  * Version 1.0
  */
 public class ManageStudent {
+        /* Get actual class name to be printed on */
+        static Logger log = Logger.getLogger(ManageStudent.class);
 
         /**
          * Create by: HQTrung - CMC
@@ -28,10 +32,14 @@ public class ManageStudent {
          * @param args
          */
         public static void main(String[] args) {
-             
+                log.debug(" Start main application");
+                log.warn("Start main application");
+                log.error("Start main application");
+                log.info("Start main application");
                 CourseBLL courseBLL = new CourseBLL();
                 System.out.println(" List Course");
                 List<Course> courses =  courseBLL.getAll();
+                log.info("size of list courses : "+ courses.size());
                 for (Course course : courses) {
                        System.out.println(course); 
                 }
