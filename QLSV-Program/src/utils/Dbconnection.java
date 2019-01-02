@@ -37,7 +37,7 @@ public class Dbconnection {
         // userName
         static final String USER_NAME = "root";
         // passWord
-        static final String PASSWORD = "1234567890";
+        static final String PASSWORD = "123456";
 
         /**
          * Create by: HQTrung - CMC
