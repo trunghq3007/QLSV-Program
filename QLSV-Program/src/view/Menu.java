@@ -3,6 +3,8 @@ package view;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import bll.CourseBLL;
 import bll.FacultyBLL;
 import bll.LopBLL;
@@ -17,7 +19,7 @@ import entity.Student;
 import entity.Subject;
 
 public class Menu {
-    
+    static Logger log = Logger.getLogger(Menu.class);
 
     private static CourseBLL courseBLL = new CourseBLL();
     private static FacultyBLL facultyBLL = new FacultyBLL();
@@ -85,6 +87,7 @@ public class Menu {
             case 1:
                 List<Course> all = courseBLL.getAll();
                 courseBLL.display(all);
+                log.info("Size of the Course list: " + all.size());
                 break;
             case 2:
                 Course byCode = courseBLL.getByCode();
@@ -143,6 +146,7 @@ public class Menu {
             case 1:
                 List<Faculty> all = facultyBLL.getAll();
                 facultyBLL.display(all);
+                log.info("Size of the Faculty list: " + all.size());
                 break;
             case 2:
                 Faculty byCode = facultyBLL.getByCode();
@@ -298,6 +302,8 @@ public class Menu {
             switch (j) {
             case 1:
                 List<Student> all = studentBLL.getAll();
+                
+                log.info("Size  of list course: " + all.size());
                 studentBLL.display(all);
                 break;
             case 2:

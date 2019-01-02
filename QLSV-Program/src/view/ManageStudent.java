@@ -25,7 +25,6 @@ public class ManageStudent {
 	    log.error("Start main application");
 	    log.info("Start main application");
 	    
-	  
 		Menu.createMenu();
 		
 	}
