@@ -3,15 +3,15 @@
  */
 package view;
 
-import java.sql.Connection;
+import java.util.List;
 
-import utils.Constants;
-import utils.Dbconnection;
+import bll.CourseBLL;
+import entity.Course;
 
 /**
- * Create by: HQTrung - CMC
+ * Create by: pvhao - CMC
  * Create date: Dec 28, 2018
- * Modifier: HQTrung
+ * Modifier: pvhao
  * Modified date: Dec 28, 2018
  * Description: ....
  * Version 1.0
@@ -19,18 +19,18 @@ import utils.Dbconnection;
 public class ManageStudent {
 
         /**
-         * Create by: HQTrung - CMC
-         * Create date: Dec 28, 2018
-         * Modifier: HQTrung
-         * Modified date: Dec 28, 2018
-         * Description: program manage student
-         * Version 1.0
-         * @param args
-         */
+        * Create by: haopham - CMC
+        * Create date: Jan 1, 2019
+        * Modifier: haopham
+        * Modified date: Jan 1, 2019
+        * Description: ....
+        * Version 1.0
+        * @param args
+        */
         public static void main(String[] args) {
-                System.out.println(Constants.Student.STUDENT_CODE);
-                Connection connection = Dbconnection.connect();
-                System.out.println(connection);
+             
+              
+                
         }
 
 }

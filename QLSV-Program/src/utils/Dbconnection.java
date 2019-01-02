@@ -27,13 +27,13 @@ public class Dbconnection {
 
         // MySQL
         // driver
-        static final String DRIVER = "com.mysql.jdbc.Driver";
+        static final String DRIVER = "com.mysql.cj.jdbc.Driver";
         // url
-        static final String URL = "jdbc:mysql://localhost:3306/qlsv";
+        static final String URL = "jdbc:mysql://localhost:3306/studentmanage?useSSL=false";
         // userName
         static final String USER_NAME = "root";
         // passWord
-        static final String PASSWORD = "123654";
+        static final String PASSWORD = "1234";
 
         /**
          * Create by: HQTrung - CMC
