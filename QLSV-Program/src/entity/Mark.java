@@ -9,15 +9,15 @@ package entity;
  */
 public class Mark {
         // mã sinh viên
-        private char studentCode;
+        private String studentCode;
         // mã môn học
-        private char subjectCode;
+        private String subjectCode;
         // học kì
-        private int semester;
+        private float semester;
         // điểm lần 1
-        private int firstMark;
+        private float firstMark;
         // điểm lần 2
-        private int secondMark;
+        private float secondMark;
         public Student sinhVien;
 
         /**
@@ -33,7 +33,7 @@ public class Mark {
          * @param diemLan1
          * @param diemLan2
          */
-        public Mark(char maSV, char maMH, int hocKi, int diemLan1, int diemLan2) {
+        public Mark(String maSV, String maMH, float hocKi, float diemLan1, float diemLan2) {
                 this.studentCode = maSV;
                 this.subjectCode = maMH;
                 this.semester = hocKi;
@@ -47,23 +47,23 @@ public class Mark {
                                 + ", diemLan2=" + secondMark + "]";
         }
 
-        public char getMaSV() {
+        public String getMaSV() {
                 return studentCode;
         }
 
-        public void setMaSV(char maSV) {
+        public void setMaSV(String maSV) {
                 this.studentCode = maSV;
         }
 
-        public char getMaMH() {
+        public String getMaMH() {
                 return subjectCode;
         }
 
-        public void setMaMH(char maMH) {
+        public void setMaMH(String maMH) {
                 this.subjectCode = maMH;
         }
 
-        public int getHocKi() {
+        public float getHocKi() {
                 return semester;
         }
 
@@ -71,7 +71,7 @@ public class Mark {
                 this.semester = hocKi;
         }
 
-        public int getDiemLan1() {
+        public float getDiemLan1() {
                 return firstMark;
         }
 
@@ -79,7 +79,7 @@ public class Mark {
                 this.firstMark = diemLan1;
         }
 
-        public int getDiemLan2() {
+        public float getDiemLan2() {
                 return secondMark;
         }
 

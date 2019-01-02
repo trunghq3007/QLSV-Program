@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import entity.Course;
 import entity.HeDT;
 import utils.Constants;
 
@@ -147,5 +145,15 @@ public class HeDTdal implements BaseDAL<HeDT> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    public String show() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public StringBuilder showBuilder() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

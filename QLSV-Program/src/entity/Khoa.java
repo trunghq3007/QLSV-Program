@@ -9,7 +9,7 @@ package entity;
  */
 public class Khoa {
         // mã khoa
-        private char maKhoa;
+        private String maKhoa;
         // tên khoa
         private String tenKhoa;
         // địa chỉ
@@ -23,7 +23,7 @@ public class Khoa {
          * @param diaChi
          * @param dienThoai
          */
-        public Khoa(char maKhoa, String tenKhoa, String diaChi, String dienThoai) {
+        public Khoa(String maKhoa, String tenKhoa, String diaChi, String dienThoai) {
                 this.maKhoa = maKhoa;
                 this.tenKhoa = tenKhoa;
                 this.diaChi = diaChi;
@@ -42,11 +42,11 @@ public class Khoa {
                                 + dienThoai + "]";
         }
 
-        public char getMaKhoa() {
+        public String getMaKhoa() {
                 return maKhoa;
         }
 
-        public void setMaKhoa(char maKhoa) {
+        public void setMaKhoa(String maKhoa) {
                 this.maKhoa = maKhoa;
         }
 

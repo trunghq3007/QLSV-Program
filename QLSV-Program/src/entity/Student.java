@@ -11,15 +11,15 @@ import java.util.Date;
  */
 public class Student {
         // mã sinh viên
-        private char studentCode;
+        private String studentCode;
         // tên sinh viên
         private String studentName;
         // giới tính
         private String gender;
         // ngày sinh
-        private Date dateOfBirth;
+        private String dateOfBirth;
         // mã lớp
-        private char classCode;
+        private String classCode;
         // quê quán
         private String hometown;
 
@@ -37,7 +37,7 @@ public class Student {
          * @param classCode
          * @param hometown
          */
-        public Student(char studentCode, String studentName, String gender, Date dateOfBirth, char classCode,
+        public Student(String studentCode, String studentName, String gender, String dateOfBirth, String classCode,
                         String hometown) {
                 this.studentCode = studentCode;
                 this.studentName = studentName;
@@ -58,7 +58,7 @@ public class Student {
         public Student() {
         }
 
-        public char getStudentCode() {
+        public String getStudentCode() {
                 return studentCode;
         }
 
@@ -69,7 +69,7 @@ public class Student {
                                 + "]";
         }
 
-        public void setStudentCode(char studentCode) {
+        public void setStudentCode(String studentCode) {
                 this.studentCode = studentCode;
         }
 
@@ -89,19 +89,19 @@ public class Student {
                 this.gender = gender;
         }
 
-        public Date getDateOfBirth() {
+        public String getDateOfBirth() {
                 return dateOfBirth;
         }
 
-        public void setDateOfBirth(Date dateOfBirth) {
+        public void setDateOfBirth(String dateOfBirth) {
                 this.dateOfBirth = dateOfBirth;
         }
 
-        public char getClassCode() {
+        public String getClassCode() {
                 return classCode;
         }
 
-        public void setClassCode(char classCode) {
+        public void setClassCode(String classCode) {
                 this.classCode = classCode;
         }
 

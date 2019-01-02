@@ -23,35 +23,41 @@ public class ManageCourse {
         log.info("log info");
         Scanner scanner = new Scanner(System.in);
         boolean check = true;
-        insert();
-        int choise = -1;
-        // while (check) {
-        // System.out.println("1. hien thi danh sach");
-        // System.out.println("2. them moi");
-        // System.out.println("3 . xoa");
-        // System.out.println("nhap lua chon: ");
-        // choise = scanner.nextInt();
-        // switch (choise) {
-        // case 1:
-        // getAll();
-        // break;
-        // case 2:
-        // insert();
-        // break;
-        // default:
-        // check = false;
-        // break;
-        // }
-        // }
-        String s = "insert";
-        
+        int option = -1;
+        while (check) {
+            System.out.println("1. hien thi danh sach");
+            System.out.println("2. them moi");
+            System.out.println("3. sua");
+            System.out.println("4. xoa");
+            System.out.println("nhap bat ky de thoat ngoai cac ky tu tren");
+            System.out.println("nhap lua chon: ");
+           
+            option = scanner.nextInt();
+            switch (option) {
+                case 1:
+                    getAll();
+                    break;
+                case 2:
+                    insert();
+                    break;
+                case 3:
+                    update();
+                    break;
+                case 4:
+                    delete();
+                    break;
+                default:
+                    check = false;
+                    System.out.println("chuong trinh ket thuc !");
+                    break;
+            }
+        }
+        scanner.close();
     }
 
     public static void getAll() {
-        List<Course> courses = courseBLL.getAll();
-        for (Course course : courses) {
-            System.out.println(course);
-        }
+        System.out.println("danh sach khoa hoc: ");
+        courseBLL.show();
     }
 
     public static void insert() {
@@ -61,14 +67,26 @@ public class ManageCourse {
         course.setCourseCode(sc.nextLine());
         System.out.println("nhap ten: ");
         course.setCourseName(sc.nextLine());
-        int result = courseBLL.insert(course);
-        if (result > 0) {
-            System.out.println("them thanh cong: ");
-        } else {
-            System.out.println("khong them duoc: ");
-        }
-        ArrayList<HashMap<Integer, String>> arrayList = new ArrayList<HashMap<Integer,String>>();
-        //HashMap<K, V>
+        courseBLL.insert(course);
+        
+    }
+
+    public static void update() {
+        Course course = new Course();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("nhap ma khoa hoc can sua : ");
+        course.setCourseCode(sc.nextLine());
+        System.out.println("nhap ten te khoa hoc: ");
+        course.setCourseName(sc.nextLine());
+        courseBLL.update(course);
+        //sc.close();
+    }
+
+    public static void delete() {
+        System.out.println("nhap ma khoa hoc can xoa : ");
+        Scanner sc = new Scanner(System.in);
+        courseBLL.delete(sc.nextLine());
+        //sc.close();
     }
 
 }

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package dal;
 
 import java.sql.Connection;
@@ -9,76 +6,81 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Formatter;
 import java.util.List;
 
-import javax.print.attribute.standard.OutputDeviceAssigned;
-
 import entity.Course;
+import entity.HeDT;
+import entity.Khoa;
 import utils.Constants;
 import utils.Dbconnection;
 
-/**
- * Create by: pvhao- CMC Create date: Dec 28, 2018 Modifier: pvhao Modified
- * date: Dec 28, 2018 Description: Version 1.0
- */
-public class CourseDAL implements BaseDAL<Course> {
+public class KhoaDAL implements BaseDAL<Khoa> {
 
-    public List<Course> getAll() {
+    public List<Khoa> getAll() {
         Connection connect = Dbconnection.connect();
-        List<Course> courses = new ArrayList<Course>();
+        List<Khoa> dskhoa = new ArrayList<Khoa>();
 
         try {
             // Statement creation
             Statement statement = connect.createStatement();
             // for retrieve data
-            ResultSet resultSet = statement.executeQuery(Constants.Course.SELECT_ALL);
+            ResultSet resultSet = statement.executeQuery(Constants.Khoa.SELECT_ALL);
             while (resultSet.next()) {
-                Course course = new Course();
-                course.setCourseCode(resultSet.getString(Constants.Course.COURSE_CODE));
-                course.setCourseName(resultSet.getString(Constants.Course.COURSE_NAME));
-                courses.add(course);
+                Khoa khoa = new Khoa();
+                khoa.setMaKhoa(resultSet.getString(Constants.Khoa.KHOA_MA));
+                khoa.setTenKhoa(resultSet.getString(Constants.Khoa.KHOA_TEN));
+                khoa.setDiaChi(resultSet.getString(Constants.Khoa.KHOA_DIACHI));
+                khoa.setDienThoai(resultSet.getString(Constants.Khoa.KHOA_DIENTHOAI));
+                dskhoa.add(khoa);
             }
             statement.close();
             connect.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
-        return courses;
+
+        return dskhoa;
     }
 
-    public Course getByCode(String code) {
+    public Khoa getByCode(String code) {
         Connection connect = Dbconnection.connect();
-        Course course = new Course();
+        Khoa khoa = new Khoa();
         try {
             // Statement creation
-            PreparedStatement preparedStatement = connect.prepareStatement(Constants.Course.SELLECT_BY_CODE);
+            PreparedStatement preparedStatement = connect.prepareStatement(Constants.HeDT.SELLECT_BY_CODE);
             preparedStatement.setString(1, code);
-            
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-
-                course.setCourseCode(resultSet.getString(Constants.Course.COURSE_CODE));
-                course.setCourseName(resultSet.getString(Constants.Course.COURSE_NAME));
+                khoa.setMaKhoa(Constants.Khoa.KHOA_MA);
+                khoa.setTenKhoa(Constants.Khoa.KHOA_TEN);
+                khoa.setDiaChi(Constants.Khoa.KHOA_DIACHI);
+                khoa.setDienThoai(Constants.Khoa.KHOA_DIENTHOAI);
                 preparedStatement.close();
             }
-
             connect.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+        } finally {
+            try {
+                connect.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                // e.printStackTrace();
+            }
         }
-        return course;
-
+        return khoa;
     }
 
-    public int insert(Course object) {
+    public int insert(Khoa object) {
         Connection connect = Dbconnection.connect();
         int resultQuery = 0;
         try {
             // Statement creation
-            PreparedStatement preparedStatement = connect.prepareStatement(Constants.Course.INSERT);
-            preparedStatement.setString(1, object.getCourseCode());
-            preparedStatement.setString(2, object.getCourseName());
+            PreparedStatement preparedStatement = connect.prepareStatement(Constants.Khoa.INSERT);
+            preparedStatement.setString(1, object.getMaKhoa());
+            preparedStatement.setString(2, object.getTenKhoa());
+            preparedStatement.setString(3, object.getDiaChi());
+            preparedStatement.setString(2, object.getDienThoai());
             resultQuery = preparedStatement.executeUpdate();
             connect.close();
         } catch (SQLException e) {
@@ -94,14 +96,16 @@ public class CourseDAL implements BaseDAL<Course> {
         return resultQuery;
     }
 
-    public int update(Course object) {
+    public int update(Khoa object) {
         Connection connect = Dbconnection.connect();
         int resultQuery = 0;
         try {
             // Statement creation
-            PreparedStatement preparedStatement = connect.prepareStatement(Constants.Course.UPDATE);
-            preparedStatement.setString(1, object.getCourseName());
-            preparedStatement.setString(2, object.getCourseCode());
+            PreparedStatement preparedStatement = connect.prepareStatement(Constants.Khoa.UPDATE);
+            preparedStatement.setString(1, object.getTenKhoa());
+            preparedStatement.setString(2, object.getDiaChi());
+            preparedStatement.setString(3, object.getDienThoai());
+            preparedStatement.setString(4, object.getMaKhoa());
             resultQuery = preparedStatement.executeUpdate();
             connect.close();
         } catch (SQLException e) {
@@ -122,8 +126,8 @@ public class CourseDAL implements BaseDAL<Course> {
         int resultQuery = 0;
         try {
             // Statement creation
-            PreparedStatement preparedStatement = connect.prepareStatement(Constants.Course.DELETE);
-            preparedStatement.setString(1, code);
+            PreparedStatement preparedStatement = connect.prepareStatement(Constants.Khoa.DELETE);
+            preparedStatement.setString(1,code);
             resultQuery = preparedStatement.executeUpdate();
             connect.close();
         } catch (SQLException e) {
@@ -139,33 +143,19 @@ public class CourseDAL implements BaseDAL<Course> {
         return resultQuery;
     }
 
-    public List<Course> fillter(String sequenceFilter) {
+    public List<Khoa> fillter(String sequenceFilter) {
+        // TODO Auto-generated method stub
         return null;
     }
 
     public String show() {
-        String stringOutput = "";
-        List<Course> courses = getAll();
-        for (Course course : courses) {
-            //stringOutput += course.getCourseCode() + "\t" + course.getCourseName() + "\n";
-            Formatter formatter = new Formatter();
-            formatter.format("%-20s%-20s\n", course.getCourseCode(), course.getCourseName());
-            stringOutput += formatter;
-        }
-        return stringOutput;
+        // TODO Auto-generated method stub
+        return null;
     }
 
     public StringBuilder showBuilder() {
         // TODO Auto-generated method stub
-        StringBuilder output = new StringBuilder();
-        List<Course> courses = getAll();
-        for (Course course : courses) {
-           // String str = course.getCourseCode() + "\t" + course.getCourseName() + "\n";
-            Formatter formatter = new Formatter();
-            formatter.format("%-20s%-20s\n", course.getCourseCode(), course.getCourseName());
-            output.append(formatter);
-        }
-        return output;
+        return null;
     }
 
 }

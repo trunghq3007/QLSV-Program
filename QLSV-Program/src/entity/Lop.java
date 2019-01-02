@@ -9,15 +9,15 @@ package entity;
  */
 public class Lop {
         // mã lớp
-        private char maLop;
+        private String maLop;
         // tên lớp
         private String tenLop;
         // mã khoa
-        private char maKhoa;
+        private String maKhoa;
         // mã hệ đào tạo
-        private char maHeDT;
+        private String maHeDT;
         // mã khóa học
-        private char maKhoaHoc;
+        private String maKhoaHoc;
 
         /**
          * 
@@ -32,7 +32,7 @@ public class Lop {
          * @param maHeDT
          * @param maKhoaHoc
          */
-        public Lop(char maLop, String tenLop, char maKhoa, char maHeDT, char maKhoaHoc) {
+        public Lop(String maLop, String tenLop, String maKhoa, char maHeDT, char maKhoaHoc) {
                 this.maLop = maLop;
                 this.tenLop = tenLop;
                 this.maKhoa = maKhoa;
@@ -46,11 +46,11 @@ public class Lop {
                                 + ", maKhoaHoc=" + maKhoaHoc + "]";
         }
 
-        public char getMaLop() {
+        public String getMaLop() {
                 return maLop;
         }
 
-        public void setMaLop(char maLop) {
+        public void setMaLop(String maLop) {
                 this.maLop = maLop;
         }
 
@@ -62,11 +62,11 @@ public class Lop {
                 this.tenLop = tenLop;
         }
 
-        public char getMaKhoa() {
+        public String getMaKhoa() {
                 return maKhoa;
         }
 
-        public void setMaKhoa(char maKhoa) {
+        public void setMaKhoa(String maKhoa) {
                 this.maKhoa = maKhoa;
         }
 

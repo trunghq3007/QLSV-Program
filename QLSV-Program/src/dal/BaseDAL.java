@@ -83,5 +83,16 @@ public interface BaseDAL<T> {
          * @return
          */
         List<T> fillter(String sequenceFilter);
-
+        
+        /**
+         * Create by: pvhao - CMC
+         * Create date: Jan 2, 2019
+         * Modifier: pvhao
+         * Modified date: Jan 2, 2019
+         * Description: ....
+         * Version 1.0
+         * @return
+         */
+        public String show();
+        public StringBuilder showBuilder();
 }
