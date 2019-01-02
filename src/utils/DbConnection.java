@@ -29,11 +29,11 @@ public class DbConnection {
         // driver
         static final String DRIVER = "com.mysql.jdbc.Driver";
         // url
-        static final String URL = "jdbc:mysql://localhost:3306/qlsv"; //192.168.10.51
+        static final String URL = "jdbc:mysql://192.168.10.51:3306/qlsv1"; //192.168.10.51
         // userName
-        static final String USER_NAME = "root"; // remote
+        static final String USER_NAME = "remote"; // remote
         // passWord
-        static final String PASSWORD = "1111"; // 123456
+        static final String PASSWORD = "123456"; // 123456
 
         /**
          * Create by: HQTrung - CMC

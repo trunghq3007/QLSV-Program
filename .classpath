@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/congh/git/QLSV-Program/QLSV-Program/src/libs/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="C:/Users/congh/git/QLSV-Program/QLSV-Program/src/libs/mysql-connector-java-5.1.46.jar"/>
+	<classpathentry kind="lib" path="C:/Users/admin/git/QLSV-Program/QLSV-Program/bin/libs/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/admin/git/QLSV-Program/src/libs/mysql-connector-java-5.1.47.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

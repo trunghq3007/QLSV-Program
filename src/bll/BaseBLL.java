@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package bll;
 
 import java.util.List;
@@ -13,7 +14,9 @@ import java.util.List;
  * Description: ....
  * Version 1.0
  */
+
 public interface BaseBLL<T> {
+	
         /**
          * Create by: HQTrung - CMC
          * Create date: Dec 28, 2018
@@ -23,6 +26,7 @@ public interface BaseBLL<T> {
          * Version 1.0
          * @return
          */
+	
         List<T> getAll();
 
         /**
@@ -34,6 +38,7 @@ public interface BaseBLL<T> {
          * Version 1.0
          * @return
          */
+        
         T getByCode(String code);
 
         /**
@@ -46,6 +51,7 @@ public interface BaseBLL<T> {
          * @param object
          * @return
          */
+        
         int insert(T object);
 
         /**
@@ -58,6 +64,7 @@ public interface BaseBLL<T> {
          * @param object
          * @return
          */
+        
         int update(T object);
 
         /**
@@ -70,6 +77,7 @@ public interface BaseBLL<T> {
          * @param object
          * @return
          */
+        
         int delete(String code);
 
         /**
@@ -82,6 +90,7 @@ public interface BaseBLL<T> {
          * @param sequenceFilter
          * @return
          */
+        
         List<T> fillter(String sequenceFilter);
 
 }

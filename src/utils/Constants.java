@@ -17,12 +17,12 @@ public interface Constants {
         	//query select all Student
         	public static final String SELECT_ALL = "select *from sinhvien";
         	// query insert into Student
-        	public static final String INSERT_STUDENT = "insert into sinhvien values(?, ?, ?, ?, ?, ?)";
+        	public static final String INSERT_STUDENT = "INSERT INTO sinhvien VALUES (?, ?, ?, ?, ?, ?);";
         	// query update a Student
         	public static final String UPDATE_STUDENT = "update sinhvien set TenSV = ?, GioiTinh = ?, NgaySinh =?, QueQuan = ?, "
         													+ "MaLop = ? where MaSV = ?";
         	// query delete a Student
-        	public static final String DELETE_STUDENT = "delete sinhvien where MaSV = ?";
+        	public static final String DELETE_STUDENT = "delete from sinhvien where MaSV = ?";
         	
         	// column name
             public static final String STUDENT_CODE = "MaSV";

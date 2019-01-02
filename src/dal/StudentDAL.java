@@ -22,6 +22,7 @@ public class StudentDAL implements BaseDAL<Student>{
 		
 		List<Student> listStudent = new ArrayList<Student>();
 		try {
+			conn.setAutoCommit(false);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(Constants.Student.SELECT_ALL);
 			while(rs.next()) {
@@ -41,6 +42,8 @@ public class StudentDAL implements BaseDAL<Student>{
 			try {
 				rs.close();
 				stmt.close();
+				conn.commit();
+				conn.setAutoCommit(true);
 				conn.close();
 			} catch (Exception e2) {
 				// TODO: handle exception
@@ -60,13 +63,13 @@ public class StudentDAL implements BaseDAL<Student>{
 		Connection conn = DbConnection.connect();
 		PreparedStatement stmt = null;
 		
-		String sql = "insert into sinhvien values(?, ?, ?, ?, ?, ?)";
 		int status = 0;
 		try {
-			stmt = conn.prepareStatement(sql);
+			stmt = conn.prepareStatement(Constants.Student.INSERT_STUDENT);
 			stmt.setString(1, st.getStudentCode());
 			stmt.setString(2, st.getStudentName());
-			stmt.setByte(3, st.getGender());
+			byte gender = st.getGender();
+			stmt.setByte(3, gender);
 			stmt.setString(4, st.getDateOfBirth());
 			stmt.setString(5, st.getHometown());
 			stmt.setString(6, st.getClassCode());
