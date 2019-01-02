@@ -32,7 +32,7 @@ public class Lop {
          * @param maHeDT
          * @param maKhoaHoc
          */
-        public Lop(String maLop, String tenLop, String maKhoa, char maHeDT, char maKhoaHoc) {
+        public Lop(String maLop, String tenLop, String maKhoa, String maHeDT, String maKhoaHoc) {
                 this.maLop = maLop;
                 this.tenLop = tenLop;
                 this.maKhoa = maKhoa;
@@ -70,19 +70,19 @@ public class Lop {
                 this.maKhoa = maKhoa;
         }
 
-        public char getMaHeDT() {
+        public String getMaHeDT() {
                 return maHeDT;
         }
 
-        public void setMaHeDT(char maHeDT) {
+        public void setMaHeDT(String maHeDT) {
                 this.maHeDT = maHeDT;
         }
 
-        public char getMaKhoaHoc() {
+        public String getMaKhoaHoc() {
                 return maKhoaHoc;
         }
 
-        public void setMaKhoaHoc(char maKhoaHoc) {
+        public void setMaKhoaHoc(String maKhoaHoc) {
                 this.maKhoaHoc = maKhoaHoc;
         }
 

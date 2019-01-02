@@ -13,11 +13,11 @@ public class Mark {
         // mã môn học
         private String subjectCode;
         // học kì
-        private float semester;
+        private int semester;
         // điểm lần 1
-        private float firstMark;
+        private int firstMark;
         // điểm lần 2
-        private float secondMark;
+        private int secondMark;
         public Student sinhVien;
 
         /**
@@ -33,7 +33,7 @@ public class Mark {
          * @param diemLan1
          * @param diemLan2
          */
-        public Mark(String maSV, String maMH, float hocKi, float diemLan1, float diemLan2) {
+        public Mark(String maSV, String maMH, int hocKi, int diemLan1, int diemLan2) {
                 this.studentCode = maSV;
                 this.subjectCode = maMH;
                 this.semester = hocKi;
@@ -63,7 +63,7 @@ public class Mark {
                 this.subjectCode = maMH;
         }
 
-        public float getHocKi() {
+        public int getHocKi() {
                 return semester;
         }
 
@@ -71,7 +71,7 @@ public class Mark {
                 this.semester = hocKi;
         }
 
-        public float getDiemLan1() {
+        public int getDiemLan1() {
                 return firstMark;
         }
 
@@ -79,7 +79,7 @@ public class Mark {
                 this.firstMark = diemLan1;
         }
 
-        public float getDiemLan2() {
+        public int getDiemLan2() {
                 return secondMark;
         }
 
