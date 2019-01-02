@@ -21,8 +21,9 @@ public interface Constants {
                 public static final String COURSE_NAME = "tenKhoaHoc";
                 
                
-
-        }
+              /*  http://java2novice.com/
+               * http://viettuts.vn/
+*/        }
         
         interface TrainingSystem{
             // query string select all hedt
@@ -79,9 +80,6 @@ public interface Constants {
         }
         
         interface Student{
-        	// query string select all sinhvien
-            public static final String SELECT_ALLSinhVien = "select * from sinhvien";
-            // column MaSV
             public static final String studentCode = "MaSV";
             // column TenSV
             public static final String studentName = "TenSV";
@@ -93,6 +91,18 @@ public interface Constants {
             public static final String country = "QueQuan";
             // column MaLop
             public static final String classCode = "MaLop";
+        	// query string select all sinhvien
+            public static final String SELECT_ALLSinhVien = "select * from sinhvien";
+         // query string select one sinhvien
+            public static final String SELECT_ONESinhVien = "select * from sinhvien where "+ studentCode;
+            // query string insert sinhvien
+            public static final String INSERT_SinhVien = "INSERT INTO qlsv.sinhvien (MaSV, TenSV, GioiTinh, NgaySinh, QueQuan, MaLop)\r\n" + 
+                    " \r\n" + 
+                    "VALUES (?,?,?,?,?,?);";
+            // query string update sinhvien
+            public static final String UPDATE_SinhVien = "UPDATE qlsv.sinhvien SET TenSV =?, GioiTinh =?,NgaySinh =?, QueQuan =?,MaLop =? WHERE MaSV = ?;";
+            // column MaSV
+            
         }
         
         interface Subjects{

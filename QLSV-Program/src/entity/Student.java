@@ -28,7 +28,29 @@ public class Student {
 		this.country = country;
 		this.classCode = classCode;
 	}
-	@Override
+	
+	/**
+     * Create by: User - CMC
+     * Create date: Jan 2, 2019
+     * Modifier: User
+     * Modified date: Jan 2, 2019
+     * Description: ....
+     * Version 1.0
+     * @param studentName
+     * @param sex
+     * @param birthDay
+     * @param country
+     * @param classCode
+     */
+    public Student(String studentName, Boolean sex, String birthDay, String country, String classCode) {
+        super();
+        this.studentName = studentName;
+        this.sex = sex;
+        this.birthDay = birthDay;
+        this.country = country;
+        this.classCode = classCode;
+    }
+    @Override
 	public String toString() {
 		return "Student [studentCode=" + studentCode + ", studentName=" + studentName + ", sex=" + sex + ", birthDay="
 				+ birthDay + ", country=" + country + ", classCode=" + classCode + "]";

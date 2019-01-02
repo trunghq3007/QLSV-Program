@@ -18,20 +18,17 @@ public class StudentBLL implements BaseBLL<Student> {
 
 	@Override
 	public Student getByCode(String code) {
-		// TODO Auto-generated method stub
-		return null;
+		return studentDAL.getByCode(code);
 	}
 
 	@Override
 	public int insert(Student object) {
-		// TODO Auto-generated method stub
-		return 0;
+		return studentDAL.insert(object);
 	}
 
 	@Override
 	public int update(Student object) {
-		// TODO Auto-generated method stub
-		return 0;
+		return studentDAL.update(object);
 	}
 
 	@Override

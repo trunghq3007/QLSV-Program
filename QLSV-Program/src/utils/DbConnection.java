@@ -31,7 +31,7 @@ public class DbConnection {
         // url
         static final String URL = "jdbc:mysql://192.168.10.51:3306/qlsv";
         // userName
-        static final String USER_NAME = "root";
+        static final String USER_NAME = "remote";
         // passWord
         static final String PASSWORD = "123456";
 

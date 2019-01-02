@@ -4,6 +4,9 @@
 package view;
 
 import java.util.List;
+import java.util.Scanner;
+
+import org.apache.log4j.Logger;
 
 import bll.ClassBLL;
 import bll.CourseBLL;
@@ -25,7 +28,7 @@ import entity.TrainingSystem;
  * date: Dec 28, 2018 Description: .... Version 1.0
  */
 public class ManageStudent {
-
+    static Logger log = Logger.getLogger(ManageStudent.class);
 	/**
 	 * Create by: minhanh - CMC Create date: Dec 28, 2018 Modifier: minhanh Modified
 	 * date: Dec 28, 2018 Description: program manage student Version 1.0
@@ -34,13 +37,17 @@ public class ManageStudent {
 	 */
 	public static void main(String[] args) {
 
-		CourseBLL courseBLL = new CourseBLL();
+		/*CourseBLL courseBLL = new CourseBLL();
 		System.out.println(" List Course");
 		List<Course> courses = courseBLL.getAll();
+		log.info("Size of course:" + courses.size());
 		for (Course course : courses) {
 			System.out.println(course);
 		}
-
+		
+		
+		
+		
 		TrainingSystemBLL trainingsystemBLL = new TrainingSystemBLL();
 		System.out.println("List Training System");
 		List<TrainingSystem> trainingsystem = trainingsystemBLL.getAll();
@@ -68,22 +75,81 @@ public class ManageStudent {
 		for (Class class1 : classs) {
 			System.out.println(class1);
 		}
-
-		StudentBLL studentBLL = new StudentBLL();
-		System.out.println("List Student");
+*/
+		/*StudentBLL studentBLL = new StudentBLL();*/
+	/*	System.out.println("List Student");
 		List<Student> student = studentBLL.getAll();
 		for (Student student2 : student) {
 			System.out.println(student2);
-		}
+		}*/
+	/*	System.out.println("-----");
+		Student student = studentBLL.getByCode("77777");
+        System.out.println(student);
+		*/
+		// studentBLL.insert(new Student("77777", "Minh Anh",true, "1995-07-20 00:00:00","Bac Giang", "MT3"));
+//		studentBLL.update("77777", "Minh Anh",true, "1995-07-20 00:00:00","Bac Giang", "MT3");
 		
-		
-		SubjectsBLL subjectsBLL = new SubjectsBLL();
+
+		/*SubjectsBLL subjectsBLL = new SubjectsBLL();
 		System.out.println("List Subject");
 		List<Subjects> subjects = subjectsBLL.getAll();
 		for (Subjects subjects2 : subjects) {
 			System.out.println(subjects2);
-		}
-	
+		}*/
+		
+		
+		Scanner sc = new Scanner(System.in);
+		   StudentBLL studentBLL = new StudentBLL();
+		System.out.println("Moi nhap vao lua chon cua ban ? "+"\n");
+				
+		System.out.println("-----1.hien bang--------------");
+		System.out.println("-----2.them vao du lieu-------");
+		System.out.println("-----3.cap nhat du lieu-------");
+		System.out.println("-----4.xoa du lieu -----------");
+		System.out.println("=========> Lua chon : ");
+		int n = sc.nextInt();
+		switch (n) {
+        case 1:
+                System.out.println("List Student");
+                List<Student> student = studentBLL.getAll();
+                for (Student student2 : student) {
+                    System.out.println(student2);
+                }
+
+            break;
+        case 2:
+            Scanner scanner=new Scanner(System.in);            
+            System.out.println("Nhap vao thong tin can nhap :");
+            Student s = new Student();
+            System.out.println("ma sinh vien : ");
+            s.setStudentCode(scanner.nextLine());            
+            System.out.println("ho ten : ");            
+            s.setStudentName(scanner.nextLine());
+            System.out.println("Gioi Tinh : ");
+            s.setSex(sc.nextBoolean());
+            System.out.println("Ngay sinh : ");
+            s.setBirthDay(scanner.nextLine());
+            System.out.println("Que Quan : ");
+            s.setCountry(scanner.nextLine());
+            System.out.println("Ma Lop");
+            s.setClassCode(scanner.nextLine());
+            if(studentBLL.insert(s)==0)
+            {
+                System.out.println("nhap lai nhe : ");
+            }
+            else {
+                System.out.println("thanh cong roi :");
+            }
+                
+            
+            break;
+        case 3: 
+            
+            break;
+            
+        default:
+            break;
+        }
 	}
 	
 		
