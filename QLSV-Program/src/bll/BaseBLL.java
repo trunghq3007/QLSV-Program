@@ -95,5 +95,11 @@ public interface BaseBLL<T> {
         List<T> fillter();
         
         void display(List<T> list);
+        
+        String show();
+        
+        StringBuilder showBuilder();
+        
+        StringBuffer showBuffer();
 
 }
