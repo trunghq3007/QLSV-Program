@@ -39,7 +39,7 @@ public class Validator {
      * @param id
      * @return
      */
-    public static boolean check_ID_stu(String gender) {
+    public static boolean check_Gender(String gender) {
         Pattern pattern = Pattern.compile(VALIDATE_GENDER);
         Matcher matcher = pattern.matcher(gender);
         if(matcher.matches()){
