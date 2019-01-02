@@ -47,10 +47,10 @@ public class StudentBLL implements BaseBLL<Student> {
 		    String studentCode = ValidateInput.getString("Input studentCode: ",
 			    "The length of code must be between 0 ~15! Input again:  ", 0, 50);
 		    String studentName = ValidateInput.getName("Input studentName: ", "You must input a name!");
-		    boolean studentSex = ValidateInput.getSex("Input studentSex (Nam/Nu): ", "Must be (Nam/Nu):  ");
-		    String dateOfBirth = ValidateInput.getDOB("Input date of birth: ",
-			    "You must input a date of birth: ");
-		    String homeTown = ValidateInput.getString("Input homeTown ",
+		    boolean studentSex = ValidateInput.getSex("Input studentSex (Male/Female): ", "Must be (Male/Female):  ");
+		    String dateOfBirth = ValidateInput.getDOB("Input date of birth (yyyy-MM-dd): ",
+			    "You must input a date of birth follow the form (yyyy-MM-dd): ");
+		    String homeTown = ValidateInput.getString("Input homeTown :",
 			    "The length of name must be between 0 ~50! Input again:  ", 0, 50);
 		    String classCode = ValidateInput.getString("Input classCode: ",
 			    "The length of name must be between 0 ~50! Input again:  ", 0, 50);
@@ -122,7 +122,7 @@ public class StudentBLL implements BaseBLL<Student> {
 		}
 	    }
 	} catch (Exception ex) {
-	    System.out.println(ex);
+	    ex.printStackTrace();
 	}
 
     }

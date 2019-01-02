@@ -16,6 +16,7 @@ public class CourseBLL implements BaseBLL<Course> {
     public void showCourseListChoice() throws Exception {
 	Course courseInput = null;
 	boolean isRunning = true;
+	
 	while (isRunning) {
 	    System.out.println("-----------COURSE MANAGEMENT");
 	    System.out.println("1. Get all course");

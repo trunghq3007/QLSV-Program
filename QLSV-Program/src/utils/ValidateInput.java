@@ -12,6 +12,7 @@ import entity.Class;
 
 public class ValidateInput {
     static Scanner scan = new Scanner(System.in);
+    final static String DATE_FORMAT = "yyyy-MM-dd";
 
     static public double getDouble(String mess, String error, double min, double max) {
 	String doubleNum;
@@ -85,7 +86,7 @@ public class ValidateInput {
 	return email;
     }
 
-    static public String getName(String mess, String error) {// get name with only 1 word
+    static public String getName(String mess, String error) {
 	String name = "";
 	boolean checked = false;
 	while (!checked) {
@@ -98,8 +99,6 @@ public class ValidateInput {
 	}
 	return name;
     }
-
-    final static String DATE_FORMAT = "yyyy-MM-dd";
 
     static public String getDOB(String mess, String error) {
 	String stringDOB = null;
@@ -147,13 +146,13 @@ public class ValidateInput {
 	while (!check) {
 	    System.out.println(mess);
 	    sex = scan.nextLine();
-	    if ("Nam".equals(sex) || "Nữ".equals(sex) || "Nu".equals(sex) || "nam".equals(sex) || "nu".equals(sex)) {
+	    if ("Male".equals(sex) || "Female".equals(sex) || "male".equals(sex) || "female".equals(sex)) {
 		check = true;
 	    } else {
 		System.out.println(error);
 	    }
 	}
-	if ("Nam".equals(sex) || "nam".equals(sex)) {
+	if ("Male".equals(sex) || "male".equals(sex)) {
 	    returnValue = true;
 	} else
 	    returnValue = false;
