@@ -51,11 +51,14 @@ public class ManageStudent {
 		menuCourse();
 
 		int choiseCourse = -1;
+		boolean check;
 		do {
-			System.out.print("Nhap lua chon quan ly khoa hoc: ");
+			check = true;
+			System.out.print("Nhập lựa chọn quản lý khóa học: ");
 			choiseCourse = Integer.parseInt(scanner.nextLine());
 			if (choiseCourse < 0 || choiseCourse > 5) {
-				System.out.println("Vui lòng nhập lại");
+				check = true;
+				System.out.println("------------> Vui lòng nhập lại");
 			}
 			switch (choiseCourse) {
 			case 1:
@@ -85,34 +88,40 @@ public class ManageStudent {
 					System.out.println("Xóa thành công");
 				}
 				break;
+			case 0:
+				check = false;
+				break;
 
 			default:
 				System.out.println("default");
 				break;
 			}
-		} while (choiseCourse < 0 || choiseCourse > 5);
+		} while (check);
 		scanner.close();
 
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Thuan 2");
 		Scanner scanner = new Scanner(System.in);
 		int choise = -1;
+		boolean check = true;
 		do {
 			menu();
 			System.out.print("Nhập lựa chọn của bạn: ");
 			try {
 				choise = Integer.parseInt(scanner.nextLine());
 			} catch (Exception e) {
-				System.out.println("Error input: " + e.getMessage());
+				// System.out.println("error: " + e.getMessage());
+			} finally {
+
 			}
 			if (choise < 0 || choise > 8) {
-				System.out.println("Vui lòng nhập lại lựa chọn");
+				System.out.println("-------------> Vui lòng nhập lại lựa chọn");
 			}
 			switch (choise) {
 			case 1:
 				System.out.println("============== Menu Quản lý khoa =============");
+
 				menu();
 				break;
 			case 2:
@@ -120,12 +129,13 @@ public class ManageStudent {
 				break;
 			case 0:
 				System.out.println("Exit");
+				check = false;
 				break;
 			default:
 				break;
 			}
 
-		} while (choise < 0 || choise > 8);
+		} while (check);
 		scanner.close();
 
 	}
