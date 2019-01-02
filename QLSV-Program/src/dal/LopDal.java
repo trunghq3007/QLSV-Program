@@ -193,4 +193,22 @@ public class LopDal implements BaseDAL<Lop>{
         return list;
     }
 
+    @Override
+    public String show() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public StringBuilder showBuilder() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public StringBuffer showBuffer() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

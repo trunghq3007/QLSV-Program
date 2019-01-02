@@ -116,5 +116,23 @@ public class MarkDal implements BaseDAL<Mark> {
         return null;
     }
 
+    @Override
+    public String show() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public StringBuilder showBuilder() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public StringBuffer showBuffer() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 
 }

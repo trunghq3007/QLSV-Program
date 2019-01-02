@@ -86,7 +86,11 @@ public interface BaseDAL<T> {
         List<T> fillter(String sequenceFilter);
 
 
+        String show();
         
+        StringBuilder showBuilder();
+        
+        StringBuffer showBuffer();
 
      
 

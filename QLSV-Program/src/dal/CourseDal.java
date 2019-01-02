@@ -165,5 +165,29 @@ public class CourseDal implements BaseDAL<Course> {
         return list;
     }
 
+    @Override
+    public String show() {
+        List<Course> courses = getAll();
+        String stringData = "";
+        
+        for (Course course : courses) {
+            stringData += course.getCourseCode() + "\t" + course.getCourseName() + "\t";
+       
+        }
+        return stringData;
+    }
+
+    @Override
+    public StringBuilder showBuilder() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public StringBuffer showBuffer() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
     
 }
