@@ -1,6 +1,10 @@
 package entity;
 
 
+/**
+ * @author user
+ *
+ */
 public class Student {
    
     private String studentCode;
@@ -9,11 +13,17 @@ public class Student {
     private String dateOfBirth;
     private String homeTown;
     private String classCode;
-    
+    /**
+     * @author user
+     *
+     */
     public Student() {
 	
     }
-    
+    /**
+     * @author user
+     *
+     */
     public Student(String studentCode, String studentName, String studentSex, String dateOfBirth, String homeTown,
 	    String classCode) {
 	super();
@@ -30,6 +40,7 @@ public class Student {
 	return "Student [studentCode=" + studentCode + ", studentName=" + studentName + ", studentSex=" + studentSex
 		+ ", dateOfBirth=" + dateOfBirth + ", homeTown=" + homeTown + ", classCode=" + classCode + "]";
     }
+    
     public String getStudentCode() {
         return studentCode;
     }

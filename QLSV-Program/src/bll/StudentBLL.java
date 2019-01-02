@@ -15,13 +15,13 @@ public class StudentBLL implements BaseBLL<Student>{
 	Student studentInput = null;
 	boolean isRunning = true;
 	while (isRunning) {
-	    System.out.println("-----------COURSE MANAGEMENT");
-	    System.out.println("1. Get all course");
-	    System.out.println("2. Insert course");
-	    System.out.println("3. Update course information");
-	    System.out.println("4. Delete course by code");
-	    System.out.println("5. Search course by code");
-	    System.out.println("6. Search course by any information");
+	    System.out.println("-----------STUDENT MANAGEMENT");
+	    System.out.println("1. Get all student");
+	    System.out.println("2. Insert student");
+	    System.out.println("3. Update student information");
+	    System.out.println("4. Delete student by code");
+	    System.out.println("5. Search student by code");
+	    System.out.println("6. Search student by any information");
 	    System.out.println("7. Stop");
 	    System.out.println("Your choice is: ");
 	    int inputChoice = ValidateInput.getInt("", "Your input must between 0 ~ 7", 0, 7);
