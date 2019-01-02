@@ -17,7 +17,7 @@ import java.sql.Statement;
  * Version 1.0
  */
 public class Dbconnection {
-	private static String DB_URL = "jdbc:mysql://192.168.10.51:3306/qlsv";
+	private static String DB_URL = "jdbc:mysql://192.168.10.51:3306/qlsv?autoReconnect=true&useSSL=false";
 	private static String USER_NAME = "remote";
 	private static String PASSWORD = "123456";
 	/*private static String DB_URL = "jdbc:mysql://localhost:3306/day3_sqllop";
@@ -49,9 +49,7 @@ public class Dbconnection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
-			System.out.println("connect successfully!");
 		} catch (Exception ex) {
-			System.out.println("connect failure!");
 			ex.printStackTrace();
 		}
 		return conn;

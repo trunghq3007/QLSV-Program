@@ -5,6 +5,8 @@ package view;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import bll.CourseBLL;
 import entity.Course;
 
@@ -17,6 +19,7 @@ import entity.Course;
  * Version 1.0
  */
 public class ManageStudent {
+	static Logger log = Logger.getLogger(ManageStudent.class);
 
 	/**
 	 * Create by: HQTrung - CMC
@@ -28,6 +31,10 @@ public class ManageStudent {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		log.debug(" Start main application");
+		log.warn("Start main application");
+		log.error("Start main application");
+		log.info("Start main application");
 		System.out.println("------Manage Student------");
 		System.out.println("1. Course");
 		System.out.println("2. Mark");
@@ -85,9 +92,7 @@ public class ManageStudent {
 		CourseBLL courseBLL = new CourseBLL();
 		switch (choise) {
 		case "1":
-			for(Course i :courseBLL.getAll()) {
-				System.out.println(i);
-			}
+			System.out.println(courseBLL.stringBuilder());
 			course();
 			break;
 		case "2":
@@ -96,30 +101,39 @@ public class ManageStudent {
 			System.out.println("Nhap ten: ");
 			String name = sc.nextLine();
 			Course object = new Course(code, name);
-			courseBLL.insert(object);
-			for(Course i :courseBLL.getAll()) {
-				System.out.println(i);
+			if (courseBLL.insert(object)==1) {
+				System.out.println("OK");
+			} else {
+				System.out.println("Fails!");
 			}
+			System.out.println(courseBLL.stringBuilder());
 			course();
 			break;
 		case "3":
 			System.out.println("Id course update: ");
 			String codeupdate = sc.nextLine();
+			System.out.println("name course update: ");
 			String nameUpdate = sc.nextLine();
 			Course object1 = new Course(codeupdate, nameUpdate);
-			courseBLL.udpate(object1);
-			for(Course i :courseBLL.getAll()) {
-				System.out.println(i);
+			if (courseBLL.udpate(object1) != -1) {
+				System.out.println("OK!");
+			} else {
+				System.out.println("Fails!");
 			}
+
+			System.out.println(courseBLL.stringBuilder());
 			course();
 			break;
 		case "4":
-			System.out.println("Nhap id muon xoa");
+			System.out.println("Id delete: ");
 			String codeDel = sc.nextLine();
-			courseBLL.delete(courseBLL.getByCode(codeDel));
-			for(Course i :courseBLL.getAll()) {
-				System.out.println(i);
+			if (courseBLL.delete(courseBLL.getByCode(codeDel)) != -1) {
+				System.out.println("OK!");
+			} else {
+				System.out.println("Fails!");
 			}
+
+			System.out.println(courseBLL.stringBuilder());
 			course();
 			break;
 		case "5":
@@ -128,7 +142,7 @@ public class ManageStudent {
 			String nameFillter = scannerFillter.nextLine();
 			System.out.println(nameFillter);
 			//
-			for(Course i :courseBLL.fillter(nameFillter)) {
+			for (Course i : courseBLL.fillter(nameFillter)) {
 				System.out.println(i);
 			}
 			course();

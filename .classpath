@@ -3,5 +3,6 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="QLSV-Program/src"/>
 	<classpathentry kind="lib" path="/home/thanh/Downloads/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="/home/thanh/Downloads/log4j.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

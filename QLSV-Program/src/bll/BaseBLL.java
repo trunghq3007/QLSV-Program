@@ -79,4 +79,34 @@ public interface BaseBLL<T> {
 	 * @param sequnceFillter
 	 */
 	List<T> fillter(String sequnceFillter);
+	/**
+	 * Create by: thanh - CMC
+	 * Create date: Jan 2, 2019
+	 * Modifier: thanh
+	 * Modified date: Jan 2, 2019
+	 * Description: 
+	 * Version 1.0
+	 * @return
+	 */
+	String show();
+	/**
+	 * Create by: thanh - CMC
+	 * Create date: Jan 2, 2019
+	 * Modifier: thanh
+	 * Modified date: Jan 2, 2019
+	 * Description: 
+	 * Version 1.0
+	 * @return
+	 */
+	StringBuffer stringBuffer();
+	/**
+	 * Create by: thanh - CMC
+	 * Create date: Jan 2, 2019
+	 * Modifier: thanh
+	 * Modified date: Jan 2, 2019
+	 * Description: 
+	 * Version 1.0
+	 * @return
+	 */
+	StringBuilder stringBuilder();
 }
