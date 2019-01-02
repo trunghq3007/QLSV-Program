@@ -96,7 +96,7 @@ public class ManageStudent {
 	}
 
 	public static void main(String[] args) {
-
+		System.out.println("Thuan");
 		Scanner scanner = new Scanner(System.in);
 		int choise = -1;
 		do {
