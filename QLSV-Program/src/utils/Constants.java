@@ -25,8 +25,8 @@ public interface Constants {
 				+ "QueQuan=?, MaLop = ? where MaSV = ?";
 
 		public static final String GET_STUDENT_BY_FILTER = "SELECT * FROM " + STUDENT + " WHERE " + STUDENT_CODE
-				+ " LIKE '%?%' OR " + STUDENT_NAME + " LIKE '%?%' OR " + STUDENT_SEX + " LIKE '%?%' OR " + STUDENT_SEX + " LIKE %?% OR "
-				+  STUDENT_DOB  + " LIKE '%?%' OR "+ STUDENT_HOMETOWN + " LIKE '%?%' OR "+STUDENT_CLASSCODE+ " LIKE %?% ";
+				+ " LIKE ? OR " + STUDENT_NAME + " LIKE ? OR " + STUDENT_SEX + " LIKE ? OR " + STUDENT_SEX + " LIKE ? OR "
+				+  STUDENT_DOB  + " LIKE ? OR "+ STUDENT_HOMETOWN + " LIKE ? OR "+STUDENT_CLASSCODE+ " LIKE ? ";
 		public static final String DELETE_STUDENT = "delete from " + STUDENT +" where "+STUDENT_CODE+" = ?";
 	}
 

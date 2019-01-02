@@ -1,6 +1,9 @@
 package utils;
 
+import java.util.List;
 import java.util.Scanner;
+
+import entity.Course;
 
 public class ValidateInput {
     static Scanner scan = new Scanner(System.in);
@@ -108,6 +111,34 @@ public class ValidateInput {
 	    } else {
 		System.out.println(error);
 	    }
+	}
+	return string;
+    }
+
+    static public String getCodeValidate(List<Course> courses, String mess, String error, int min, int max) {
+	String string = null;
+	boolean check = true;
+
+	while (check) {
+	    System.out.println(mess);
+	    string = scan.nextLine();
+
+	    if (string.length() >= min && string.length() <= max) {
+		check = false;
+	    } else {
+		System.out.println(error);
+		break;
+	    }
+	    check = false;
+	    for (Course x : courses) {
+		if (string.equals(x.getCourseCode())) {
+		    return string;
+		}
+	    }
+//		check = false;
+	    System.out.println("Can't find in data!");
+	    check = true;
+	    continue;
 	}
 	return string;
     }

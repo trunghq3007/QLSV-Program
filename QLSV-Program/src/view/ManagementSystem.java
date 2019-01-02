@@ -34,7 +34,7 @@ public class ManagementSystem {
 	    System.out.println("2. Student management system");
 	    System.out.println("3. Class management system");
 	    System.out.println("4. Faculty management system");
-	    System.out.println("5. Point management system");
+	    System.out.println("5. Mark management system");
 	    System.out.println("6. Subject management system");
 	    System.out.println("7. Training system management system");
 	    System.out.println("8. Exit");

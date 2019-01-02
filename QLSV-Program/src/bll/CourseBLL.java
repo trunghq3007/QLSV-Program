@@ -38,8 +38,9 @@ public class CourseBLL implements BaseBLL<Course> {
 		break;
 	    case 2:
 		// Add course to the database
+		courses = getAll();
 		String courseCode = ValidateInput.getString("Input courseCode: ",
-			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
+			"The length of code must be between 0 ~15! Input again:  ",0, 50);
 		String courseName = ValidateInput.getString("Input courseName: ",
 			"The length of name must be between 0 ~50! Input again:  ", 0, 50);
 		courseInput = new Course(courseCode, courseName);
@@ -51,10 +52,11 @@ public class CourseBLL implements BaseBLL<Course> {
 		break;
 	    case 3:
 		// Update a course
-		String courseCodeUpdate = ValidateInput.getString("Input courseCode: ",
+		courses = getAll();
+		String courseCodeUpdate = ValidateInput.getCodeValidate(courses,"Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		String courseNameUpdate = ValidateInput.getString("Input courseName instead: ",
-			"The length of name must be between 0 ~50! Input again:  ", 0, 50);
+			"The length of name must be between 0 ~50! Input again:  ", 0, 20);
 		courseInput = new Course(courseCodeUpdate, courseNameUpdate);
 		update(courseInput);
 		courses = getAll();
@@ -64,7 +66,7 @@ public class CourseBLL implements BaseBLL<Course> {
 		break;
 	    case 4:
 		// Delete a course
-		inputCode = ValidateInput.getString("Input courseCode you want to delete: ",
+		inputCode = ValidateInput.getCodeValidate(courses,"Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		delete(getByCode(inputCode));
 		courses = getAll();
@@ -75,15 +77,14 @@ public class CourseBLL implements BaseBLL<Course> {
 		
 	    case 5:
 		System.out.println("Search your course");
-		System.out.println("Please input your code of course to find: ");
-		inputCode = ValidateInput.getString("Input courseCode: ",
+		inputCode = ValidateInput.getCodeValidate(courses,"Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		Course courses1 = getByCode(inputCode);
 		System.out.println(courses1);
 		break;
 	    case 6:
 		inputCode = ValidateInput.getString("Input courseCode: ",
-			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
+			"The length of code must be between 0 ~50! Input again:  ", 0, 50);
 		courses = filter(inputCode);
 		for (Course course : courses) {
 		    System.out.println(course);
