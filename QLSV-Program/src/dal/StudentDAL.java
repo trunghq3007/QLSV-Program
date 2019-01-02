@@ -29,7 +29,7 @@ public class StudentDAL implements BaseDAL<Student> {
 		Student student = new Student();
 		student.setStudentCode(resultSet.getString(utils.Constants.Students.STUDENT_CODE));
 		student.setStudentName(resultSet.getString(utils.Constants.Students.STUDENT_NAME));
-		student.setStudentSex(resultSet.getString(utils.Constants.Students.STUDENT_SEX));
+		student.setStudentSex(resultSet.getBoolean(utils.Constants.Students.STUDENT_SEX));
 		student.setDateOfBirth(resultSet.getString(utils.Constants.Students.STUDENT_DOB));
 		student.setHomeTown(resultSet.getString(utils.Constants.Students.STUDENT_HOMETOWN));
 		student.setClassCode(resultSet.getString(utils.Constants.Students.STUDENT_CLASSCODE));
@@ -59,7 +59,7 @@ public class StudentDAL implements BaseDAL<Student> {
 	    while (resultSet.next()) {
 		returnValue = new Student(resultSet.getString(utils.Constants.Students.STUDENT_CODE),
 			resultSet.getString(utils.Constants.Students.STUDENT_NAME),
-			resultSet.getString(utils.Constants.Students.STUDENT_SEX),
+			resultSet.getBoolean(utils.Constants.Students.STUDENT_SEX),
 			resultSet.getString(utils.Constants.Students.STUDENT_DOB),
 			resultSet.getString(utils.Constants.Students.STUDENT_HOMETOWN),
 			resultSet.getString(utils.Constants.Students.STUDENT_CLASSCODE));
@@ -84,7 +84,7 @@ public class StudentDAL implements BaseDAL<Student> {
 	    statement = connect.prepareStatement(query);
 	    statement.setString(1, student.getStudentCode());
 	    statement.setString(2, student.getStudentName());
-	    statement.setString(3, student.getStudentSex());
+	    statement.setBoolean(3, student.isStudentSex());
 	    statement.setString(4, student.getDateOfBirth());
 	    statement.setString(5, student.getHomeTown());
 	    statement.setString(6, student.getClassCode());
@@ -109,7 +109,7 @@ public class StudentDAL implements BaseDAL<Student> {
 	    statement = connect.prepareStatement(query);
 	    statement.setString(6, student.getStudentCode());
 	    statement.setString(1, student.getStudentName());
-	    statement.setString(2, student.getStudentSex());
+	    statement.setBoolean(2, student.isStudentSex());
 	    statement.setString(3, student.getDateOfBirth());
 	    statement.setString(4, student.getHomeTown());
 	    statement.setString(5, student.getClassCode());
@@ -167,7 +167,7 @@ public class StudentDAL implements BaseDAL<Student> {
 		Student student = new Student();
 		student.setStudentCode(resultSet.getString(utils.Constants.Students.STUDENT_CODE));
 		student.setStudentName(resultSet.getString(utils.Constants.Students.STUDENT_NAME));
-		student.setStudentSex(resultSet.getString(utils.Constants.Students.STUDENT_SEX));
+		student.setStudentSex(resultSet.getBoolean(utils.Constants.Students.STUDENT_SEX));
 		student.setDateOfBirth(resultSet.getString(utils.Constants.Students.STUDENT_DOB));
 		student.setHomeTown(resultSet.getString(utils.Constants.Students.STUDENT_HOMETOWN));
 		student.setClassCode(resultSet.getString(utils.Constants.Students.STUDENT_CLASSCODE));

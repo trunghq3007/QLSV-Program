@@ -99,21 +99,23 @@ public class ValidateInput {
     }
 
     
-    final static String DATE_FORMAT = "dd-MM-yyyy";
+    final static String DATE_FORMAT = "yyyy-MM-dd";
     static public String getDOB(String mess, String error) {
-	String DOB = "";
+	String stringDOB = null;
 	boolean dateIsValid = false;
 	while (!dateIsValid) {
+	    System.out.print(mess);
+	    stringDOB = scan.nextLine();
 	    try {
 		DateFormat df = new SimpleDateFormat(DATE_FORMAT);
 		df.setLenient(false);
-		df.parse(DOB);
+		df.parse(stringDOB);
 		dateIsValid = true;
 	    } catch (ParseException e) {
 		System.out.println(error);
 	    }
 	}
-	return DOB;
+	return stringDOB;
     }
 
     static public String getString(String mess, String error, int min, int max) {
@@ -135,6 +137,25 @@ public class ValidateInput {
 	    }
 	}
 	return string;
+    }
+    static public boolean getSex (String mess, String error) {
+	String sex = null;
+	boolean returnValue;
+	boolean check = false;
+	while(!check) {
+	    System.out.println(mess);
+	    sex = scan.nextLine();
+	    if("Nam".equals(sex) || "Nữ".equals(sex) || "Nu".equals(sex)||"nam".equals(sex)||"nu".equals(sex))  {
+		check = true;
+	    }
+	    else {
+		System.out.println(error);
+	    }
+	}
+	if("Nam".equals(sex)||"nam".equals(sex)) {
+	    returnValue = true;
+	}else returnValue = false;
+	return returnValue;
     }
 
     static public String getCodeValidateCourse(List<Course> courses, String mess, String error, int min, int max) {
@@ -193,4 +214,5 @@ public class ValidateInput {
    	}
    	return string;
        }
+    
 }
