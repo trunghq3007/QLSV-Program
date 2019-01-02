@@ -1,9 +1,13 @@
 package utils;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
 import entity.Course;
+import entity.Student;
 
 public class ValidateInput {
     static Scanner scan = new Scanner(System.in);
@@ -94,6 +98,24 @@ public class ValidateInput {
 	return name;
     }
 
+    
+    final static String DATE_FORMAT = "dd-MM-yyyy";
+    static public String getDOB(String mess, String error) {
+	String DOB = "";
+	boolean dateIsValid = false;
+	while (!dateIsValid) {
+	    try {
+		DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+		df.setLenient(false);
+		df.parse(DOB);
+		dateIsValid = true;
+	    } catch (ParseException e) {
+		System.out.println(error);
+	    }
+	}
+	return DOB;
+    }
+
     static public String getString(String mess, String error, int min, int max) {
 	String string = null;
 	boolean check = false;
@@ -115,7 +137,7 @@ public class ValidateInput {
 	return string;
     }
 
-    static public String getCodeValidate(List<Course> courses, String mess, String error, int min, int max) {
+    static public String getCodeValidateCourse(List<Course> courses, String mess, String error, int min, int max) {
 	String string = null;
 	boolean check = true;
 
@@ -142,4 +164,33 @@ public class ValidateInput {
 	}
 	return string;
     }
+    
+    
+    static public String getCodeValidateStudent(List<Student> students, String mess, String error, int min, int max) {
+   	String string = null;
+   	boolean check = true;
+
+   	while (check) {
+   	    System.out.println(mess);
+   	    string = scan.nextLine();
+
+   	    if (string.length() >= min && string.length() <= max) {
+   		check = false;
+   	    } else {
+   		System.out.println(error);
+   		break;
+   	    }
+   	    check = false;
+   	    for (Student x : students) {
+   		if (string.equals(x.getStudentCode())) {
+   		    return string;
+   		}
+   	    }
+//   		check = false;
+   	    System.out.println("Can't find in data!");
+   	    check = true;
+   	    continue;
+   	}
+   	return string;
+       }
 }

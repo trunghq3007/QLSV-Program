@@ -7,7 +7,7 @@ import utils.ValidateInput;
 
 public class CourseBLL implements BaseBLL<Course> {
     CourseDAL courseDAL;
-
+    static String inputCode = null;
     public CourseBLL() {
 	courseDAL = new CourseDAL();
     }
@@ -26,7 +26,6 @@ public class CourseBLL implements BaseBLL<Course> {
 	    System.out.println("7. Stop");
 	    System.out.println("Your choice is: ");
 	    int inputChoice = ValidateInput.getInt("", "Your input must between 0 ~ 7", 0, 7);
-	    String inputCode = null;
 	    List<Course> courses = null;
 	    switch (inputChoice) {
 	    // Show the list of course
@@ -53,7 +52,7 @@ public class CourseBLL implements BaseBLL<Course> {
 	    case 3:
 		// Update a course
 		courses = getAll();
-		String courseCodeUpdate = ValidateInput.getCodeValidate(courses,"Input courseCode: ",
+		String courseCodeUpdate = ValidateInput.getCodeValidateCourse(courses,"Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		String courseNameUpdate = ValidateInput.getString("Input courseName instead: ",
 			"The length of name must be between 0 ~50! Input again:  ", 0, 20);
@@ -66,7 +65,8 @@ public class CourseBLL implements BaseBLL<Course> {
 		break;
 	    case 4:
 		// Delete a course
-		inputCode = ValidateInput.getCodeValidate(courses,"Input courseCode: ",
+		courses = getAll();
+		inputCode = ValidateInput.getCodeValidateCourse(courses,"Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		delete(getByCode(inputCode));
 		courses = getAll();
@@ -76,14 +76,15 @@ public class CourseBLL implements BaseBLL<Course> {
 		break;
 		
 	    case 5:
+		courses = getAll();
 		System.out.println("Search your course");
-		inputCode = ValidateInput.getCodeValidate(courses,"Input courseCode: ",
+		inputCode = ValidateInput.getCodeValidateCourse(courses,"Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		Course courses1 = getByCode(inputCode);
 		System.out.println(courses1);
 		break;
 	    case 6:
-		inputCode = ValidateInput.getString("Input courseCode: ",
+		inputCode = ValidateInput.getString("Input which you want to search:  ",
 			"The length of code must be between 0 ~50! Input again:  ", 0, 50);
 		courses = filter(inputCode);
 		for (Course course : courses) {

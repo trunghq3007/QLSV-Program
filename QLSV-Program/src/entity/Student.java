@@ -5,7 +5,7 @@ public class Student {
    
     private String studentCode;
     private String studentName;
-    private boolean studentSex;
+    private String studentSex;
     private String dateOfBirth;
     private String homeTown;
     private String classCode;
@@ -14,7 +14,7 @@ public class Student {
 	
     }
     
-    public Student(String studentCode, String studentName, boolean studentSex, String dateOfBirth, String homeTown,
+    public Student(String studentCode, String studentName, String studentSex, String dateOfBirth, String homeTown,
 	    String classCode) {
 	super();
 	this.studentCode = studentCode;
@@ -42,10 +42,10 @@ public class Student {
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
-    public boolean isStudentSex() {
+    public String getStudentSex() {
         return studentSex;
     }
-    public void setStudentSex(boolean studentSex) {
+    public void setStudentSex(String studentSex) {
         this.studentSex = studentSex;
     }
     public String getDateOfBirth() {

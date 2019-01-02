@@ -130,7 +130,6 @@ public class CourseDAL implements BaseDAL<Course> {
 
     @Override
     public List<Course> filter(String sequenceFilter) throws Exception {
-
 	List<Course> courses = new ArrayList<Course>();
 	PreparedStatement statement = null;
 	ResultSet resultSet = null;
