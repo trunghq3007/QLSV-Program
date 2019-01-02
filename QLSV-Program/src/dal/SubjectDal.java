@@ -13,9 +13,11 @@ import entity.Subject;
 import utils.Constants;
 import utils.Dbconnection;
 
-public class SubjectDal implements BaseDAL<Subject>{
+public class SubjectDal implements BaseDAL<Subject> {
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see dal.BaseDAL#getAll()
      */
     @Override
@@ -23,18 +25,18 @@ public class SubjectDal implements BaseDAL<Subject>{
         Connection connection = Dbconnection.connect();
         Statement statement = null;
         ResultSet resultSet = null;
-        
+
         List<Subject> list = new ArrayList<>();
         Subject Subject = null;
         try {
             statement = connection.createStatement();
             resultSet = statement.executeQuery(Constants.Subject.SELECT_ALL);
-            
-            while(resultSet.next()) {
+
+            while (resultSet.next()) {
                 String SubjectCode = resultSet.getString(1);
                 String SubjectName = resultSet.getString(2);
                 int creditsNumber = resultSet.getInt(3);
-                
+
                 Subject = new Subject(SubjectCode, SubjectName, creditsNumber);
                 list.add(Subject);
             }
@@ -46,11 +48,13 @@ public class SubjectDal implements BaseDAL<Subject>{
             Dbconnection.closeStatement(statement);
             Dbconnection.closeConnection(connection);
         }
-        
+
         return list;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see dal.BaseDAL#getByCode(java.lang.String)
      */
     @Override
@@ -63,13 +67,13 @@ public class SubjectDal implements BaseDAL<Subject>{
             prepared = connection.prepareStatement(Constants.Subject.GET_BY_CODE);
             prepared.setString(1, code);
             resultSet = prepared.executeQuery();
-            
-            if(resultSet.next()) {
+
+            if (resultSet.next()) {
                 String SubjectName = resultSet.getString(2);
                 int creditsNumber = resultSet.getInt(3);
                 Subject = new Subject(code, SubjectName, creditsNumber);
             }
-            
+
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -81,7 +85,9 @@ public class SubjectDal implements BaseDAL<Subject>{
         return Subject;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see dal.BaseDAL#insert(java.lang.Object)
      */
     @Override
@@ -105,7 +111,9 @@ public class SubjectDal implements BaseDAL<Subject>{
         return result;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see dal.BaseDAL#update(java.lang.Object)
      */
     @Override
@@ -113,7 +121,7 @@ public class SubjectDal implements BaseDAL<Subject>{
         Connection connection = Dbconnection.connect();
         CallableStatement callable = null;
         int result = 0;
-        
+
         try {
             callable = connection.prepareCall(Constants.Subject.UPDATE_ALL);
             callable.setString(1, object.getSubjectName());
@@ -130,7 +138,9 @@ public class SubjectDal implements BaseDAL<Subject>{
         return result;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see dal.BaseDAL#delete(java.lang.String)
      */
     @Override
@@ -138,7 +148,7 @@ public class SubjectDal implements BaseDAL<Subject>{
         Connection connection = Dbconnection.connect();
         PreparedStatement prepared = null;
         int result = 0;
-        
+
         try {
             prepared = connection.prepareStatement(Constants.Subject.DELETE_ALL);
             prepared.setString(1, code);
@@ -153,7 +163,9 @@ public class SubjectDal implements BaseDAL<Subject>{
         return result;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see dal.BaseDAL#fillter(java.lang.String)
      */
     @Override
@@ -167,13 +179,13 @@ public class SubjectDal implements BaseDAL<Subject>{
             prepared = connection.prepareStatement(Constants.Subject.SEARCH);
             prepared.setString(1, "%" + sequenceFilter + "%");
             resultSet = prepared.executeQuery();
-            
-            while(resultSet.next()) {
+
+            while (resultSet.next()) {
                 String SubjectCode = resultSet.getString(1);
                 String SubjectName = resultSet.getString(2);
-                int creditsNumber = resultSet.getInt(3); 
+                int creditsNumber = resultSet.getInt(3);
                 Subject = new Subject(SubjectCode, SubjectName, creditsNumber);
-                
+
                 list.add(Subject);
             }
         } catch (SQLException e) {
