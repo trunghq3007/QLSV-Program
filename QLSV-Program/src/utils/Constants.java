@@ -92,7 +92,7 @@ public interface Constants {
 		public static final String UPDATE_COURSE = "update KhoaHoc set TenKhoaHoc=? where MaKhoaHoc=?";
 		public static final String DELETE_COURSE = "delete from KhoaHoc where MaKhoaHoc=?";
 		public static final String GET_BY_CODE_COURSE = "select * from KhoaHoc where MaKhoaHoc=?";
-		public static final String FILLTER_COURSE = "select * from KhoaHoc where TenKhoaHoc like'%?%'";
+		public static final String FILLTER_COURSE = "select * from KhoaHoc where TenKhoaHoc like ? or  MaKhoaHoc like ?";
 	}
 
 	/**

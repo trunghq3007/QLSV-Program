@@ -3,13 +3,10 @@
  */
 package view;
 
-import java.sql.Connection;
 import java.util.Scanner;
 
 import bll.CourseBLL;
-import dal.CourseDAL;
 import entity.Course;
-import utils.Constants;
 
 /**
  * Create by: HQTrung - CMC
@@ -127,9 +124,12 @@ public class ManageStudent {
 			break;
 		case "5":
 			System.out.println("Fillter: ");
-			String nameFillter = sc.nextLine();
+			Scanner scannerFillter = new Scanner(System.in);
+			String nameFillter = scannerFillter.nextLine();
+			System.out.println(nameFillter);
+			//
 			for(Course i :courseBLL.fillter(nameFillter)) {
-				System.out.println(i.getCourseName());
+				System.out.println(i);
 			}
 			course();
 			break;

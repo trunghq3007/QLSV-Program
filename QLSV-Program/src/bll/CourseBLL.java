@@ -28,7 +28,9 @@ public class CourseBLL implements BaseBLL<Course> {
 	}
 	@Override
 	public List<Course> getAll() {
+	        // log 
 		return couresDAL.getAll();
+		// 
 	}
 
 	@Override
