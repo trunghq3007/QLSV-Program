@@ -19,10 +19,10 @@ import java.sql.Statement;
 public class Dbconnection {
 	private static String DB_URL = "jdbc:mysql://192.168.10.51:3306/qlsv";
 	private static String USER_NAME = "remote";
-	private static String PASSWORD = "123456"; 
-//	private static String DB_URL = "jdbc:mysql://localhost:3306/day3_sqllop";
-//	private static String USER_NAME = "root";
-//	private static String PASSWORD = "root"; 
+	private static String PASSWORD = "123456";
+	/*private static String DB_URL = "jdbc:mysql://localhost:3306/day3_sqllop";
+	private static String USER_NAME = "root";
+	private static String PASSWORD = "root"; */
 
 //	public static void main(String[] args) {
 //		try {

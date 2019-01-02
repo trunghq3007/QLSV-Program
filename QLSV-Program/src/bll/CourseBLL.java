@@ -33,32 +33,27 @@ public class CourseBLL implements BaseBLL<Course> {
 
 	@Override
 	public Course getByCode(String code) {
-		// TODO Auto-generated method stub
-		return null;
+		return couresDAL.getByCode(code);
 	}
 
 	@Override
 	public int insert(Course object) {
-		// TODO Auto-generated method stub
-		return 0;
+		return couresDAL.insert(object);
 	}
 
 	@Override
 	public int udpate(Course object) {
-		// TODO Auto-generated method stub
-		return 0;
+		return couresDAL.udpate(object);
 	}
 
 	@Override
 	public int delete(Course object) {
-		// TODO Auto-generated method stub
-		return 0;
+		return couresDAL.delete(object);
 	}
 
 	@Override
 	public List<Course> fillter(String sequnceFillter) {
-		// TODO Auto-generated method stub
-		return null;
+		return couresDAL.fillter(sequnceFillter);
 	}
 
 }

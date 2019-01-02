@@ -48,5 +48,10 @@ public class Mark {
 	public void setSecondMark(int secondMark) {
 		this.secondMark = secondMark;
 	}
+	@Override
+	public String toString() {
+		return "Mark [studentCode=" + studentCode + ", subjectCode=" + subjectCode + ", semester=" + semester
+				+ ", firstMark=" + firstMark + ", secondMark=" + secondMark + "]";
+	}
 	
 }
