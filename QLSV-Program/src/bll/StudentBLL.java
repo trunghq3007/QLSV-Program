@@ -3,12 +3,14 @@ package bll;
 import java.util.List;
 import dal.StudentDAL;
 import entity.Student;
+import entity.Class;
 import utils.ValidateInput;
+import bll.ClassBLL;
 
 public class StudentBLL implements BaseBLL<Student> {
     StudentDAL studentDAL;
     static String inputCode = null;
-
+    
     public StudentBLL() {
 	studentDAL = new StudentDAL();
     }
@@ -16,6 +18,7 @@ public class StudentBLL implements BaseBLL<Student> {
     public void showStudentListChoice() throws Exception {
 	Student studentInput = null;
 	boolean isRunning = true;
+	ClassBLL classBLL = new ClassBLL();
 	try {
 	    while (isRunning) {
 		System.out.println("-----------STUDENT MANAGEMENT");
@@ -29,6 +32,7 @@ public class StudentBLL implements BaseBLL<Student> {
 		System.out.println("Your choice is: ");
 		int inputChoice = ValidateInput.getInt("", "Your input must between 0 ~ 7", 0, 7);
 		List<Student> students = null;
+		List<Class> classes = null;
 		switch (inputChoice) {
 		// Show the list of course
 		case 1:
@@ -59,8 +63,9 @@ public class StudentBLL implements BaseBLL<Student> {
 		    }
 		    break;
 		case 3:
-		    // Update a course
+		    // Update a student record by code
 		    students = getAll();
+		    classes = classBLL.getAll();
 		    String studentCodeUpdate = ValidateInput.getCodeValidateStudent(students, "Input studentCode: ",
 			    "The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		    String studentNameUpdate = ValidateInput.getName("Input studentName: ", "You must input a name!");
@@ -70,8 +75,9 @@ public class StudentBLL implements BaseBLL<Student> {
 			    "You must input a date of birth: ");
 		    String homeTownUpdate = ValidateInput.getString("Input homeTown ",
 			    "The length of name must be between 0 ~50! Input again:  ", 0, 50);
-		    String classCodeUpdate = ValidateInput.getString("Input classCode: ",
-			    "The length of name must be between 0 ~50! Input again:  ", 0, 50);
+//chua validate classCodeUpdate (phai trung class Code)
+		    String classCodeUpdate = ValidateInput.getCodeValidateClass(classes,"Input classCode: ",
+			    "The length of name must be between 0 ~15! Input again:  ", 0, 15);
 		    studentInput = new Student(studentCodeUpdate, studentNameUpdate, studentSexUpdate,
 			    dateOfBirthUpdate, homeTownUpdate, classCodeUpdate);
 		    update(studentInput);
@@ -81,7 +87,7 @@ public class StudentBLL implements BaseBLL<Student> {
 		    }
 		    break;
 		case 4:
-		    // Delete a course
+		    // Delete a student record by code
 		    students = getAll();
 		    inputCode = ValidateInput.getCodeValidateStudent(students, "Input studentCode: ",
 			    "The length of code must be between 0 ~15! Input again:  ", 0, 15);

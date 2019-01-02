@@ -8,6 +8,7 @@ import utils.ValidateInput;
 public class CourseBLL implements BaseBLL<Course> {
     CourseDAL courseDAL;
     static String inputCode = null;
+
     public CourseBLL() {
 	courseDAL = new CourseDAL();
     }
@@ -38,8 +39,20 @@ public class CourseBLL implements BaseBLL<Course> {
 	    case 2:
 		// Add course to the database
 		courses = getAll();
-		String courseCode = ValidateInput.getString("Input courseCode: ",
-			"The length of code must be between 0 ~15! Input again:  ",0, 50);
+		String courseCode = null;
+		boolean isValidated = true;
+		// Check validate in case if the input is duplicate with the courseCode from DB
+		while (isValidated) {
+		    courseCode = ValidateInput.getString("Input courseCode: ",
+			    "The length of code must be between 0 ~15! Input again:  ", 0, 50);
+		    if (!ValidateInput.isDuplicateCodeCourse(courses, courseCode)) {
+			break;
+		    } else {
+			System.out.println("The data is duplicated from the database!");
+		    }
+		    isValidated = true;
+		    continue;
+		}
 		String courseName = ValidateInput.getString("Input courseName: ",
 			"The length of name must be between 0 ~50! Input again:  ", 0, 50);
 		courseInput = new Course(courseCode, courseName);
@@ -52,7 +65,7 @@ public class CourseBLL implements BaseBLL<Course> {
 	    case 3:
 		// Update a course
 		courses = getAll();
-		String courseCodeUpdate = ValidateInput.getCodeValidateCourse(courses,"Input courseCode: ",
+		String courseCodeUpdate = ValidateInput.getCodeValidateCourse(courses, "Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		String courseNameUpdate = ValidateInput.getString("Input courseName instead: ",
 			"The length of name must be between 0 ~50! Input again:  ", 0, 20);
@@ -66,7 +79,7 @@ public class CourseBLL implements BaseBLL<Course> {
 	    case 4:
 		// Delete a course
 		courses = getAll();
-		inputCode = ValidateInput.getCodeValidateCourse(courses,"Input courseCode: ",
+		inputCode = ValidateInput.getCodeValidateCourse(courses, "Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		delete(getByCode(inputCode));
 		courses = getAll();
@@ -74,11 +87,11 @@ public class CourseBLL implements BaseBLL<Course> {
 		    System.out.println(course);
 		}
 		break;
-		
+
 	    case 5:
 		courses = getAll();
 		System.out.println("Search your course");
-		inputCode = ValidateInput.getCodeValidateCourse(courses,"Input courseCode: ",
+		inputCode = ValidateInput.getCodeValidateCourse(courses, "Input courseCode: ",
 			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
 		Course courses1 = getByCode(inputCode);
 		System.out.println(courses1);
@@ -146,5 +159,4 @@ public class CourseBLL implements BaseBLL<Course> {
 	return null;
     }
 
-    
 }

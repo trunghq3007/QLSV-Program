@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import entity.Course;
 import entity.Student;
+import entity.Class;
 
 public class ValidateInput {
     static Scanner scan = new Scanner(System.in);
@@ -62,7 +63,7 @@ public class ValidateInput {
 	while (!checked) {
 	    System.out.print(mess);
 	    phone = scan.nextLine();
-	    if (phone.matches("\\d+") && phone.length() >= minLength)
+	    if (phone.matches("(?:\\(\\d{3}\\)|\\d{3}[-]*)\\d{3}[-]*\\d{4}") && phone.length() >= minLength)
 		checked = true;
 	    else
 		System.out.println(error);
@@ -76,7 +77,7 @@ public class ValidateInput {
 	while (!checked) {
 	    System.out.print(mess);
 	    email = scan.nextLine();
-	    if (email.matches("[A-Za-z0-9]+(.[A-Za-z0-9]+)*@[A-Za-z0-9]+(.[A-Za-z0-9]+)+"))
+	    if (email.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$"))
 		checked = true;
 	    else
 		System.out.println(error);
@@ -98,8 +99,8 @@ public class ValidateInput {
 	return name;
     }
 
-    
     final static String DATE_FORMAT = "yyyy-MM-dd";
+
     static public String getDOB(String mess, String error) {
 	String stringDOB = null;
 	boolean dateIsValid = false;
@@ -138,23 +139,24 @@ public class ValidateInput {
 	}
 	return string;
     }
-    static public boolean getSex (String mess, String error) {
+
+    static public boolean getSex(String mess, String error) {
 	String sex = null;
 	boolean returnValue;
 	boolean check = false;
-	while(!check) {
+	while (!check) {
 	    System.out.println(mess);
 	    sex = scan.nextLine();
-	    if("Nam".equals(sex) || "Nữ".equals(sex) || "Nu".equals(sex)||"nam".equals(sex)||"nu".equals(sex))  {
+	    if ("Nam".equals(sex) || "Nữ".equals(sex) || "Nu".equals(sex) || "nam".equals(sex) || "nu".equals(sex)) {
 		check = true;
-	    }
-	    else {
+	    } else {
 		System.out.println(error);
 	    }
 	}
-	if("Nam".equals(sex)||"nam".equals(sex)) {
+	if ("Nam".equals(sex) || "nam".equals(sex)) {
 	    returnValue = true;
-	}else returnValue = false;
+	} else
+	    returnValue = false;
 	return returnValue;
     }
 
@@ -178,41 +180,74 @@ public class ValidateInput {
 		    return string;
 		}
 	    }
-//		check = false;
 	    System.out.println("Can't find in data!");
 	    check = true;
 	    continue;
 	}
 	return string;
     }
-    
-    
+
+    static public boolean isDuplicateCodeCourse(List<Course> courses, String string) {
+	for (Course x : courses) {
+	    if (string.equals(x.getCourseCode())) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
     static public String getCodeValidateStudent(List<Student> students, String mess, String error, int min, int max) {
-   	String string = null;
-   	boolean check = true;
+	String string = null;
+	boolean check = true;
 
-   	while (check) {
-   	    System.out.println(mess);
-   	    string = scan.nextLine();
+	while (check) {
+	    System.out.println(mess);
+	    string = scan.nextLine();
 
-   	    if (string.length() >= min && string.length() <= max) {
-   		check = false;
-   	    } else {
-   		System.out.println(error);
-   		break;
-   	    }
-   	    check = false;
-   	    for (Student x : students) {
-   		if (string.equals(x.getStudentCode())) {
-   		    return string;
-   		}
-   	    }
-//   		check = false;
-   	    System.out.println("Can't find in data!");
-   	    check = true;
-   	    continue;
-   	}
-   	return string;
-       }
-    
+	    if (string.length() >= min && string.length() <= max) {
+		check = false;
+	    } else {
+		System.out.println(error);
+		break;
+	    }
+	    check = false;
+	    for (Student x : students) {
+		if (string.equals(x.getStudentCode())) {
+		    return string;
+		}
+	    }
+	    System.out.println("Can't find in data!");
+	    check = true;
+	    continue;
+	}
+	return string;
+    }
+
+    static public String getCodeValidateClass(List<Class> classes, String mess, String error, int min, int max) {
+	String string = null;
+	boolean check = true;
+
+	while (check) {
+	    System.out.println(mess);
+	    string = scan.nextLine();
+
+	    if (string.length() >= min && string.length() <= max) {
+		check = false;
+	    } else {
+		System.out.println(error);
+		break;
+	    }
+	    check = false;
+	    for (Class x : classes) {
+		if (x.getClassCode().equals(string)) {
+		    return string;
+		}
+	    }
+	    System.out.println("Can't find in data!");
+	    check = true;
+	    continue;
+	}
+	return string;
+    }
+
 }
