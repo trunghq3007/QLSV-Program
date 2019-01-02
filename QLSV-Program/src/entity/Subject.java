@@ -1,63 +1,65 @@
 /**
  * 
  */
+
 package entity;
 
 /**
- * @author HQTrung
- * des: MonHoc
+ * Class subject.
  */
 public class Subject {
-        // mã môn h�?c
-        private String subjectCode;
-        // tên môn h�?c
-        private String subjectName;
-        // số trình
-        private int creditsNumber;
 
-        /**
-         * 
-         */
-        public Subject() {
-        }
+  private String subjectCode;
 
-        public Subject(String subjectCode, String subjectName, int creditsNumber) {
-            super();
-            this.subjectCode = subjectCode;
-            this.subjectName = subjectName;
-            this.creditsNumber = creditsNumber;
-        }
+  private String subjectName;
 
-        public String getSubjectCode() {
-            return subjectCode;
-        }
+  private int creditsNumber;
 
-        public void setSubjectCode(String subjectCode) {
-            this.subjectCode = subjectCode;
-        }
+  /**
+   * Subject method.
+   */
+  public Subject() {
+  }
 
-        public String getSubjectName() {
-            return subjectName;
-        }
+  /**
+   * Constructor using fields.
+   */
+  public Subject(String subjectCode, String subjectName, int creditsNumber) {
+    super();
+    this.subjectCode = subjectCode;
+    this.subjectName = subjectName;
+    this.creditsNumber = creditsNumber;
+  }
 
-        public void setSubjectsName(String subjectName) {
-            this.subjectName = subjectName;
-        }
+  public String getSubjectCode() {
+    return subjectCode;
+  }
 
-        public int getCreditsNumber() {
-            return creditsNumber;
-        }
+  public void setSubjectCode(String subjectCode) {
+    this.subjectCode = subjectCode;
+  }
 
-        public void setCreditsNumber(int creditsNumber) {
-            this.creditsNumber = creditsNumber;
-        }
+  public String getSubjectName() {
+    return subjectName;
+  }
 
-        @Override
-        public String toString() {
-            return "Subject [subjectCode=" + subjectCode + ", subjectName=" + subjectName + ", creditsNumber="
-                    + creditsNumber + "]";
-        }
+  public void setSubjectsName(String subjectName) {
+    this.subjectName = subjectName;
+  }
 
-        
-        
+  public int getCreditsNumber() {
+    return creditsNumber;
+  }
+
+  public void setCreditsNumber(int creditsNumber) {
+    this.creditsNumber = creditsNumber;
+  }
+
+  @Override
+  public String toString() {
+    return "Subject [subjectCode=" + subjectCode 
+        + ", subjectName=" + subjectName + ", creditsNumber=" + creditsNumber
+        + "]";
+  }
+
 }
