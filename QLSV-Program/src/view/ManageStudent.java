@@ -128,6 +128,7 @@ public class ManageStudent {
 			System.out.println("Id delete: ");
 			String codeDel = sc.nextLine();
 			if (courseBLL.delete(courseBLL.getByCode(codeDel)) != -1) {
+				courseBLL.delete(courseBLL.getByCode(codeDel));
 				System.out.println("OK!");
 			} else {
 				System.out.println("Fails!");
