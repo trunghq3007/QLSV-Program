@@ -3,8 +3,11 @@ package bll;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 import dal.FacultyDal;
 import entity.Faculty;
+import utils.Validator;
 
 public class FacultyBLL implements BaseBLL<Faculty>{
 
@@ -45,6 +48,10 @@ public class FacultyBLL implements BaseBLL<Faculty>{
 		String address = scanner.nextLine();
 		System.out.println("insert faculty phone");
 		String phone = scanner.nextLine();
+		while(Validator.check_Phone(phone) == false) {
+		    System.out.println("Invalid phone format, enter again: ");
+		    phone = scanner.nextLine();
+		}
 		
 		Faculty faculty = new Faculty(code, name, address, phone);
 		
