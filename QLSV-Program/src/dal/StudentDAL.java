@@ -75,7 +75,7 @@ public class StudentDAL implements BaseDAL<Student> {
 
     @Override
     public int insert(Student object) {
-        // insert data
+        // insert data base
         Connection connection = DbConnection.connect();
         int success = -1;
         try {
