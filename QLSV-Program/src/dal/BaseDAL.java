@@ -82,6 +82,6 @@ public interface BaseDAL<T> {
          * @param sequenceFilter
          * @return
          */
-        List<T> fillter(String sequenceFilter);
+        List<T> filter(String sequenceFilter);
 
 }

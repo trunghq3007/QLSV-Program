@@ -20,9 +20,19 @@ public interface Constants {
         interface Course {
                 // query string select all
                 public static final String SELECT_ALL = "select * from khoahoc";
+                // query a course 
+                public static final String SELECT_COURSE = "select * from khoahoc where MaKhoaHoc = ?";
+                // insert a course
+                public static final String INSERT_COURSE = "insert into khoahoc values (?,?)";
+                // update a course
+                public static final String UPDATE_COURSE = "update khoahoc set TenKhoaHoc = ? where MaKhoaHoc = ?";
+                // delete a course
+                public static final String DELETE_COURSE = "delete from khoahoc where MaKhoaHoc = ?";
+                // filter by sequence
+                public static final String FILTER_COURSE = "select * from khoahoc where MaKhoaHoc like ? or TenKhoaHoc like ?";
                 // column name
-                public static final String COURSE_CODE = "maKhoaHoc";
-                public static final String COURSE_NAME = "tenKhoaHoc";
+                public static final String COURSE_CODE = "MaKhoaHoc";
+                public static final String COURSE_NAME = "TenKhoaHoc";
 
         }
 

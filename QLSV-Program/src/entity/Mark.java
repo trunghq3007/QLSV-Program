@@ -18,7 +18,6 @@ public class Mark {
         private int firstMark;
         // điểm lần 2
         private int secondMark;
-        public Student sinhVien;
 
         /**
          * 

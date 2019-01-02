@@ -82,6 +82,8 @@ public interface BaseBLL<T> {
          * @param sequenceFilter
          * @return
          */
-        List<T> fillter(String sequenceFilter);
+        List<T> filter(String sequenceFilter);
+        
+        void show(List<T> list);
 
 }

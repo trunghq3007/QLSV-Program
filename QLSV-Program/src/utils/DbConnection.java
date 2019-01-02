@@ -27,7 +27,7 @@ public class DbConnection {
 
         // MySQL
         // driver
-        static final String DRIVER = "com.mysql.jdbc.Driver";
+        static final String DRIVER = "com.mysql.cj.jdbc.Driver";
         // url
         static final String URL = "jdbc:mysql://192.168.10.51:3306/qlsv";
         // userName
