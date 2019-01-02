@@ -97,7 +97,7 @@ public class ManageStudent {
 			System.out.println(subjects2);
 		}*/
 		
-		
+/*		
 		Scanner sc = new Scanner(System.in);
 		   StudentBLL studentBLL = new StudentBLL();
 		System.out.println("Moi nhap vao lua chon cua ban ? "+"\n");
@@ -150,7 +150,58 @@ public class ManageStudent {
         default:
             break;
         }
-	}
+		*/
+		Scanner scanner = new Scanner(System.in);
+		CourseBLL courseBLL = new CourseBLL();
+		
+		System.out.println("\n============== Menu quan ly khoa hoc =============\n");
+		System.out.println("1.hien thi danh sach");
+		System.out.println("2.them khoa hoc");
+		System.out.println("3.xoa khoa hoc");
+		System.out.println("4.tim kiem khoa hoc");
+		System.out.println("5.update khoa hoc");
+		System.out.println("=====> moi nhap lua chon");
+
+		int n = scanner.nextInt();
+		
+		
+			switch (n) {
+			case 1:
+				List<Course> courses = courseBLL.getAll();
+				for (Course course : courses) {
+					System.out.println(course);
+				}
+				break;
+			case 2:
+				Course course = new Course();
+				System.out.print("Nhập mã khóa học: ");
+				course.setCourseCode(scanner.nextLine());
+				System.out.print("Nhập tên khóa học: ");
+				course.setCourseName(scanner.nextLine());
+				if (courseBLL.insert(course) == 0) {
+					System.out.println("Thêm thất bại");
+				} else {
+					System.out.println("Thêm thành công");
+				}
+				break;
+			case 3:
+				System.out.print("Nhập khóa học cần xóa:");
+				String code = scanner.nextLine();
+				if (courseBLL.delete(code) == 0) {
+					System.out.println("Không có khóa học tương ứng để xóa");
+				} else {
+					System.out.println("Xóa thành công");
+				}
+				break;
+			case 0:
+				
+				break;
+
+			default:
+				System.out.println("default");
+				break;
+			}
+		}
 	
 		
 

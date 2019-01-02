@@ -20,6 +20,16 @@ public interface Constants {
                 public static final String COURSE_CODE = "maKhoaHoc";
                 public static final String COURSE_NAME = "tenKhoaHoc";
                 
+        		// query string select one by code
+        		public static final String SELECT_ONE = "select * from khoahoc where makhoahoc = ?";
+        		// insert into khoahoc
+        		public static final String INSERT_COURSE = "insert into khoahoc values (?,?)";
+        		// delete khoahoc
+        		public static final String DELETE_COURSE = "delete from khoahoc where makhoahoc= ?";
+        		// update khoahoc
+        		public static final String UPDATE_COURSE = "update KhoaHoc set TenKhoaHoc=? where MaKhoaHoc=?";
+        		// filter khoahoc
+        		public static final String FILTER_COURSE = "select * from khoahoc where makhoahoc like ? or tenkhoahoc like ?";
                
               /*  http://java2novice.com/
                * http://viettuts.vn/
