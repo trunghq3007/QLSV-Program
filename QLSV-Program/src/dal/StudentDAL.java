@@ -144,4 +144,27 @@ public class StudentDAL implements BaseDAL<Student> {
 		DbConnection.releaseConnection(conn);
 		return students;
 	}
+
+	public List<Student> getListByClassId(String classId) throws SQLException {
+		List<Student> students = new ArrayList<Student>();
+		Connection conn = DbConnection.getConnection();
+		PreparedStatement statement = conn.prepareStatement(Constants.Student.SELECT_BY_CLASS_ID);
+		statement.setString(1, classId);
+		ResultSet result = statement.executeQuery();
+		while (result.next()) {
+			Student student = new Student();
+			student.setStudentId(result.getString(Constants.Student.STUDENT_ID));
+			student.setClassId(result.getString(Constants.Student.CLASS_ID));
+			student.setDateOfBirth(result.getDate(Constants.Student.STUDENT_DATEOFBIRTH));
+			student.setGender(result.getBoolean(Constants.Student.STUDENT_GENDER));
+			student.setHometown(result.getString(Constants.Student.STUDENT_HOMETOWN));
+			student.setStudentName(result.getString(Constants.Student.STUDENT_NAME));
+			students.add(student);
+		}
+
+		result.close();
+		statement.close();
+		DbConnection.releaseConnection(conn);
+		return students;
+	}
 }

@@ -84,7 +84,7 @@ public class Mark {
 	// toString
 	@Override
 	public String toString() {
-		return String.format(Constants.ToStringFormatter.SCORE, studentId, subjectId, semester, mark_1st, mark_2nd);
+		return String.format(Constants.ToStringFormatter.MARK, studentId, subjectId, semester, mark_1st, mark_2nd);
 	}
 
 }

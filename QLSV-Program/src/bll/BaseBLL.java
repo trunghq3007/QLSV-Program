@@ -14,14 +14,18 @@ public interface BaseBLL<T> {
 	T getByCode(String code);
 
 	// insert object to db
-	int insert(T object);
+	boolean insert(T object);
 
 	// update an object
-	int update(T object);
+	boolean update(T object);
 
 	// delete by code
 	int delete(String code);
 
 	// filter by sequenceFilter
 	List<T> fillter(String sequenceFilter);
+
+	StringBuilder getStringBuilderFromList(List<T> list);
+
+	boolean display(List<T> list);
 }

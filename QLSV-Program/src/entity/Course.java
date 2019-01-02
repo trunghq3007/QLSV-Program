@@ -39,6 +39,9 @@ public class Course {
 		this.courseName = name;
 	}
 
+	public Course() {
+	}
+
 	// toString
 	@Override
 	public String toString() {
