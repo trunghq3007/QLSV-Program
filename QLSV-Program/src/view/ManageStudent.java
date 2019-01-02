@@ -38,17 +38,23 @@ public class ManageStudent {
 //	default:
 //	    System.out.println();
 	CourseBLL courseBLL = new CourseBLL();
-	System.out.println("List of course: ");
+	
 	List<Course> courses = courseBLL.getAll();
 	for(Course course : courses) {
 	    System.out.println(course);
 	}
-	courseBLL.getAll();
-	
+
     
-    
+//    
 	System.out.println("List of course: ");
-	//Course courses1 = courseBLL.getByCode("K1");
-	courseBLL.getByCode("K1");
+	Course courses1 = courseBLL.getByCode("K1");
+	System.out.println(courses1);
+//
+	System.out.println("Search your course");
+	List<Course> courses2 = courseBLL.filter("K2");
+	for(Course course : courses2) {
+	    System.out.println(course);
+	}
+	courseBLL.filter("K1");
     }
 }

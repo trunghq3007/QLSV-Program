@@ -87,6 +87,7 @@ public class CourseDAL implements BaseDAL<Course> {
 	}
 
 	@Override
+	//Why have to input all the course but the code?
 	public int update(Course course) throws Exception {
 		int result = 0;
 		Connection connect = null;

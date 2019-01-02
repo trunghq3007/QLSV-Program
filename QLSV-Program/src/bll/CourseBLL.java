@@ -24,27 +24,27 @@ public class CourseBLL implements BaseBLL<Course> {
     }
 
     @Override
-    public int insert(Course t) throws Exception {
+    public int insert(Course course) throws Exception {
 	// TODO Auto-generated method stub
-	return 0;
+	return courseDAL.insert(course);
     }
 
     @Override
-    public int update(Course object) throws Exception{
+    public int update(Course course) throws Exception{
 	// TODO Auto-generated method stub
-	return 0;
+	return courseDAL.update(course);
     }
 
     @Override
     public int delete(String code) throws Exception {
 	// TODO Auto-generated method stub
-	return 0;
+	return courseDAL.delete(code);
     }
 
     @Override
     public List<Course> filter(String sequenceFilter) throws Exception{
 	// TODO Auto-generated method stub
-	return null;
+	return courseDAL.filter(sequenceFilter);
     }
 
 }

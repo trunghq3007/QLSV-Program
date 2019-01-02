@@ -70,7 +70,7 @@ public interface Constants {
 		public static final String SELECT_ALL = "SELECT * FROM " + COURSE;
 		public static final String GET_COURSE_BY_CODE = "SELECT * FROM " + COURSE + " WHERE " + COURSE_CODE + " = ?";
 		public static final String GET_COURSE_BY_FILTER = "SELECT * FROM " + COURSE + " WHERE " + COURSE_CODE
-				+ " LIKE %?% OR " + COURSE_NAME + " LIKE %?%";
+				+ " LIKE '%?%' OR " + COURSE_NAME + " LIKE '%?%'";
 		public static final String INSERT_COURSE = "INSERT INTO KhoaHoc (MaKhoaHoc, TenKhoaHoc) values(?,?)";
 		public static final String UPDATE_COURSE = "UPDATE KhoaHoc SET " + COURSE_NAME + " = ? WHERE " + COURSE_CODE
 				+ " = ?";

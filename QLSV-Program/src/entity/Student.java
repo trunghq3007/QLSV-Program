@@ -2,6 +2,7 @@ package entity;
 
 
 public class Student {
+   
     private String studentCode;
     private String studentName;
     private boolean studentSex;
@@ -24,7 +25,11 @@ public class Student {
 	this.classCode = classCode;
     }
    
-    
+    @Override
+    public String toString() {
+	return "Student [studentCode=" + studentCode + ", studentName=" + studentName + ", studentSex=" + studentSex
+		+ ", dateOfBirth=" + dateOfBirth + ", homeTown=" + homeTown + ", classCode=" + classCode + "]";
+    }
     public String getStudentCode() {
         return studentCode;
     }
