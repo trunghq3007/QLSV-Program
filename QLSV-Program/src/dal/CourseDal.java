@@ -123,10 +123,11 @@ public class CourseDal implements BaseDAL<Course> {
         try {
             prepared = connection.prepareStatement(Constants.Course.DELETE_COURSE);
             prepared.setString(1, code);
-            result = prepared.executeUpdate();
+            result = prepared.executeUpdate(); //ham can thiep, lam thay doi du lieu phai goi update k phai la goi excute query
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+            result = -1;
         } finally {
             Dbconnection.closePrepared(prepared);
             Dbconnection.closeConnection(connection);
