@@ -32,7 +32,9 @@ public interface Constants {
 		public static final String UPDATE = "update sinhvien set TenSV = ?, GioiTinh = ?, NgaySinh = ?, "
 				+ "QueQuan=?, MaLop = ? where MaSV = ?";
 		public static final String DELETE = "delete from sinhvien where MaSV = ?";
-		public static final String FILTER = "select * from sinh vien where MaSV";
+		public static final String FILTER = "SELECT * FROM sinhvien where masv like ? "
+				+ "or TenSV like ? or GioiTinh like ? or NgaySinh like ? or QueQuan like ? or maLop like ?;";
+
 		// Column name
 		public static final String STUDENT_ID = "MaSV";
 		public static final String STUDENT_NAME = "TenSV";

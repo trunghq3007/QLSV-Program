@@ -67,8 +67,13 @@ public class StudentBLL implements BaseBLL<Student> {
 
 	@Override
 	public List<Student> fillter(String sequenceFilter) {
-		
-		return null;
+		try {
+			return studentDAL.fillter(sequenceFilter);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			System.out.println("error filter");
+		}
+		return new ArrayList<Student>();
 	}
 
 }

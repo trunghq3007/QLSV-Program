@@ -17,7 +17,7 @@ public class ManageStudent {
 		StudentBLL studentBLL = new StudentBLL();
 		System.out.println(String.format(Constants.ToStringFormatter.STUDENT, "ID", "Name", "Gender", "DateofBirth",
 				"HomeTown", "ClassID"));
-		for (Student st : studentBLL.getAll()) {
+		for (Student st : studentBLL.fillter("a")) {
 			System.out.println(st);
 		}
 		

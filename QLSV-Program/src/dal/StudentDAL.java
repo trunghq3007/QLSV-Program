@@ -117,6 +117,31 @@ public class StudentDAL implements BaseDAL<Student> {
 
 	@Override
 	public List<Student> fillter(String sequenceFilter) throws SQLException {
-		return null;
+		List<Student> students = new ArrayList<Student>();
+		Connection conn = DbConnection.getConnection();
+		PreparedStatement statement = conn.prepareStatement(Constants.Student.FILTER);
+		sequenceFilter = "%" + sequenceFilter + "%";
+		statement.setString(1, sequenceFilter);
+		statement.setString(2, sequenceFilter);
+		statement.setString(3, sequenceFilter);
+		statement.setString(4, sequenceFilter);
+		statement.setString(5, sequenceFilter);
+		statement.setString(6, sequenceFilter);
+		ResultSet result = statement.executeQuery();
+		while (result.next()) {
+			Student student = new Student();
+			student.setStudentId(result.getString(Constants.Student.STUDENT_ID));
+			student.setClassId(result.getString(Constants.Student.CLASS_ID));
+			student.setDateOfBirth(result.getDate(Constants.Student.STUDENT_DATEOFBIRTH));
+			student.setGender(result.getBoolean(Constants.Student.STUDENT_GENDER));
+			student.setHometown(result.getString(Constants.Student.STUDENT_HOMETOWN));
+			student.setStudentName(result.getString(Constants.Student.STUDENT_NAME));
+			students.add(student);
+		}
+
+		result.close();
+		statement.close();
+		DbConnection.releaseConnection(conn);
+		return students;
 	}
 }
