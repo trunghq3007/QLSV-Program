@@ -37,7 +37,7 @@ public interface BaseDAL<T> {
      * @return
      * @throws Exception 
      */
-    int delete(String code) throws Exception;
+    int delete(T object) throws Exception;
     /**BaseDAL.java
      * ntmduyen
      * List all object T

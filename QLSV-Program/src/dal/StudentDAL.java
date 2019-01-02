@@ -123,21 +123,9 @@ public class StudentDAL implements BaseDAL<Student> {
 	}
 
 	@Override
-	public int delete(String code)  throws Exception {
-		PreparedStatement statement = null;
-		int result = 0;
-		try {
-			Connection connect = (Connection) Dbconnection.connect();
-			String query = utils.Constants.Students.DELETE_STUDENT;
-			statement = connect.prepareStatement(query);
-			statement.setString(1, code);
-			result = statement.executeUpdate();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}finally {
-			Dbconnection.close(statement, null, null);
-		}
-		return result;
+	public int delete(Student student)  throws Exception {
+	    return 0;
+		
 	}
 
 	@Override

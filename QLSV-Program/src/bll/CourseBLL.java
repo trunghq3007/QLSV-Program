@@ -9,7 +9,6 @@ import utils.ValidateInput;
 
 public class CourseBLL implements BaseBLL<Course> {
     CourseDAL courseDAL;
-    static Scanner scan = new Scanner(System.in);
 
     public CourseBLL() {
 	courseDAL = new CourseDAL();
@@ -17,47 +16,80 @@ public class CourseBLL implements BaseBLL<Course> {
 
     public void showCourseListChoice() throws Exception {
 	Course courseInput = null;
-	System.out.println("This is the menu of course management.");
-	System.out.println("Choose 1 to get all the information of courses.");
-	System.out.println("Choose 2 to insert course.");
-	System.out.println("Choose 3 to update the information of courses.");
-	System.out.println("Choose 4 to delete course by code.");
-	System.out.println("Choose 5 to search course by code.");
-	System.out.println("Choose 6 to search course by any information you have.");
-	System.out.println("Choose 7 to stop.");
 	boolean isRunning = true;
 	while (isRunning) {
-	    int inputChoice = ValidateInput.getInt("", "Your input must between 0 ~ 6", 0, 6);
+	    System.out.println("-----------COURSE MANAGEMENT");
+	    System.out.println("1. Get all course");
+	    System.out.println("2. Insert course");
+	    System.out.println("3. Update course information");
+	    System.out.println("4. Delete course by code");
+	    System.out.println("5. Search course by code");
+	    System.out.println("6. Search course by any information");
+	    System.out.println("7. Stop");
+	    System.out.println("Your choice is: ");
+	    int inputChoice = ValidateInput.getInt("", "Your input must between 0 ~ 7", 0, 7);
 	    String inputCode = null;
-
+	    List<Course> courses = null;
 	    switch (inputChoice) {
-	    // Show the list of student
+	    // Show the list of course
 	    case 1:
-		List<Course> courses = getAll();
+		courses = getAll();
 		for (Course course : courses) {
 		    System.out.println(course);
 		}
 		break;
 	    case 2:
-		// Add student to the database
+		// Add course to the database
+		String courseCode = ValidateInput.getString("Input courseCode: ",
+			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
+		String courseName = ValidateInput.getString("Input courseName: ",
+			"The length of name must be between 0 ~50! Input again:  ", 0, 50);
+		courseInput = new Course(courseCode, courseName);
 		insert(courseInput);
+		courses = getAll();
+		for (Course course : courses) {
+		    System.out.println(course);
+		}
 		break;
 	    case 3:
-		// Delete a student
+		// Update a course
+		String courseCodeUpdate = ValidateInput.getString("Input courseCode: ",
+			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
+		String courseNameUpdate = ValidateInput.getString("Input courseName instead: ",
+			"The length of name must be between 0 ~50! Input again:  ", 0, 50);
+		courseInput = new Course(courseCodeUpdate, courseNameUpdate);
 		update(courseInput);
+		courses = getAll();
+		for (Course course : courses) {
+		    System.out.println(course);
+		}
 		break;
 	    case 4:
-		// Delete a student
-		inputCode = scan.nextLine();
-		delete(inputCode);
+		// Delete a course
+		inputCode = ValidateInput.getString("Input courseCode you want to delete: ",
+			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
+		delete(getByCode(inputCode));
+		courses = getAll();
+		for (Course course : courses) {
+		    System.out.println(course);
+		}
 		break;
+		
 	    case 5:
-		inputCode = scan.nextLine();
-		getByCode(inputCode);
+		System.out.println("Search your course");
+		System.out.println("Please input your code of course to find: ");
+		inputCode = ValidateInput.getString("Input courseCode: ",
+			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
+		Course courses1 = getByCode(inputCode);
+		System.out.println(courses1);
 		break;
 	    case 6:
-		inputCode = scan.nextLine();
-		filter(inputCode);
+		inputCode = ValidateInput.getString("Input courseCode: ",
+			"The length of code must be between 0 ~15! Input again:  ", 0, 15);
+		courses = filter(inputCode);
+		for (Course course : courses) {
+		    System.out.println(course);
+		}
 		break;
 	    case 7:
 		isRunning = false;
@@ -70,7 +102,6 @@ public class CourseBLL implements BaseBLL<Course> {
 
     @Override
     public List<Course> getAll() throws Exception {
-	System.out.println("List of course: ");
 	return courseDAL.getAll();
     }
 
@@ -92,9 +123,9 @@ public class CourseBLL implements BaseBLL<Course> {
     }
 
     @Override
-    public int delete(String code) throws Exception {
+    public int delete(Course course) throws Exception {
 	// TODO Auto-generated method stub
-	return courseDAL.delete(code);
+	return courseDAL.delete(course);
     }
 
     @Override
