@@ -17,6 +17,7 @@ import entity.Student;
 import entity.Subject;
 
 public class Menu {
+    
 
     private static CourseBLL courseBLL = new CourseBLL();
     private static FacultyBLL facultyBLL = new FacultyBLL();
