@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import entity.Course;
@@ -167,7 +166,6 @@ public class CourseDAL implements BaseDAL<Course> {
 		Connection connect = DbConnection.connect();
 		List<Course> list = new ArrayList<Course>();
 		String findtext = "%" + sequenceFilter + "%";
-		System.out.println(findtext);
 		try {
 			PreparedStatement ppstmt = connect.prepareStatement(Constants.Course.FILTER_COURSE);
 			ppstmt.setString(1, findtext);

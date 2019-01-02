@@ -6,7 +6,9 @@ package view;
 import java.util.List;
 
 import bll.CourseBLL;
+import bll.StudentBLL;
 import entity.Course;
+import entity.Student;
 
 /**
  * Create by: HQTrung - CMC Create date: Dec 28, 2018 Modifier: HQTrung Modified
@@ -22,23 +24,26 @@ public class ManageStudent {
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
-
-
-//		CourseBLL courseBLL = new CourseBLL();
-//		System.out.println("List Course");
-//		List<Course> courses = courseBLL.filter("K2");
-//		System.out.println(courses.size());
-//		courseBLL.show(courses);
-//		Course c = new Course("K22", "Khoa hoc 2011-2015");
-//		courseBLL.update(c);
-//		logger.info("Hello");
-		System.out.println("==============================");
-		System.out.println("Chuong trinh quan ly sinh vien");
-		System.out.println("==============================");
-		
-		
-		
-	}
+	
+	  public static void main(String[] args) {
+	  
+	  
+	  StudentBLL studentBLL = new StudentBLL(); System.out.println("List Student");
+	  
+	  Student c = new Student("0241060928", "Nguyễn Văn Tùng", true, "1995-12-20",
+			  					"Saigon", "MT3");
+	  System.out.println(c.getGender());
+	  studentBLL.insert(c); 
+	  List<Student> courses = studentBLL.getAll();
+	  studentBLL.show(courses); 
+	  // logger.info("Hello"); //
+//	  System.out.println("==============================");
+//	  System.out.println("Chuong trinh quan ly sinh vien");
+//	  System.out.println("==============================");
+	  
+	  
+	  
+	  }
+	 
 
 }

@@ -3,7 +3,7 @@
  */
 package entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * @author HQTrung
@@ -15,13 +15,13 @@ public class Student {
         // tên sinh viên
         private String studentName;
         // giới tính
-        private String gender;
+        private boolean gender;
         // ngày sinh
         private Date dateOfBirth;
-        // mã lớp
-        private String classCode;
         // quê quán
         private String hometown;
+        // mã lớp
+        private String classCode;
 
         /**
          * Create by: HQTrung - CMC
@@ -37,16 +37,16 @@ public class Student {
          * @param classCode
          * @param hometown
          */
-        public Student(String studentCode, String studentName, String gender, Date dateOfBirth, String classCode,
-                        String hometown) {
+        public Student(String studentCode, String studentName, boolean gender, String dateOfBirth,
+        		String hometown,String classCode) {
                 this.studentCode = studentCode;
                 this.studentName = studentName;
                 this.gender = gender;
-                this.dateOfBirth = dateOfBirth;
-                this.classCode = classCode;
+                this.dateOfBirth = java.sql.Date.valueOf(dateOfBirth);
                 this.hometown = hometown;
+                this.classCode = classCode;
         }
-
+        
         /**
          * Create by: HQTrung - CMC
          * Create date: Dec 28, 2018
@@ -81,11 +81,11 @@ public class Student {
                 this.studentName = studentName;
         }
 
-        public String getGender() {
+        public boolean getGender() {
                 return gender;
         }
 
-        public void setGender(String gender) {
+        public void setGender(boolean gender) {
                 this.gender = gender;
         }
 

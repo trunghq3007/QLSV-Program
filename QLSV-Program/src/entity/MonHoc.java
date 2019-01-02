@@ -9,7 +9,7 @@ package entity;
  */
 public class MonHoc {
         // mã môn học
-        private char maMH;
+        private String maMH;
         // tên môn học
         private String tenMH;
         // số trình
@@ -26,7 +26,7 @@ public class MonHoc {
          * @param tenMH
          * @param soTrinh
          */
-        public MonHoc(char maMH, String tenMH, int soTrinh) {
+        public MonHoc(String maMH, String tenMH, int soTrinh) {
                 this.maMH = maMH;
                 this.tenMH = tenMH;
                 this.soTrinh = soTrinh;
@@ -37,11 +37,11 @@ public class MonHoc {
                 return "MonHoc [maMH=" + maMH + ", tenMH=" + tenMH + ", soTrinh=" + soTrinh + "]";
         }
 
-        public char getMaMH() {
+        public String getMaMH() {
                 return maMH;
         }
 
-        public void setMaMH(char maMH) {
+        public void setMaMH(String maMH) {
                 this.maMH = maMH;
         }
 
