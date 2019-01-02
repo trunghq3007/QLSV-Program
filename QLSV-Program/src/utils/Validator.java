@@ -9,6 +9,7 @@ public class Validator {
     public static final String VALIDATE_PHONE = "^[0]d{9,}";
     
     public static final String VALIDATE_GENDER = "male|female";
+    public static final String VALIDATE_BIRTHDATE = "^\\d{4}-\\d{2}-\\d{2}$";
     /**
      * @param id
      * @return
@@ -42,6 +43,15 @@ public class Validator {
     public static boolean check_Gender(String gender) {
         Pattern pattern = Pattern.compile(VALIDATE_GENDER);
         Matcher matcher = pattern.matcher(gender);
+        if(matcher.matches()){
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean check_Birthdate(String date){
+        Pattern pattern = Pattern.compile(VALIDATE_BIRTHDATE);
+        Matcher matcher = pattern.matcher(date);
         if(matcher.matches()){
             return true;
         }

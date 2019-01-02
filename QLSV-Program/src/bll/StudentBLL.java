@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import dal.StudentDal;
 import entity.Student;
+import utils.Validator;
 
 public class StudentBLL implements BaseBLL<Student>{
 
@@ -43,8 +44,13 @@ public class StudentBLL implements BaseBLL<Student>{
 		String studentName = scanner.nextLine();
 		System.out.println("insert student gender: male or female");
 		String gender = scanner.nextLine();
-		System.out.println("insert student date of birth");
+		
+		System.out.println("insert student date of birth (yyyy-mm-dd)");
 		String dateOfBirth = scanner.nextLine();
+		while(Validator.check_Birthdate(dateOfBirth) == false) {
+            System.out.println("Invalid date format, enter again: ");
+            dateOfBirth = scanner.nextLine();
+		}
 		System.out.println("insert student hometown");
 		String hometown = scanner.nextLine();
 		System.out.println("insert student class code");
