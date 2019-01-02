@@ -28,7 +28,7 @@ public class Dbconnection {
 	// driver
 	static final String DRIVER = "com.mysql.jdbc.Driver";
 	// url
-	static final String URL = "jdbc:mysql://192.168.10.51/qlsv";
+	static final String URL = "jdbc:mysql://192.168.10.51/qlsv?autoReconnect=true&useSSL=false";
 	// userName
 	static final String USER_NAME = "remote";
 	// passWord

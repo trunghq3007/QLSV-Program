@@ -45,4 +45,6 @@ public interface BaseBLL<T> {
      * @throws Exception 
      */
     List<T> filter(String sequenceFilter) throws Exception;
+    String show();
+    StringBuilder showBuilder();
 }

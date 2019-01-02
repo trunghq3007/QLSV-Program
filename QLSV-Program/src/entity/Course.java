@@ -30,7 +30,7 @@ public class Course {
 
     @Override
     public String toString() {
-	return "Course [courseCode=" + courseCode + ", courseName=" + courseName + "]";
+	return courseCode +"\t\t" + courseName;
     }
 
 }
