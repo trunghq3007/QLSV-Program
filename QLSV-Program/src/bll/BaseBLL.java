@@ -44,7 +44,7 @@ public interface BaseBLL<T> {
          * Version 1.0
          * @return
          */
-        T getByCode(String code);
+        T getByCode();
 
         /**
          * Create by: HQTrung - CMC
@@ -56,7 +56,7 @@ public interface BaseBLL<T> {
          * @param object
          * @return
          */
-        int insert(T object);
+        int insert();
 
         /**
          * Create by: HQTrung - CMC
@@ -68,7 +68,7 @@ public interface BaseBLL<T> {
          * @param object
          * @return
          */
-        int update(T object);
+        int update();
 
         /**
          * Create by: HQTrung - CMC
@@ -80,7 +80,7 @@ public interface BaseBLL<T> {
          * @param object
          * @return
          */
-        int delete(String code);
+        int delete();
 
         /**
          * Create by: HQTrung - CMC
@@ -92,6 +92,8 @@ public interface BaseBLL<T> {
          * @param sequenceFilter
          * @return
          */
-        List<T> fillter(String sequenceFilter);
+        List<T> fillter();
+        
+        void display(List<T> list);
 
 }

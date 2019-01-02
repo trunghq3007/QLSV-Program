@@ -1,6 +1,5 @@
 package dal;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,30 +8,30 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import entity.Course;
+import entity.TypeOfTrainning;
 import utils.Constants;
 import utils.Dbconnection;
 
-public class CourseDal implements BaseDAL<Course> {
+public class TypeOfTrainningDal implements BaseDAL<TypeOfTrainning>{
 
     @Override
-    public List<Course> getAll() {
+    public List<TypeOfTrainning> getAll() {
         Connection connection = Dbconnection.connect();
         Statement statement = null;
         ResultSet resultSet = null;
         
-        List<Course> courses = new ArrayList<>();
-        Course course = null;
+        List<TypeOfTrainning> list = new ArrayList<>();
+        TypeOfTrainning trainning = null;
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery(Constants.Course.SELECT_ALL);
+            resultSet = statement.executeQuery(Constants.TypeOfTrainning.SELECT_ALL);
             
             while(resultSet.next()) {
-                String courseCode = resultSet.getString(1);
-                String courseName = resultSet.getString(2);
-                course = new Course(courseCode, courseName);
+                String totCode = resultSet.getString(1);
+                String totName = resultSet.getString(2);
                 
-                courses.add(course);
+                trainning = new TypeOfTrainning(totCode, totName);
+                list.add(trainning);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -43,25 +42,27 @@ public class CourseDal implements BaseDAL<Course> {
             Dbconnection.closeConnection(connection);
         }
         
-        return courses;
+        return list;
     }
 
     @Override
-    public Course getByCode(String code) {
+    public TypeOfTrainning getByCode(String code) {
         Connection connection = Dbconnection.connect();
         PreparedStatement prepared = null;
         ResultSet resultSet = null;
-        Course course = null;
+        TypeOfTrainning trainning = null;
+        
         try {
-            prepared = connection.prepareStatement(Constants.Course.GET_BY_CODE);
+            prepared = connection.prepareStatement(Constants.TypeOfTrainning.GET_BY_CODE);
             prepared.setString(1, code);
             resultSet = prepared.executeQuery();
             
             if(resultSet.next()) {
-                String courseName = resultSet.getString(2);
-                course = new Course(code, courseName);
+                String totCode = resultSet.getString(1);
+                String totName = resultSet.getString(2);
+                
+                trainning = new TypeOfTrainning(totCode, totName);
             }
-            
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -70,59 +71,20 @@ public class CourseDal implements BaseDAL<Course> {
             Dbconnection.closePrepared(prepared);
             Dbconnection.closeConnection(connection);
         }
-        return course;
+        return trainning;
     }
 
     @Override
-    public int insert(Course object) {
-        Connection connection = Dbconnection.connect();
-        CallableStatement callable = null;
-        int result = 0;
-        try {
-            callable = connection.prepareCall(Constants.Course.ADD_COURSE);
-            callable.setString(1, object.getCourseCode());
-            callable.setString(2, object.getCourseName());
-            result = callable.executeUpdate();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } finally {
-            Dbconnection.closeCallable(callable);
-            Dbconnection.closeConnection(connection);
-        }
-        return result;
-    }
-
-    @Override
-    public int update(Course object) {
-        Connection connection = Dbconnection.connect();
-        CallableStatement callable = null;
-        int result = 0;
-        
-        try {
-            callable = connection.prepareCall(Constants.Course.UPDATE_COURSE);
-            callable.setString(1, object.getCourseName());
-            callable.setString(2, object.getCourseCode());
-            result = callable.executeUpdate();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } finally {
-            Dbconnection.closeCallable(callable);
-            Dbconnection.closeConnection(connection);
-        }
-        return result;
-    }
-
-    @Override
-    public int delete(String code) {
+    public int insert(TypeOfTrainning object) {
         Connection connection = Dbconnection.connect();
         PreparedStatement prepared = null;
-        int result = 0;
         
+        int result = 0;
         try {
-            prepared = connection.prepareStatement(Constants.Course.DELETE_COURSE);
-            prepared.setString(1, code);
+            prepared = connection.prepareStatement(Constants.TypeOfTrainning.ADD_TYPE);
+            prepared.setString(1, object.getTotCode());
+            prepared.setString(2, object.getTotName());
+            
             result = prepared.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -135,23 +97,68 @@ public class CourseDal implements BaseDAL<Course> {
     }
 
     @Override
-    public List<Course> fillter(String sequenceFilter) {
+    public int update(TypeOfTrainning object) {
+        Connection connection = Dbconnection.connect();
+        PreparedStatement prepared = null;
+        
+        int result = 0;
+        try {
+            prepared = connection.prepareStatement(Constants.TypeOfTrainning.UPDATE_TYPE);
+            prepared.setString(2, object.getTotCode());
+            prepared.setString(1, object.getTotName());
+            
+            result = prepared.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            Dbconnection.closePrepared(prepared);
+            Dbconnection.closeConnection(connection);
+        }
+        return result;
+    }
+
+    @Override
+    public int delete(String code) {
+        Connection connection = Dbconnection.connect();
+        PreparedStatement prepared = null;
+        
+        int result = 0;
+        try {
+            prepared = connection.prepareStatement(Constants.TypeOfTrainning.DETELE_TYPE);
+            prepared.setString(1, code);
+            
+            result = prepared.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            Dbconnection.closePrepared(prepared);
+            Dbconnection.closeConnection(connection);
+        }
+        return result;
+    }
+
+    @Override
+    public List<TypeOfTrainning> fillter(String sequenceFilter) {
         Connection connection = Dbconnection.connect();
         PreparedStatement prepared = null;
         ResultSet resultSet = null;
-        List<Course> list = new ArrayList<>();
-        Course course = null;
+        
+        List<TypeOfTrainning> list = new ArrayList<>();
+        TypeOfTrainning trainning = null;
+        
         try {
-            prepared = connection.prepareStatement(Constants.Course.SEARCH);
+            prepared = connection.prepareStatement(Constants.TypeOfTrainning.SEARCH);
             prepared.setString(1, "%" + sequenceFilter + "%");
             resultSet = prepared.executeQuery();
             
             while(resultSet.next()) {
-                String courseCode = resultSet.getString(1);
-                String courseName = resultSet.getString(2);
-                course = new Course(courseCode, courseName);
+                String totCode = resultSet.getString(1);
+                String totName = resultSet.getString(2);
                 
-                list.add(course);
+                trainning = new TypeOfTrainning(totCode, totName);
+                list.add(trainning);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -161,8 +168,8 @@ public class CourseDal implements BaseDAL<Course> {
             Dbconnection.closePrepared(prepared);
             Dbconnection.closeConnection(connection);
         }
+        
         return list;
     }
 
-    
 }

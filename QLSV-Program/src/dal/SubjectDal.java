@@ -9,30 +9,34 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import entity.Course;
+import entity.Subject;
 import utils.Constants;
 import utils.Dbconnection;
 
-public class CourseDal implements BaseDAL<Course> {
+public class SubjectDal implements BaseDAL<Subject>{
 
+    /* (non-Javadoc)
+     * @see dal.BaseDAL#getAll()
+     */
     @Override
-    public List<Course> getAll() {
+    public List<Subject> getAll() {
         Connection connection = Dbconnection.connect();
         Statement statement = null;
         ResultSet resultSet = null;
         
-        List<Course> courses = new ArrayList<>();
-        Course course = null;
+        List<Subject> list = new ArrayList<>();
+        Subject Subject = null;
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery(Constants.Course.SELECT_ALL);
+            resultSet = statement.executeQuery(Constants.Subject.SELECT_ALL);
             
             while(resultSet.next()) {
-                String courseCode = resultSet.getString(1);
-                String courseName = resultSet.getString(2);
-                course = new Course(courseCode, courseName);
+                String SubjectCode = resultSet.getString(1);
+                String SubjectName = resultSet.getString(2);
+                int creditsNumber = resultSet.getInt(3);
                 
-                courses.add(course);
+                Subject = new Subject(SubjectCode, SubjectName, creditsNumber);
+                list.add(Subject);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -43,23 +47,27 @@ public class CourseDal implements BaseDAL<Course> {
             Dbconnection.closeConnection(connection);
         }
         
-        return courses;
+        return list;
     }
 
+    /* (non-Javadoc)
+     * @see dal.BaseDAL#getByCode(java.lang.String)
+     */
     @Override
-    public Course getByCode(String code) {
+    public Subject getByCode(String code) {
         Connection connection = Dbconnection.connect();
         PreparedStatement prepared = null;
         ResultSet resultSet = null;
-        Course course = null;
+        Subject Subject = null;
         try {
-            prepared = connection.prepareStatement(Constants.Course.GET_BY_CODE);
+            prepared = connection.prepareStatement(Constants.Subject.GET_BY_CODE);
             prepared.setString(1, code);
             resultSet = prepared.executeQuery();
             
             if(resultSet.next()) {
-                String courseName = resultSet.getString(2);
-                course = new Course(code, courseName);
+                String SubjectName = resultSet.getString(2);
+                int creditsNumber = resultSet.getInt(3);
+                Subject = new Subject(code, SubjectName, creditsNumber);
             }
             
         } catch (SQLException e) {
@@ -70,18 +78,22 @@ public class CourseDal implements BaseDAL<Course> {
             Dbconnection.closePrepared(prepared);
             Dbconnection.closeConnection(connection);
         }
-        return course;
+        return Subject;
     }
 
+    /* (non-Javadoc)
+     * @see dal.BaseDAL#insert(java.lang.Object)
+     */
     @Override
-    public int insert(Course object) {
+    public int insert(Subject object) {
         Connection connection = Dbconnection.connect();
         CallableStatement callable = null;
         int result = 0;
         try {
-            callable = connection.prepareCall(Constants.Course.ADD_COURSE);
-            callable.setString(1, object.getCourseCode());
-            callable.setString(2, object.getCourseName());
+            callable = connection.prepareCall(Constants.Subject.ADD_ALL);
+            callable.setString(1, object.getSubjectCode());
+            callable.setString(2, object.getSubjectName());
+            callable.setInt(3, object.getCreditsNumber());
             result = callable.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -93,16 +105,20 @@ public class CourseDal implements BaseDAL<Course> {
         return result;
     }
 
+    /* (non-Javadoc)
+     * @see dal.BaseDAL#update(java.lang.Object)
+     */
     @Override
-    public int update(Course object) {
+    public int update(Subject object) {
         Connection connection = Dbconnection.connect();
         CallableStatement callable = null;
         int result = 0;
         
         try {
-            callable = connection.prepareCall(Constants.Course.UPDATE_COURSE);
-            callable.setString(1, object.getCourseName());
-            callable.setString(2, object.getCourseCode());
+            callable = connection.prepareCall(Constants.Subject.UPDATE_ALL);
+            callable.setString(1, object.getSubjectName());
+            callable.setInt(2, object.getCreditsNumber());
+            callable.setString(3, object.getSubjectCode());
             result = callable.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -114,6 +130,9 @@ public class CourseDal implements BaseDAL<Course> {
         return result;
     }
 
+    /* (non-Javadoc)
+     * @see dal.BaseDAL#delete(java.lang.String)
+     */
     @Override
     public int delete(String code) {
         Connection connection = Dbconnection.connect();
@@ -121,7 +140,7 @@ public class CourseDal implements BaseDAL<Course> {
         int result = 0;
         
         try {
-            prepared = connection.prepareStatement(Constants.Course.DELETE_COURSE);
+            prepared = connection.prepareStatement(Constants.Subject.DELETE_ALL);
             prepared.setString(1, code);
             result = prepared.executeUpdate();
         } catch (SQLException e) {
@@ -134,24 +153,28 @@ public class CourseDal implements BaseDAL<Course> {
         return result;
     }
 
+    /* (non-Javadoc)
+     * @see dal.BaseDAL#fillter(java.lang.String)
+     */
     @Override
-    public List<Course> fillter(String sequenceFilter) {
+    public List<Subject> fillter(String sequenceFilter) {
         Connection connection = Dbconnection.connect();
         PreparedStatement prepared = null;
         ResultSet resultSet = null;
-        List<Course> list = new ArrayList<>();
-        Course course = null;
+        List<Subject> list = new ArrayList<>();
+        Subject Subject = null;
         try {
-            prepared = connection.prepareStatement(Constants.Course.SEARCH);
+            prepared = connection.prepareStatement(Constants.Subject.SEARCH);
             prepared.setString(1, "%" + sequenceFilter + "%");
             resultSet = prepared.executeQuery();
             
             while(resultSet.next()) {
-                String courseCode = resultSet.getString(1);
-                String courseName = resultSet.getString(2);
-                course = new Course(courseCode, courseName);
+                String SubjectCode = resultSet.getString(1);
+                String SubjectName = resultSet.getString(2);
+                int creditsNumber = resultSet.getInt(3); 
+                Subject = new Subject(SubjectCode, SubjectName, creditsNumber);
                 
-                list.add(course);
+                list.add(Subject);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -164,5 +187,4 @@ public class CourseDal implements BaseDAL<Course> {
         return list;
     }
 
-    
 }

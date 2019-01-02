@@ -1,89 +1,79 @@
-/**
- * 
- */
 package entity;
 
-/**
- * @author HQTrung
- *
- */
 public class Lop {
-        // mã lớp
-        private char maLop;
-        // tên lớp
-        private String tenLop;
-        // mã khoa
-        private char maKhoa;
-        // mã hệ đào tạo
-        private char maHeDT;
-        // mã khóa học
-        private char maKhoaHoc;
+	private String classCode;
+	private String className;
+	private String facultyCode;
+	private String totCode;
+	private String subjectCode;
+	
+	public Lop() {
+		super();
+	}
 
-        /**
-         * 
-         */
-        public Lop() {
-        }
+	/**
+	 * @param classCode
+	 * @param className
+	 * @param facultyCode
+	 * @param totCode
+	 * @param subjectCode
+	 */
+	public Lop(String classCode, String className, String facultyCode, String totCode, String subjectCode) {
+		super();
+		this.classCode = classCode;
+		this.className = className;
+		this.facultyCode = facultyCode;
+		this.totCode = totCode;
+		this.subjectCode = subjectCode;
+	}
 
-        /**
-         * @param maLop
-         * @param tenLop
-         * @param maKhoa
-         * @param maHeDT
-         * @param maKhoaHoc
-         */
-        public Lop(char maLop, String tenLop, char maKhoa, char maHeDT, char maKhoaHoc) {
-                this.maLop = maLop;
-                this.tenLop = tenLop;
-                this.maKhoa = maKhoa;
-                this.maHeDT = maHeDT;
-                this.maKhoaHoc = maKhoaHoc;
-        }
+	public String getClassCode() {
+		return classCode;
+	}
 
-        @Override
-        public String toString() {
-                return "Lop [maLop=" + maLop + ", tenLop=" + tenLop + ", maKhoa=" + maKhoa + ", maHeDT=" + maHeDT
-                                + ", maKhoaHoc=" + maKhoaHoc + "]";
-        }
+	public void setClassCode(String classCode) {
+		this.classCode = classCode;
+	}
 
-        public char getMaLop() {
-                return maLop;
-        }
+	public String getClassName() {
+		return className;
+	}
 
-        public void setMaLop(char maLop) {
-                this.maLop = maLop;
-        }
+	public void setClassName(String className) {
+		this.className = className;
+	}
 
-        public String getTenLop() {
-                return tenLop;
-        }
+	public String getFacultyCode() {
+		return facultyCode;
+	}
 
-        public void setTenLop(String tenLop) {
-                this.tenLop = tenLop;
-        }
+	public void setFacultyCode(String facultyCode) {
+		this.facultyCode = facultyCode;
+	}
 
-        public char getMaKhoa() {
-                return maKhoa;
-        }
+	public String getTotCode() {
+		return totCode;
+	}
 
-        public void setMaKhoa(char maKhoa) {
-                this.maKhoa = maKhoa;
-        }
+	public void setTotCode(String totCode) {
+		this.totCode = totCode;
+	}
 
-        public char getMaHeDT() {
-                return maHeDT;
-        }
+	public String getSubjectCode() {
+		return subjectCode;
+	}
 
-        public void setMaHeDT(char maHeDT) {
-                this.maHeDT = maHeDT;
-        }
+	public void setSubjectCode(String subjectCode) {
+		this.subjectCode = subjectCode;
+	}
 
-        public char getMaKhoaHoc() {
-                return maKhoaHoc;
-        }
-
-        public void setMaKhoaHoc(char maKhoaHoc) {
-                this.maKhoaHoc = maKhoaHoc;
-        }
-
+	@Override
+	public String toString() {
+		return "Lop [classCode=" + classCode + ", className=" + className + ", facultyCode=" + facultyCode
+				+ ", totCode=" + totCode + ", subjectCode=" + subjectCode + "]";
+	}
+	
+	
+	
+	
 }

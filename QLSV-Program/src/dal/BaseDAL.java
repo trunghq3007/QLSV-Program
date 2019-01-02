@@ -6,8 +6,6 @@ package dal;
 
 import java.util.List;
 
-import entity.Course;
-
 /**
  * Create by: HQTrung - CMC
  * Create date: Dec 28, 2018
@@ -87,7 +85,6 @@ public interface BaseDAL<T> {
          */
         List<T> fillter(String sequenceFilter);
 
-        int insert(Course course);
 
         
 

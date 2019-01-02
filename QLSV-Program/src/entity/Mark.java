@@ -1,90 +1,78 @@
-
-/**
- * 
- */
 package entity;
 
-/**
- * @author HQTrung
- *
- */
 public class Mark {
-        
-        private char studentCode;
-        // mÃ£ mÃ´n há»�c
-        private char subjectCode;
-        // há»�c kÃ¬
-        private int semester;
-        // Ä‘iá»ƒm láº§n 1
-        private int firstMark;
-        // Ä‘iá»ƒm láº§n 2
-        private int secondMark;
-        public Student sinhVien;
+	private String studentCode;
+	private String subjectCode;
+	private int semester;
+	private int firstMark;
+	private int secondMark;
+	
+	public Mark() {
+		super();
+	}
 
-        /**
-         * 
-         */
-        public Mark() {
-        }
+	/**
+	 * @param studentCode
+	 * @param subjectCode
+	 * @param semester
+	 * @param firstMark
+	 * @param secondMark
+	 */
+	public Mark(String studentCode, String subjectCode, int semester, int firstMark, int secondMark) {
+		super();
+		this.studentCode = studentCode;
+		this.subjectCode = subjectCode;
+		this.semester = semester;
+		this.firstMark = firstMark;
+		this.secondMark = secondMark;
+	}
 
-        /**
-         * @param maSV
-         * @param maMH
-         * @param hocKi
-         * @param diemLan1
-         * @param diemLan2
-         */
-        public Mark(char maSV, char maMH, int hocKi, int diemLan1, int diemLan2) {
-                this.studentCode = maSV;
-                this.subjectCode = maMH;
-                this.semester = hocKi;
-                this.firstMark = diemLan1;
-                this.secondMark = diemLan2;
-        }
+	public String getStudentCode() {
+		return studentCode;
+	}
 
-        @Override
-        public String toString() {
-                return "Diem [maSV=" + studentCode + ", maMH=" + subjectCode + ", hocKi=" + semester + ", diemLan1=" + firstMark
-                                + ", diemLan2=" + secondMark + "]";
-        }
+	public void setStudentCode(String studentCode) {
+		this.studentCode = studentCode;
+	}
 
-        public char getMaSV() {
-                return studentCode;
-        }
+	public String getSubjectCode() {
+		return subjectCode;
+	}
 
-        public void setMaSV(char maSV) {
-                this.studentCode = maSV;
-        }
+	public void setSubjectCode(String subjectCode) {
+		this.subjectCode = subjectCode;
+	}
 
-        public char getMaMH() {
-                return subjectCode;
-        }
+	public int getSemester() {
+		return semester;
+	}
 
-        public void setMaMH(char maMH) {
-                this.subjectCode = maMH;
-        }
+	public void setSemester(int semester) {
+		this.semester = semester;
+	}
 
-        public int getHocKi() {
-                return semester;
-        }
+	public int getFirstMark() {
+		return firstMark;
+	}
 
-        public void setHocKi(int hocKi) {
-                this.semester = hocKi;
-        }
+	public void setFirstMark(int firstMark) {
+		this.firstMark = firstMark;
+	}
 
-        public int getDiemLan1() {
-                return firstMark;
-        }
+	public int getSecondMark() {
+		return secondMark;
+	}
 
-        public void setDiemLan1(int diemLan1) {
-                this.firstMark = diemLan1;
-        }
+	public void setSecondMark(int secondMark) {
+		this.secondMark = secondMark;
+	}
 
-        public int getDiemLan2() {
-                return secondMark;
-        }
-
-        public void setDiemLan2(int diemLan2) {
-                this.secondMark = diemLan2;
-        }
+	@Override
+	public String toString() {
+		return "Mark [studentCode=" + studentCode + ", subjectCode=" + subjectCode + ", semester=" + semester
+				+ ", firstMark=" + firstMark + ", secondMark=" + secondMark + "]";
+	}
+	
+	
+	
 }
