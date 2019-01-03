@@ -8,15 +8,24 @@ import utils.ValidateInput;
 public class CourseBLL implements BaseBLL<Course> {
     CourseDAL courseDAL;
     static String inputCode = null;
+    static List<Course> courses = null;
 
     public CourseBLL() {
 	courseDAL = new CourseDAL();
     }
 
+    /**
+     * 
+     * Create date: Jan 3, 2019 Modified date: Jan 3, 2019 
+     * Description: this is the menu of Course choice 
+     * Version 1.0
+     * 
+     * @throws Exception
+     */
     public void showCourseListChoice() throws Exception {
 	Course courseInput = null;
 	boolean isRunning = true;
-	
+	boolean isValidated = true;
 	while (isRunning) {
 	    System.out.println("-----------COURSE MANAGEMENT");
 	    System.out.println("1. Get all course");
@@ -28,7 +37,6 @@ public class CourseBLL implements BaseBLL<Course> {
 	    System.out.println("7. Stop");
 	    System.out.println("Your choice is: ");
 	    int inputChoice = ValidateInput.getInt("", "Your input must between 0 ~ 7", 0, 7);
-	    List<Course> courses = null;
 	    switch (inputChoice) {
 	    // Show the list of course
 	    case 1:
@@ -41,7 +49,7 @@ public class CourseBLL implements BaseBLL<Course> {
 		// Add course to the database
 		courses = getAll();
 		String courseCode = null;
-		boolean isValidated = true;
+		isValidated = true;
 		// Check validate in case if the input is duplicate with the courseCode from DB
 		while (isValidated) {
 		    courseCode = ValidateInput.getString("Input courseCode: ",
@@ -90,6 +98,7 @@ public class CourseBLL implements BaseBLL<Course> {
 		break;
 
 	    case 5:
+		//Search course by course code
 		courses = getAll();
 		System.out.println("Search your course");
 		inputCode = ValidateInput.getCodeValidateCourse(courses, "Input courseCode: ",
@@ -98,6 +107,7 @@ public class CourseBLL implements BaseBLL<Course> {
 		System.out.println(courses1);
 		break;
 	    case 6:
+		//Search course by filter
 		inputCode = ValidateInput.getString("Input which you want to search:  ",
 			"The length of code must be between 0 ~50! Input again:  ", 0, 50);
 		courses = filter(inputCode);
@@ -126,25 +136,21 @@ public class CourseBLL implements BaseBLL<Course> {
 
     @Override
     public int insert(Course course) throws Exception {
-	// TODO Auto-generated method stub
 	return courseDAL.insert(course);
     }
 
     @Override
     public int update(Course course) throws Exception {
-	// TODO Auto-generated method stub
 	return courseDAL.update(course);
     }
 
     @Override
     public int delete(Course course) throws Exception {
-	// TODO Auto-generated method stub
 	return courseDAL.delete(course);
     }
 
     @Override
     public List<Course> filter(String sequenceFilter) throws Exception {
-	// TODO Auto-generated method stub
 	return courseDAL.filter(sequenceFilter);
     }
 

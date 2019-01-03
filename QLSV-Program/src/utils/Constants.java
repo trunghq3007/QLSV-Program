@@ -55,11 +55,13 @@ public interface Constants {
 
     // constant for Class
     interface Class {
+	public static final String CLASS = "Lop";
 	public static final String CLASS_CODE = "MaLop";
 	public static final String CLASS_NAME = "TenLop";
 	public static final String FACULTY_CODE = "MaKhoa";
 	public static final String TS_CODE = "MaHeDT";
 	public static final String COURSE_CODE = "MaKhoaHoc";
+	public static final String SELECT_ALL = "SELECT * FROM " + CLASS;
     }
 
     // constant for Course

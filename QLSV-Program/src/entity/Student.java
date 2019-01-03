@@ -12,18 +12,10 @@ public class Student {
     private String homeTown;
     private String classCode;
 
-    /**
-     * @author user
-     *
-     */
     public Student() {
 
     }
 
-    /**
-     * @author user
-     *
-     */
     public Student(String studentCode, String studentName, boolean studentSex, String dateOfBirth, String homeTown,
 	    String classCode) {
 	super();

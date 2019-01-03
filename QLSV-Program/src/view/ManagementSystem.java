@@ -6,6 +6,7 @@ package view;
 import org.apache.log4j.Logger;
 import utils.Normalization;
 import utils.ValidateInput;
+import bll.ClassBLL;
 import bll.CourseBLL;
 import bll.StudentBLL;
 
@@ -21,6 +22,7 @@ public class ManagementSystem {
      * @param args
      */
     static CourseBLL courseBLL = new CourseBLL();
+    static ClassBLL classBLL = new ClassBLL();
     static StudentBLL studentBLL = new StudentBLL();
     static Normalization normalize = new Normalization();
 
@@ -49,6 +51,7 @@ public class ManagementSystem {
 		studentBLL.showStudentListChoice();
 		break;
 	    case 3:
+		classBLL.showClassListChoice();
 		break;
 	    case 4:
 		break;

@@ -23,7 +23,7 @@ public class ClassDAL implements BaseDAL<Class>{
 	    // Statement creation
 	    statement = (Statement) connect.createStatement();
 	    // ResultSet creation
-	    ResultSet resultSet = statement.executeQuery(utils.Constants.Students.SELECT_ALL);
+	    ResultSet resultSet = statement.executeQuery(utils.Constants.Class.SELECT_ALL);
 	    while (resultSet.next()) {
 		Class classs = new Class();
 		

@@ -13,7 +13,9 @@ import entity.Class;
 public class ValidateInput {
     static Scanner scan = new Scanner(System.in);
     final static String DATE_FORMAT = "yyyy-MM-dd";
-
+    final static String PHONE_FORMAT ="(?:\\(\\d{3}\\)|\\d{3}[-]*)\\d{3}[-]*\\d{4}";
+    final static String MAIL_FORMAT = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+    final static String NAME_FORMAT = "^[a-zA-Z\\s]+";
     static public double getDouble(String mess, String error, double min, double max) {
 	String doubleNum;
 	double num = 0;
@@ -64,7 +66,7 @@ public class ValidateInput {
 	while (!checked) {
 	    System.out.print(mess);
 	    phone = scan.nextLine();
-	    if (phone.matches("(?:\\(\\d{3}\\)|\\d{3}[-]*)\\d{3}[-]*\\d{4}") && phone.length() >= minLength)
+	    if (phone.matches(PHONE_FORMAT) && phone.length() >= minLength)
 		checked = true;
 	    else
 		System.out.println(error);
@@ -78,7 +80,7 @@ public class ValidateInput {
 	while (!checked) {
 	    System.out.print(mess);
 	    email = scan.nextLine();
-	    if (email.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$"))
+	    if (email.matches(MAIL_FORMAT))
 		checked = true;
 	    else
 		System.out.println(error);
@@ -92,7 +94,7 @@ public class ValidateInput {
 	while (!checked) {
 	    System.out.print(mess);
 	    name = scan.nextLine();
-	    if (name.matches("^[a-zA-Z\\s]+"))
+	    if (name.matches(NAME_FORMAT))
 		checked = true;
 	    else
 		System.out.println(error);
@@ -185,16 +187,6 @@ public class ValidateInput {
 	}
 	return string;
     }
-
-    static public boolean isDuplicateCodeCourse(List<Course> courses, String string) {
-	for (Course x : courses) {
-	    if (string.equals(x.getCourseCode())) {
-		return true;
-	    }
-	}
-	return false;
-    }
-
     static public String getCodeValidateStudent(List<Student> students, String mess, String error, int min, int max) {
 	String string = null;
 	boolean check = true;
@@ -248,5 +240,30 @@ public class ValidateInput {
 	}
 	return string;
     }
+    static public boolean isDuplicateCodeCourse(List<Course> courses, String string) {
+  	for (Course x : courses) {
+  	    if (string.equals(x.getCourseCode())) {
+  		return true;
+  	    }
+  	}
+  	return false;
+      }
 
+      static public boolean isDuplicateCodeStudent(List<Student> students, String string) {
+  	for (Student x : students) {
+  	    if (string.equals(x.getStudentCode())) {
+  		return true;
+  	    }
+  	}
+  	return false;
+      }
+
+      static public boolean isDuplicateCodeClass(List<Class> classes, String string) {
+  	for (Class x : classes) {
+  	    if (string.equals(x.getClassCode())) {
+  		return true;
+  	    }
+  	}
+  	return false;
+      }
 }
